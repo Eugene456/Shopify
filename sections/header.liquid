@@ -1,9 +1,10 @@
 <header class="header">
   <div class="container">
-    <a href="/" class="logo-link">
-      {{ section.settings.image_logo | image_url: 150 | image_tag: alt: section.settings.title }} 
-    </a>
-
+    {% if section.settings.image_logo %}
+      <a href="/" class="logo-link">
+        {{ section.settings.image_logo | image_url: 150 | image_tag: alt: section.settings.title }} 
+      </a>
+    {% endif %}
     <div class="header__menu">
       {% for link in section.settings.menu.links %}
         {{ link.title | link_to: link.url }}
