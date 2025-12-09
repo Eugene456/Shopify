@@ -1,6 +1,8 @@
 <header class="header">
   <div class="container">
-    
+    <a href="/" class="logo-link">
+      {{ section.settings.image_logo | image_url: width: 150 | image_tag }}
+    </a>
 
     <div class="header__menu">
       {% for link in section.settings.menu.links %}
