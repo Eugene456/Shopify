@@ -2,7 +2,7 @@
   <div class="container">
     {% if section.settings.image_logo %}
       <a href="/" class="logo-link">
-        <img src="{{ section.settings.image_logo }}" alt="Logo">
+        <img src="{{ section.settings.image_logo | file_url }}" alt="Logo">
       </a>
     {% endif %} 
     <div class="header__menu">
