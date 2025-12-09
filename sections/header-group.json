@@ -13,12 +13,10 @@
   "sections": {
     "header": {
       "type": "header",
-      "settings": {
-        "menu": "main-menu-2"
-      }
+      "settings": {}
     }
   },
   "order": [
     "header"
-  ]
+  ],
 }
