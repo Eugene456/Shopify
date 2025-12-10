@@ -6,7 +6,7 @@
   </div>
 
   <div class="footer__links">
-    {% for link in section.settings.menu.links %}
+    {% for link in section.settings.footer-menu-1.links %}
       {{ link.title | link_to: link.url }}
     {% endfor %}
   </div>
@@ -43,7 +43,7 @@
   "settings": [
     {
       "type": "link_list",
-      "id": "menu",
+      "id": "footer-menu-1",
       "label": "t:labels.menu"
     },
     {
