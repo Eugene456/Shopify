@@ -42,7 +42,7 @@ h1, h2, h3, p, ul, ol, li, a, div {
 }
 
 .container {
-    max-width: 1170px;
+    width: 1170px;
     padding: 0;
     @include break(1199) {
          max-width: 960px;
