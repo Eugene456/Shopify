@@ -10,6 +10,21 @@
 }
 .footer .container {
     width: 1350px;
+    @include break(1399) {
+        width: 1170px;
+    }
+    @include break(1199) {
+         max-width: 960px;
+    }
+    @include break(991) {
+         max-width: 720px;
+    }
+    @include break(767) {
+         max-width: 540px;
+    }
+      @include break(575) {
+        padding: 0 20px;
+    }
 }
 .footer-inner {
     display: flex;
