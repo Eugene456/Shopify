@@ -37,6 +37,9 @@
 }
 .footer-images {
     min-width: 726px;
+    @include break(1399) { 
+        min-width: 560px;
+    }
 }
 .footer-image {
     width: 726px;
