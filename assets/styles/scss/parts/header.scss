@@ -16,6 +16,9 @@ header {
 header .header-inner .header__menu {
     display: flex;
     gap: 35px;
+    @include break(1199) {
+        display: none; 
+    }
 }
 .link-login,
 .header__menu a {
@@ -31,4 +34,7 @@ header .header-inner .header__menu {
 .header-icons {
     display: flex;
     gap: 35px;
+    @include break(1199) {
+        display: none;
+    }
 }
