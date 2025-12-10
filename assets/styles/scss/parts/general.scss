@@ -13,3 +13,54 @@
     font-style: normal;
     font-display: swap;
 }
+
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased; 
+    text-rendering: optimizeLegibility;
+}
+html {
+    overscroll-behavior: none;
+    scroll-behavior: smooth;
+}
+body {
+    -webkit-font-smoothing: antialiased; 
+    text-rendering: optimizeLegibility;
+   
+}
+
+html, body, p, ul, ol, li, h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+}
+h1, h2, h3, p, ul, ol, li, a, div {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    
+}
+.hidden {
+    overflow: hidden;
+}
+
+.container {
+    
+    @include break(1800) {
+        max-width: 100%;
+        padding: 0 75px;
+    }
+    @include break(1399) {
+         max-width: 1160px;
+         padding: 0;
+    }
+    @include break(1199) {
+         max-width: 960px;
+    }
+    @include break(991) {
+         max-width: 720px;
+    }
+    @include break(767) {
+         max-width: 540px;
+    }
+      @include break(575) {
+        padding: 0 20px;
+    }
+}
