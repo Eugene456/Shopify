@@ -2,7 +2,8 @@
   <div class="container">
       <div class="footer-inner">
           <div class="footer-images">
-              
+              <img src="{{ section.settings.image_footer_logo | img_url: '150' }}" alt="">
+              <img src="{{ section.settings.image_footer | img_url: '150' }}" alt="">
           </div>
           <div class="footer-content">
               <div class="footer-row">
@@ -49,6 +50,16 @@
   "name": "t:general.footer",
   "settings": [
     {
+      "type": "image_picker",
+      "id": "image_footer_logo",
+      "label": "Footer Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_footer",
+      "label": "Footer Image"
+    },
+    {
       "type": "link_list",
       "id": "footer-menu-1",
       "label": "Footer Menu 1"
@@ -57,12 +68,6 @@
       "type": "link_list",
       "id": "footer-menu-2",
       "label": "Footer Menu 2"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_payment_icons",
-      "label": "t:labels.show_payment_icons",
-      "default": true
     }
   ]
 }
