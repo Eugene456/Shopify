@@ -1,2 +1,6 @@
 @use 'settings/colors' as *;
 @use 'settings/media' as *; 
+
+.footer {
+    background-image: url(footer-bg.jpg);
+}
