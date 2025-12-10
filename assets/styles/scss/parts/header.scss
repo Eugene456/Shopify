@@ -1,6 +1,9 @@
 @use 'settings/colors' as *;
 @use 'settings/media' as *; 
 
+.shopify-section-group-header-group {
+    display: block;
+}
 header {
     display: block;
     background-color: $secondColor;
