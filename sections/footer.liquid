@@ -9,7 +9,7 @@
           <div class="footer-content">
               <div class="footer-row">
                 <div class="footer-col">
-                  <h2 class="footer-title"></h2>
+                  
                   <div class="footer__links">
                     {% for link in section.settings.footer-menu-1.links %}
                       {{ link.title | link_to: link.url }}
@@ -24,6 +24,7 @@
                   </div>
                 </div>
                 <div class="footer-col">
+                  <h2 class="footer-title">Get in touch</h2>
                   {% for block in section.blocks %}
                     {% if block.type == 'social_item' %}
                       <a href="{{ block.settings.social_link }}" target="_blank">
