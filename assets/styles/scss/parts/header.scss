@@ -38,6 +38,7 @@ header .header-inner .header__menu {
 }
 .burger {
     display: none;
+    cursor: pointer;
     @include break(1199) {
         display: block;
     }
@@ -88,5 +89,5 @@ header .header-inner .header__menu {
 }
 .burger-min {
     height: 30px;
-    
+    display: flex;
 }
