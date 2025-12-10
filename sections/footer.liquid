@@ -34,18 +34,22 @@
               </div>
               <div class="footer-row">
                 <div class="footer-col">
-                  <p class="footer-address">
+                  {% if section.settings.footer_address %}
                     <p class="footer-info-label">{{ section.settings.footer_address }}</p>
-                  </p>
+                  {% endif %}
                 </div>
-                <div class="footer-col">
-                  <p class="footer-info-label">Email:</p>
-                  <a href="mailto:{{ section.settings.footer_email }}" class="footer-info-link">{{ section.settings.footer_email }}</a>
-                </div>
-                <div class="footer-col">
-                  <p class="footer-info-label">Phone:</p>
-                  <a href="{{ section.settings.footer_phone_call }}" class="footer-info-link">{{ section.settings.footer_phone }}</a>  
-                </div> 
+                {% if section.settings.footer_email %}
+                  <div class="footer-col">
+                    <p class="footer-info-label">Email:</p>
+                    <a href="mailto:{{ section.settings.footer_email }}" class="footer-info-link">{{ section.settings.footer_email }}</a>
+                  </div>
+                {% endif %}
+                {% if section.settings.footer_email %}
+                  <div class="footer-col">
+                    <p class="footer-info-label">Phone:</p>
+                    <a href="{{ section.settings.footer_phone_call }}" class="footer-info-link">{{ section.settings.footer_phone }}</a>  
+                  </div> 
+                {% endif %}
               </div>
               <div class="footer-row">
                 <p class="copyright">{{ section.settings.footer_copyright }}</p>
