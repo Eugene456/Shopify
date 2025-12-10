@@ -57,7 +57,9 @@
               {{ link.title | link_to: link.url }}
             {% endfor %} 
         </div>  
-      <div class="mobile-menu-footer">
+      
+    </div>
+    <div class="mobile-menu-footer">
           {% if shop.customer_accounts_enabled %}
             <a href="{{ routes.account_url }}" class="link-login">Log In</a>
           {% endif %}
@@ -70,7 +72,6 @@
             {{ 'basket.svg' | inline_asset_content }}
           </a>
       </div>
-    </div>
 </div>
 
 {% stylesheet %}
