@@ -34,7 +34,34 @@
   </div>
 </header>
 <div class="mobile-menu">
+  <div class="mobile-menu-content">
+    <div class="mobile-menu-header">
+      {% if section.settings.image_logo %}
+        <a href="/" class="logo-link">
+          <img src="{{ section.settings.image_logo | img_url: '150' }}" alt="">
+        </a>
+      {% endif %} 
+    </div>
+    <div class="mobile-menu-main">
+        {% for link in section.settings.menu.links %}
+          {{ link.title | link_to: link.url }}
+        {% endfor %} 
+    </div>  
+  <div>
+  <div class="mobile-menu-footer">
+      {% if shop.customer_accounts_enabled %}
+        <a href="{{ routes.account_url }}" class="link-login">Log In</a>
+      {% endif %}
 
+      <a href="{{ routes.cart_url }}">
+        {% if cart.item_count > 0 %}
+          <sup>{{ cart.item_count }}</sup>
+        {% endif %}
+
+        {{ 'basket.svg' | inline_asset_content }}
+      </a>
+  </div>
+   
 </div>
 
 {% stylesheet %}
