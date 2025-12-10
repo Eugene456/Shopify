@@ -8,6 +8,9 @@
     background-image: url(footer-bg.jpg);
     padding-top: 60px;
 }
+.footer .container {
+    max-width: 1350px;
+}
 .footer-inner {
     display: flex;
     gap: 22px;
