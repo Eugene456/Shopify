@@ -34,6 +34,9 @@
     display: block;
     height: auto;
     width: 575px;
+    @include break(1399) {
+        width: 460px;
+    } 
 }
 .footer-images {
     min-width: 726px;
@@ -44,6 +47,9 @@
 .footer-image {
     width: 726px;
     height: auto;
+    @include break(1399) {
+        width: 560px;
+    } 
 }
 .footer-row {
     display: flex;
