@@ -37,42 +37,45 @@
     </div>
   </div>
 </header>
-<div class="mobile-menu">
-  <div class="mobile-menu-inner">
-      <div class="mobile-menu-content">
-        <div class="mobile-menu-header">
-          {% if section.settings.image_logo %}
-            <a href="/" class="logo-link">
-              <img src="{{ section.settings.image_logo | img_url: '150' }}" alt="">
-            </a>
-          {% endif %} 
-          <div class="burger-min">
-              <svg width="30" height="2" viewBox="0 0 30 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M29.52 0H0V1.40872H29.52V0Z" fill="#E8E3CE"/>
-              </svg>
-          </div>
-        </div>
-        <div class="mobile-menu-main">
-            {% for link in section.settings.menu.links %}
-              {{ link.title | link_to: link.url }}
-            {% endfor %} 
-        </div>  
-      
-    </div>
-    <div class="mobile-menu-footer">
-          {% if shop.customer_accounts_enabled %}
-            <a href="{{ routes.account_url }}" class="link-login">Log In</a>
-          {% endif %}
 
-          <a href="{{ routes.cart_url }}">
-            {% if cart.item_count > 0 %}
-              <sup>{{ cart.item_count }}</sup>
+<div class="mobile-menu">
+    <div class="mobile-menu-inner">
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-header">
+                {% if section.settings.image_logo %}
+                  <a href="/" class="logo-link">
+                    <img src="{{ section.settings.image_logo | img_url: '150' }}" alt="">
+                  </a>
+                {% endif %} 
+                <div class="burger-min">
+                    <svg width="30" height="2" viewBox="0 0 30 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M29.52 0H0V1.40872H29.52V0Z" fill="#E8E3CE"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="mobile-menu-main">
+                {% for link in section.settings.menu.links %}
+                  {{ link.title | link_to: link.url }}
+                {% endfor %} 
+            </div>
+        </div>
+        <div class="mobile-menu-footer">
+            {% if shop.customer_accounts_enabled %}
+              <a href="{{ routes.account_url }}" class="link-login">Log In</a>
             {% endif %}
 
-            {{ 'basket.svg' | inline_asset_content }}
-          </a>
-      </div>
+            <a href="{{ routes.cart_url }}">
+              {% if cart.item_count > 0 %}
+                <sup>{{ cart.item_count }}</sup>
+              {% endif %}
+
+              {{ 'basket.svg' | inline_asset_content }}
+            </a>
+        </div>
+    </div>  
 </div>
+
+
 
 {% stylesheet %}
   header {
