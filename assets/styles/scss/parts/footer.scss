@@ -37,6 +37,9 @@
     @include break(1399) {
         width: 460px;
     } 
+    @include break(1199) {
+        width: 360px;
+    } 
 }
 .footer-images {
     min-width: 726px;
@@ -46,12 +49,18 @@
         flex-direction: column;
         justify-content: space-between;
     }
+    @include break(1199) {
+        min-width: 420px;
+    } 
 }
 .footer-image {
     width: 726px;
     height: auto;
     @include break(1399) {
         width: 560px;
+    } 
+    @include break(1199) {
+        width: 420px;
     } 
 }
 .footer-row {
