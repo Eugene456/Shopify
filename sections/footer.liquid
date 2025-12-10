@@ -6,8 +6,21 @@
           </div>
           <div class="footer-content">
               <div class="footer-row">
-                <div class="footer-col"></div>
-                <div class="footer-col"></div>
+                <div class="footer-col">
+                  <h2 class="footer-title"></h2>
+                  <div class="footer__links">
+                    {% for link in section.settings.footer-menu-1.links %}
+                      {{ link.title | link_to: link.url }}
+                    {% endfor %}
+                  </div>
+                </div>
+                <div class="footer-col">
+                  <div class="footer__links">
+                    {% for link in section.settings.footer-menu-2.links %}
+                      {{ link.title | link_to: link.url }}
+                    {% endfor %}
+                  </div>
+                </div>
                 <div class="footer-col"></div>
               </div>
               <div class="footer-row">
@@ -38,6 +51,11 @@
     {
       "type": "link_list",
       "id": "footer-menu-1",
+      "label": "t:labels.menu"
+    },
+    {
+      "type": "link_list",
+      "id": "footer-menu-2",
       "label": "t:labels.menu"
     },
     {
