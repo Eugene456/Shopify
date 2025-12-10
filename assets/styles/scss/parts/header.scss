@@ -62,4 +62,13 @@ header .header-inner .header__menu {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 45px;
+}
+.mobile-menu-main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.mobile-menu-main>a {
+    
 }
