@@ -42,6 +42,9 @@
     min-width: 726px;
     @include break(1399) { 
         min-width: 560px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 }
 .footer-image {
