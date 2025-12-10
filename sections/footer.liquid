@@ -1,0 +1,143 @@
+<<<<<<< HEAD
+<footer class="footer">
+  <div class="container">
+      <div class="footer-inner">
+          <div class="footer-images">
+              <img 
+                  src="{{ section.settings.image_footer_logo | image_url: width: 575 }}" alt="footer logo" class="footer-logo">
+              <img  src="{{ section.settings.image_footer | image_url: width: 726 }}" alt="footer image" class="footer-image">
+          </div>
+          <div class="footer-content">
+              <div class="footer-row">
+                <div class="footer-col">
+                  <a href="/shop/" class="footer-title">SHOP ALL</a>
+                  <div class="footer__links">
+                    {% for link in section.settings.footer-menu-1.links %}
+                      {{ link.title | link_to: link.url }}
+                    {% endfor %}
+                  </div>
+                </div>
+                <div class="footer-col">
+                  <div class="footer__links">
+                    {% for link in section.settings.footer-menu-2.links %}
+                      {{ link.title | link_to: link.url }}
+                    {% endfor %}
+                  </div>
+                </div>
+                <div class="footer-col">
+                  <h2 class="footer-title">Get in touch</h2>
+                  {% for block in section.blocks %}
+                    {% if block.type == 'social_item' %}
+                      <a href="{{ block.settings.social_link }}" target="_blank">
+                        {{ block.settings.social_title }}
+                      </a>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+              <div class="footer-row">
+                <div class="footer-col">
+                  {% if section.settings.footer_address %}
+                    <p class="footer-info-label footer-address">{{ section.settings.footer_address }}</p>
+                  {% endif %} 
+                </div>
+                {% if section.settings.footer_email %}
+                  <div class="footer-col footer-col-info">
+                    <p class="footer-info-label">Email:</p>
+                    <a href="mailto:{{ section.settings.footer_email }}" class="footer-info-link">{{ section.settings.footer_email }}</a>
+                  </div>
+                {% endif %}
+                {% if section.settings.footer_phone_call and  section.settings.footer_phone %}
+                  <div class="footer-col footer-col-info">
+                    <p class="footer-info-label">Phone:</p>
+                    <a href="{{ section.settings.footer_phone_call }}" class="footer-info-link">{{ section.settings.footer_phone }}</a>  
+                  </div> 
+                {% endif %}
+              </div>
+              <div class="footer-row">
+                <p class="copyright">{{ section.settings.footer_copyright }}</p>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+</footer>
+
+
+{% schema %}
+{
+  "name": "t:general.footer",
+  "settings": [ 
+    {
+      "type": "image_picker",
+      "id": "image_footer_logo",
+      "label": "Footer Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_footer",
+      "label": "Footer Image"
+    },
+    {
+      "type": "link_list",
+      "id": "footer-menu-1",
+      "label": "Footer Menu 1"
+    },
+    {
+      "type": "link_list",
+      "id": "footer-menu-2",
+      "label": "Footer Menu 2"
+    },
+    {
+      "type": "text",
+      "id": "footer_phone",
+      "label": "Phone",
+    },
+    {
+      "type": "text",
+      "id": "footer_phone_call",
+      "label": "Phone for call",
+    },
+    {
+      "type": "text",
+      "id": "footer_email",
+      "label": "Email",
+    },
+    {
+      "type": "text",
+      "id": "footer_address",
+      "label": "Address"
+    },
+    {
+      "type": "text",
+      "id": "footer_copyright",
+      "label": "Copyright"
+    }
+
+  ],
+
+  "blocks": [
+    {
+      "type": "social_item",
+      "name": "Соціальна мережа",
+      "settings": [
+        {
+          "type": "text",
+          "id": "social_title",
+          "label": "Назва соцмережі (Facebook, Instagram...)"
+        },
+        {
+          "type": "url",
+          "id": "social_link",
+          "label": "Посилання"
+        }
+      ]
+    }
+  ],
+
+  "max_blocks": 10
+}
+{% endschema %}
+>>>>>>> 1ee9a4a3af96d7815ed3ec7db7c902c6119409fb
+=======
+>>>>>>> 18b68ae3d2972805f219bcda95ed105d12b0198f
