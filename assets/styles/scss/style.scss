@@ -1,3 +1,7 @@
-body {
-    background-color: red;
-}
+@forward 'parts/settings/colors';
+@forward 'parts/settings/media'; 
+
+
+@forward 'parts/general';
+@forward 'parts/header'; 
+@forward 'parts/footer'; 
