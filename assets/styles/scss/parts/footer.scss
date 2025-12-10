@@ -1,6 +1,9 @@
 @use 'settings/colors' as *;
 @use 'settings/media' as *; 
 
+.shopify-section-group-footer-group {
+    display: block;
+}
 .footer {
     background-image: url(footer-bg.jpg);
 }
