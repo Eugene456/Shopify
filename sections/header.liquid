@@ -1,5 +1,6 @@
 <header class="header">
   <div class="container">
+    <div class="header-inner">
     {% if section.settings.image_logo %}
       <a href="/" class="logo-link">
         <img src="{{ section.settings.image_logo | img_url: '150' }}" alt="">
@@ -23,6 +24,7 @@
 
         {{ 'icon-cart.svg' | inline_asset_content }}
       </a>
+    </div>
     </div>
   </div>
 </header>
