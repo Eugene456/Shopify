@@ -9,7 +9,7 @@
     padding-top: 60px;
 }
 .footer .container {
-    max-width: 1350px;
+    width: 1350px;
 }
 .footer-inner {
     display: flex;
@@ -50,4 +50,10 @@
 } 
 .footer-col:nth-child(3) .footer-title {
     margin-bottom: 24px;
+}
+.footer-row:first-child {
+    margin-bottom: 97px;
+}
+.footer-row:nth-child(2) {
+    margin-bottom: 97px;
 }
