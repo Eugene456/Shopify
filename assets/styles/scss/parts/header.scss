@@ -13,6 +13,10 @@ header {
     align-items: center;
     justify-content: space-between;
 }
+.header__menu {
+    display: flex;
+    gap: 25px;
+}
 .header__menu a {
     font-size: 18px;
     text-transform: uppercase;
