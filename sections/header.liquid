@@ -45,6 +45,11 @@
           <img src="{{ section.settings.image_logo | img_url: '150' }}" alt="">
         </a>
       {% endif %} 
+      <div class="burger-min">
+          <svg width="30" height="2" viewBox="0 0 30 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M29.52 0H0V1.40872H29.52V0Z" fill="#E8E3CE"/>
+          </svg>
+      </div>
     </div>
     <div class="mobile-menu-main">
         {% for link in section.settings.menu.links %}
