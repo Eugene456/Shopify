@@ -1,0 +1,116 @@
+@use 'settings/colors' as *;
+@use 'settings/media' as *; 
+
+.shopify-section-group-footer-group {
+    display: block;
+}
+.footer {
+    background-image: url(footer-bg.jpg);
+    padding-top: 60px;
+    position: relative;
+}
+.footer .container {
+    width: 1350px;
+    @include break(1399) {
+        width: 1170px;
+    }
+    @include break(1199) {
+         max-width: 960px;
+    }
+    @include break(991) {
+         max-width: 720px;
+    }
+    @include break(767) {
+         max-width: 540px;
+    }
+      @include break(575) {
+        padding: 0 20px;
+    }
+}
+.footer-inner {
+    display: flex;
+    gap: 22px;
+}
+.footer-logo {
+    display: block;
+    height: auto;
+    width: 575px;
+    @include break(1399) {
+        width: 460px;
+    } 
+    @include break(1199) {
+        width: 360px;
+    } 
+}
+.footer-images {
+    min-width: 726px;
+    @include break(1399) { 
+        min-width: 560px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    @include break(1199) {
+        min-width: 420px;
+    } 
+}
+.footer-image {
+    width: 726px;
+    height: auto;
+    @include break(1399) {
+        width: 560px;
+    } 
+    @include break(1199) {
+        width: 420px;
+    } 
+    @include break(991) {
+        width: 100%;
+        position: absolute;
+    } 
+}
+.footer-row {
+    display: flex;
+    justify-content: space-between;
+}
+.footer-col,
+.footer__links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.copyright,
+.footer-info-link,
+.footer-info-label,
+.footer-title,
+.footer-col a {
+    font-family: 'Lato', sans-serif;
+    color: $fontColorLight;
+    font-size: 18px;
+    text-decoration: none;
+}
+.footer-title {
+    font-weight: 400;
+    text-transform: uppercase;
+} 
+.footer-col:nth-child(3) .footer-title {
+    margin-bottom: 24px;
+}
+.footer-row:first-child {
+    margin-bottom: 97px;
+}
+.footer-row:nth-child(2) {
+    margin-bottom: 82px;
+}
+.footer-address {
+    max-width: 180px;
+}
+.footer-col-info {
+    max-width: 150px;
+}
+.footer-content {
+    width: 40%;
+    flex-grow: 1;
+    @include break(1399) {
+        padding-bottom: 30px;
+    } 
+}

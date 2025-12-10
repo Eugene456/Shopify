@@ -1,0 +1,70 @@
+@use 'settings/colors' as *;
+@use 'settings/media' as *; 
+
+@font-face {
+    font-family: 'Weiss';
+    src: url('./fonts/Weiss-Regular.eot');
+    src: local('Weiss'), local('Weiss'),
+        url('./fonts/Weiss-Regular.eot.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/Weiss-Regular.woff2') format('woff2'),
+        url('./fonts/Weiss-Regular.woff') format('woff'),
+        url('./fonts/Weiss-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('./fonts/Lato-Regular.eot');
+    src: local('Lato Regular'), local('Lato-Regular'),
+        url('./fonts/Lato-Regular.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/Lato-Regular.woff2') format('woff2'),
+        url('./fonts/Lato-Regular.woff') format('woff'),
+        url('./fonts/Lato-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased; 
+    text-rendering: optimizeLegibility;
+}
+html {
+    overscroll-behavior: none;
+    scroll-behavior: smooth;
+}
+body {
+    -webkit-font-smoothing: antialiased; 
+    text-rendering: optimizeLegibility;
+    background-color: $bgColor;
+}
+
+html, body, p, ul, ol, li, h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+}
+h1, h2, h3, p, ul, ol, li, a, div {
+    font-family: 'Weiss', sans-serif;
+    
+}
+.hidden {
+    overflow: hidden;
+}
+
+.container {
+    width: 1170px;
+    margin: 0 auto;
+    @include break(1199) {
+         max-width: 960px;
+    }
+    @include break(991) {
+         max-width: 720px;
+    }
+    @include break(767) {
+         max-width: 540px;
+    }
+      @include break(575) {
+        padding: 0 20px;
+    }
+}
