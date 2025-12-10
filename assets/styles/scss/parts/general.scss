@@ -1,0 +1,15 @@
+@use 'settings/colors' as *;
+@use 'settings/media' as *; 
+
+@font-face {
+    font-family: 'Weiss';
+    src: url('../../fonts/Weiss-Regular.eot');
+    src: local('Weiss'), local('Weiss'),
+        url('../../fonts/Weiss-Regular.eot.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/Weiss-Regular.woff2') format('woff2'),
+        url('../../fonts/Weiss-Regular.woff') format('woff'),
+        url('../../fonts/Weiss-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
