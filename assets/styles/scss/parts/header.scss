@@ -76,7 +76,8 @@ header .header-inner .header__menu {
     text-decoration: none;
     display: block;
     padding: 15px 0;
-    border-bottom: 1px solid ;
+    color: $fontColorLight;
+    border-bottom: 1px solid $fontColorLight;
 }
 .mobile-menu-footer {
     display: flex;
