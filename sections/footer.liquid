@@ -39,15 +39,17 @@
                   </p>
                 </div>
                 <div class="footer-col">
-                  <p class="footer-info-label">Phone:</p>
-                  <a href="tel:{{ section.settings.footer_phone_call }}" class="footer-info-link">{{ section.settings.footer_phone }}</a>
+                  <p class="footer-info-label">Email:</p>
+                  <a href="mailto:{{ section.settings.footer_email }}" class="footer-info-link">{{ section.settings.footer_email }}</a>
                 </div>
                 <div class="footer-col">
                   <p class="footer-info-label">Phone:</p>
-                  <a href="" class="footer-info-link"></a>  
+                  <a href="{{ section.settings.footer_phone_call }}" class="footer-info-link">{{ section.settings.footer_phone }}</a>  
                 </div> 
               </div>
-              <div class="footer-row"></div>
+              <div class="footer-row">
+                <p class="copyright">{{ section.settings.footer_copyright }}</p>
+              </div>
           </div>
       </div>
   </div>
