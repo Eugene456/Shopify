@@ -24,3 +24,7 @@ header .header-inner .header__menu {
     text-decoration: none;
     color: $fontColorLight;
 }
+.header-wrap {
+    display: flex;
+    gap: 80px;
+}
