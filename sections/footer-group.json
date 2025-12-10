@@ -13,9 +13,44 @@
   "sections": {
     "footer": {
       "type": "footer",
+      "blocks": {
+        "social_item_HBn8jg": {
+          "type": "social_item",
+          "settings": {
+            "social_title": "Instagram",
+            "social_link": "#"
+          }
+        },
+        "social_item_UwqrAL": {
+          "type": "social_item",
+          "settings": {
+            "social_title": "Facebook",
+            "social_link": "#"
+          }
+        },
+        "social_item_Xkj6YP": {
+          "type": "social_item",
+          "settings": {
+            "social_title": "LinkedIn",
+            "social_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "social_item_HBn8jg",
+        "social_item_UwqrAL",
+        "social_item_Xkj6YP"
+      ],
       "settings": {
-        "menu": "",
-        "show_payment_icons": true
+        "image_footer_logo": "shopify://shop_images/footer-logo.png",
+        "image_footer": "shopify://shop_images/footer-image_1.png",
+        "footer-menu-1": "footer",
+        "footer-menu-2": "footer-menu-2",
+        "footer_phone": "+91 900 000 0000",
+        "footer_phone_call": "+919000000000",
+        "footer_email": "Info@gettiffins.com",
+        "footer_address": "Tiffin Foods Inc. 349 Kinderkamack Road, Westwood, NJ 07675",
+        "footer_copyright": "Tiffins © All rights reserved 2025"
       }
     }
   },
