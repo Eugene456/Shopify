@@ -7,6 +7,7 @@
 .footer {
     background-image: url(footer-bg.jpg);
     padding-top: 60px;
+    position: relative;
 }
 .footer .container {
     width: 1350px;
@@ -61,6 +62,10 @@
     } 
     @include break(1199) {
         width: 420px;
+    } 
+    @include break(991) {
+        width: 100%;
+        position: absolute;
     } 
 }
 .footer-row {
