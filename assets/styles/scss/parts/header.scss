@@ -50,9 +50,11 @@ header .header-inner .header__menu {
     right: 0;
     z-index: 10;
     padding: 20px 18px;
+    background-color: $secondColor;
+}
+.mobile-menu-inner {
     display: flex;
-    height: 100dvh;
     flex-direction: column;
     justify-content: space-between;
-    background-color: $secondColor;
+    height: 100dvh;
 }
