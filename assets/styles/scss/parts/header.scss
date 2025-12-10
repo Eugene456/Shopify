@@ -14,5 +14,8 @@ header {
     justify-content: space-between;
 }
 .header__menu a {
-    
+    font-size: 18px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $fontColorLight;
 }
