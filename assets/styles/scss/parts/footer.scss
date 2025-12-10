@@ -96,4 +96,7 @@
 .footer-content {
     width: 40%;
     flex-grow: 1;
+    @include break(1399) {
+        padding-bottom: 30px;
+    } 
 }
