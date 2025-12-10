@@ -22,7 +22,15 @@
                     {% endfor %}
                   </div>
                 </div>
-                <div class="footer-col"></div>
+                <div class="footer-col">
+                  {% for block in section.blocks %}
+                    {% if block.type == 'social_item' %}
+                      <a href="{{ block.settings.social_link }}" target="_blank">
+                        {{ block.settings.social_title }}
+                      </a>
+                    {% endif %}
+                  {% endfor %}
+                </div>
               </div>
               <div class="footer-row">
                 <div class="footer-col"></div>
