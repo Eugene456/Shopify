@@ -24,12 +24,20 @@
          max-width: 540px;
     }
       @include break(575) {
+        width: 100%;
         padding: 0 20px;
     }
 }
 .footer-inner {
     display: flex;
     gap: 22px;
+    @include break(991) {
+        flex-direction: column;
+        align-items: center;
+    }
+    @include break(575) {
+        gap: 35px;
+    }
 }
 .footer-logo {
     display: block;
@@ -41,6 +49,9 @@
     @include break(1199) {
         width: 360px;
     } 
+    @include break(575) {
+        width: 100%;
+    }
 }
 .footer-images {
     min-width: 726px;
@@ -52,6 +63,10 @@
     }
     @include break(1199) {
         min-width: 420px;
+    } 
+    @include break(575) {
+        min-width: auto;
+        width: 317px;
     } 
 }
 .footer-image {
@@ -66,17 +81,33 @@
     @include break(991) {
         width: 100%;
         position: absolute;
+        bottom: 0;
+        left: 0;
     } 
 }
 .footer-row {
     display: flex;
     justify-content: space-between;
+    @include break(991) {
+        flex-direction: column;
+    }
 }
 .footer-col,
 .footer__links {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+.footer__links {
+    @include break(991) {
+        display: none;
+    }
+}
+.footer__links a {
+    @include break(991) {
+        display: block;
+        padding: 7px 0;
+    }
 }
 .copyright,
 .footer-info-link,
@@ -91,9 +122,33 @@
 .footer-title {
     font-weight: 400;
     text-transform: uppercase;
+    position: relative;
+    &::after {
+        content: '';
+        display: block;
+        width: 7px;
+        height: 7px;
+        background-image: url(footer-arrow.svg);
+        background-size: cover;
+        position: absolute;
+        right: 0;
+        top: calc(50% - 4px);
+        display: none;
+        transition: all .3s ease-in-out;
+        @include break(991) {
+            display: block;
+        }
+    }
 } 
+.footer-title.active::after {
+    transform: rotate(180deg);
+    transition: all .3s ease-in-out;
+}
 .footer-col:nth-child(3) .footer-title {
     margin-bottom: 24px;
+    @include break(991) {
+        margin-bottom: 0;
+    }
 }
 .footer-row:first-child {
     margin-bottom: 97px;
@@ -113,4 +168,28 @@
     @include break(1399) {
         padding-bottom: 30px;
     } 
+    @include break(991) {
+        width: 100%;
+    }
+}
+.footer-content .footer-row:first-child .footer-col {
+    @include break(991) {
+        border-bottom: 1px solid $fontColorLight;
+        padding: 11px 0;
+    }
+}
+
+.footer-address-mobile,
+.footer-col-info-mobile {
+    display: none;
+    @include break(991) {
+        display: block;
+        margin-top: 20px;
+    }
+}
+.footer-address-desktop,
+.footer-col-info-desktop {
+    @include break(991) {
+        display: none;
+    }
 }

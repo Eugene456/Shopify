@@ -17,6 +17,7 @@
                   </div>
                 </div>
                 <div class="footer-col">
+                  <h2 class="footer-title footer-title-mobile">POLICIES</h2>
                   <div class="footer__links">
                     {% for link in section.settings.footer-menu-2.links %}
                       {{ link.title | link_to: link.url }}
@@ -25,29 +26,49 @@
                 </div>
                 <div class="footer-col">
                   <h2 class="footer-title">Get in touch</h2>
-                  {% for block in section.blocks %}
-                    {% if block.type == 'social_item' %}
-                      <a href="{{ block.settings.social_link }}" target="_blank">
-                        {{ block.settings.social_title }}
-                      </a>
-                    {% endif %}
-                  {% endfor %}
+                  <div class="footer__links">
+                      {% for block in section.blocks %}
+                        {% if block.type == 'social_item' %}
+                          <a href="{{ block.settings.social_link }}" target="_blank">
+                            {{ block.settings.social_title }}
+                          </a>
+                        {% endif %}
+                      {% endfor %}
+
+                      {% if section.settings.footer_address %}
+                        <p class="footer-info-label footer-address footer-address-mobile">{{ section.settings.footer_address }}</p>
+                      {% endif %} 
+
+                      {% if section.settings.footer_email %}
+                        <div class="footer-col-info footer-col-info-mobile">
+                          <p class="footer-info-label">Email:</p>
+                          <a href="mailto:{{ section.settings.footer_email }}" class="footer-info-link">{{ section.settings.footer_email }}</a>
+                        </div>
+                      {% endif %}
+                      {% if section.settings.footer_phone_call and  section.settings.footer_phone %}
+                        <div class="footer-col-info footer-col-info-mobile">
+                          <p class="footer-info-label">Phone:</p>
+                          <a href="{{ section.settings.footer_phone_call }}" class="footer-info-link">{{ section.settings.footer_phone }}</a>  
+                        </div> 
+                      {% endif %}
+                  </div>
+                  
                 </div>
               </div>
               <div class="footer-row">
                 <div class="footer-col">
                   {% if section.settings.footer_address %}
-                    <p class="footer-info-label footer-address">{{ section.settings.footer_address }}</p>
+                    <p class="footer-info-label footer-address footer-address-desktop">{{ section.settings.footer_address }}</p>
                   {% endif %} 
                 </div>
                 {% if section.settings.footer_email %}
-                  <div class="footer-col footer-col-info">
+                  <div class="footer-col footer-col-info footer-col-info-desktop">
                     <p class="footer-info-label">Email:</p>
                     <a href="mailto:{{ section.settings.footer_email }}" class="footer-info-link">{{ section.settings.footer_email }}</a>
                   </div>
                 {% endif %}
                 {% if section.settings.footer_phone_call and  section.settings.footer_phone %}
-                  <div class="footer-col footer-col-info">
+                  <div class="footer-col footer-col-info footer-col-info-desktop">
                     <p class="footer-info-label">Phone:</p>
                     <a href="{{ section.settings.footer_phone_call }}" class="footer-info-link">{{ section.settings.footer_phone }}</a>  
                   </div> 
