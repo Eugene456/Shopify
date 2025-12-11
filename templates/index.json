@@ -13,9 +13,18 @@
       "type": "hello-world",
       "name": "Hello World Template",
       "settings": {}
+    },
+    "hero_XXtBD9": {
+      "type": "hero",
+      "name": "Hero",
+      "settings": {
+        "image_bg": "shopify://shop_images/bg.jpg",
+        "hero_title": "Real spices, vegetables, and grains, prepared the way they’ve always been"
+      }
     }
   },
   "order": [
-    "hello_world_rqc9Mr"
+    "hello_world_rqc9Mr",
+    "hero_XXtBD9"
   ]
 }
