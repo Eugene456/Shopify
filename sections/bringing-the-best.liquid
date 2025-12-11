@@ -1,11 +1,27 @@
-<section class="bringing-the-best" style="background-image:url({{ section.settings.image_bg | img_url: "original" }});">
+<section class="bringing-the-best" {% if section.settings.image_bg %} style="background-image:url({{ section.settings.image_bg | img_url: "original" }});" {% endif %}>
   <div class="container">
     <div class="hero-inner">
-          <h1 class="homepage-hero-title">{{ section.settings.hero_title }}</h1>
+        {% if section.settings.title %}
+          <h2 class="bringing-title">{{ section.settings.title }}</h2>
+        {% endif %}
+        {% if section.settings.text %}
+          <div class="bringing-text">{{ section.settings.text }}</div>
+        {% endif %}
+        {% if section.settings.button_link %}  
+          <div class="btn-wrap">
+            <a href="{{ section.settings.button_link }}" class="btn btn-light">Find our roots</a>
+          </div>
+        {% endif %}
       </div>
   </div>
-</section>
 
+</section>
+    {% if section.settings.map and section.settings.map_mobile %}
+        <div class="bringing-map-container">
+            <img src="{{ section.settings.map | img_url: "original" }}" alt="map" class="bringing-map-desktop">
+            <img src="{{ section.settings.map_mobile | img_url: "original" }}" alt="map-mobile" class="bringing-map-mobile">
+        </div>
+    {% endif %}
 {% schema %}
 {
   "name": "Bringing the best",
