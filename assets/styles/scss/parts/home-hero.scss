@@ -1,0 +1,17 @@
+.hero {
+   
+    background-size: cover;
+}
+.hero-inner {
+    height: calc(100dvh - 80px);
+    display: flex;
+    align-items: flex-end;
+    padding: 100px 0;
+}
+.homepage-hero-title {
+    max-width: 575px;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 50px;
+    color: $fontColorLight;
+}
