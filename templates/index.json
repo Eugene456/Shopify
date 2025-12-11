@@ -12,7 +12,9 @@
     "hero_CbLiY3": {
       "type": "hero",
       "name": "Hero",
-      "settings": {}
+      "settings": {
+        
+      }
     }
   },
   "order": [
