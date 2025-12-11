@@ -1,0 +1,46 @@
+<section class="bringing-the-best" style="background-image:url({{ section.settings.image_bg | img_url: "original" }});">
+  <div class="container">
+    <div class="hero-inner">
+          <h1 class="homepage-hero-title">{{ section.settings.hero_title }}</h1>
+      </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Bringing the best",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_bg",
+      "label": "Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "map",
+      "label": "Map"
+    },
+    {
+      "type": "image_picker",
+      "id": "map_mobile",
+      "label": "Map Mobile"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Title"
+    },
+    {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bringing the best",
+      "category": "Homepage"
+    }
+  ] 
+}
+{% endschema %}
