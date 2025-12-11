@@ -9,13 +9,13 @@
  */
 {
   "sections": {
-    "hero_CbLiY3": {
-      "type": "hero",
-      "name": "Hero",
+    "hello_world_rqc9Mr": {
+      "type": "hello-world",
+      "name": "Hello World Template",
       "settings": {}
     }
   },
   "order": [
-    "hero_CbLiY3"
+    "hello_world_rqc9Mr"
   ]
 }
