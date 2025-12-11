@@ -21,10 +21,21 @@
         "image_bg": "shopify://shop_images/bg.jpg",
         "hero_title": "Real spices, vegetables, and grains, prepared the way they’ve always been"
       }
+    },
+    "bringing_the_best_Mw3jDM": {
+      "type": "bringing-the-best",
+      "name": "Bringing the best",
+      "settings": {
+        "align_left": false,
+        "title": "",
+        "text": "",
+        "button_link": ""
+      }
     }
   },
   "order": [
     "hello_world_rqc9Mr",
-    "hero_XXtBD9"
+    "hero_XXtBD9",
+    "bringing_the_best_Mw3jDM"
   ]
 }
