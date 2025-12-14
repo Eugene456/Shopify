@@ -1,13 +1,15 @@
 <section class="the-best-product">
     <div class="container">
-        <h2 class="the-best-product-title"></h2>
+        {% if section.settings.title %}
+          <h2 class="the-best-product-title">{{ section.settings.title }}</h2>
+        {% endif %}
         {% if section.settings.products != blank %}
             <div class="the-best-product-slider">
                 {% for product in section.settings.products %}
                     <div class="the-best-product-item">
                         <a href="{{ product.url }}" class="the-best-product-card">
                             {% if product.featured_image %}
-                                <img src="{{ product.featured_image | image_url: 'original' }}" alt="{{ product.title | escape }}" class="the-best-product-card-img">
+                                <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title | escape }}" class="the-best-product-card-img">
                             {% endif %}
                             {% if product.title %}
                                 <p class="the-best-product-card-title">{{ product.title }}</p>
@@ -20,6 +22,9 @@
                 {% endfor %}
             </div>
         {% endif %}
+         <div class="btn-wrap">
+            <a href="#" class="btn btn-dark">Shop all</a>
+          </div>
     </div>
 </section>
 

@@ -25,6 +25,17 @@
     font-style: normal;
 }
 @font-face {
+    font-family: 'Lato';
+    src: url('./fonts/Lato-Bold.eot');
+    src: local('Lato Bold'), local('Lato-Bold'),
+        url('./fonts/Lato-Bold.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/Lato-Bold.woff2') format('woff2'),
+        url('./fonts/Lato-Bold.woff') format('woff'),
+        url('./fonts/Lato-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
     font-family: 'Lekton';
     src: url('./fonts/Lekton-Bold.eot');
     src: local('Lekton-Bold'),
@@ -94,7 +105,7 @@ h1, h2, h3, p, ul, ol, li, a, div {
     height: 44px;
     border: 1px solid $bgColor;
     font-family: 'Lato';
-    padding: 10px 19px;
+    padding: 8px 19px;
     border-radius: 50px;
     font-size: 20px;
     color: $bgColor;

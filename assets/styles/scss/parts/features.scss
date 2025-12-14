@@ -31,6 +31,21 @@
 }
 .features-prod {
     display: flex;
+    position: relative;
+    width: 514px;
+    height: 415px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.features-prod-img {
+    position: absolute;
+    left: 0;
+}
+.features-prod-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 .features-prod-item {
     background-image: url(feature-item-bg.svg);
@@ -38,11 +53,26 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    gap: 15px;
+    padding: 13px 10px;
     width: 305px;
-    height: 62px;
+    height: 64px;
 }
 .features-prod-item p {
     font-family: 'Lekton';
     font-size: 18px;
     color: $featuresColor;
+    line-height: 19px;
+    text-align: right;
+}
+.features-prod-item:last-child p {
+    display: flex;
+    gap: 10px;
+}
+.features-prod-item:last-child span:first-child {
+    max-width: 75px;
+}
+.features-prod-item span:nth-child(2) {
+    font-size: 40px;
+    line-height: 40px;
 }
