@@ -34,8 +34,8 @@
     {{ content_for_layout }}
 
     {% sections 'footer-group' %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="{{ 'slick.min.js' | asset_url }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
+    <script src="{{ 'slick.min.js' | asset_url }}" defer></script>
     <script src="{{ 'script.js' | asset_url }}" defer></script>
   </body>
 </html>
