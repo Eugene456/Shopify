@@ -15,10 +15,11 @@
                 {% endif %}
             </div>
             <div class="features-prod">
-                <div class="features-prod-img">
-                    <img src="{{ section.settings.image_product | img_url: "original" }}" alt="product">
-                </div>    
-
+                {% if section.settings.image_product %} 
+                    <div class="features-prod-img">
+                        <img src="{{ section.settings.image_product | img_url: "original" }}" alt="product">
+                    </div>    
+                {% endif %}        
                 {% if section.blocks.size > 0 %}
                 <div class="features-prod-list">
                     {% for block in section.blocks %}
