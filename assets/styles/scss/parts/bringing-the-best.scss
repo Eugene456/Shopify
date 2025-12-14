@@ -1,0 +1,65 @@
+@use 'settings/colors' as *;
+@use 'settings/media' as *; 
+
+.bringing-the-best {
+    background-size: cover;
+    position: relative;
+    padding: 332px 0 116px;
+    @include break(575) {
+        padding: 20px 0 35px;
+    }
+}
+.bringing-map-container {
+    position: absolute;
+    left: calc(50% - 720px);
+    top: 0;
+    z-index: 0;
+    @include break(1399) {
+        left: 0;
+        width: 100%;
+    }
+}
+.bringing-map-desktop {
+    width: 1440px;
+    @include break(1399) {
+        width: 100%;
+    }
+    @include break(575) {
+        display: none;
+    }
+}
+.bringing-map-mobile {
+    display: none;
+    @include break(575) {
+        display: block;
+        width: 100%;
+    }
+}
+.bringing-inner {
+    position: relative;
+    z-index: 1;
+}
+.bringing-title {
+    font-size: 48px;
+    line-height: 50px;
+    color: $fontColorLight;
+    margin-bottom: 30px;
+    font-weight: 400;
+    text-align: center;
+    @include break(575) {
+        margin-bottom: 270px;
+        font-size: 20px;
+    }
+}
+.bringing-text {
+    font-size: 18px;
+    color: $fontColorLight;
+    text-align: center;
+    max-width: 556px;
+    margin: 0 auto 50px;
+    @include break(575) {
+        max-width: 300px;
+        font-size: 14px;
+        margin: 0 auto 20px;    
+    }
+}

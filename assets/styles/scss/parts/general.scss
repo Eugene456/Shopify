@@ -65,9 +65,38 @@ h1, h2, h3, p, ul, ol, li, a, div {
          max-width: 540px;
     }
       @include break(575) {
+        max-width: 100%;
         padding: 0 20px;
     }
 }
 .shopify-section {
     display: block;
+}
+
+.btn-wrap {
+    display: flex;
+    justify-content: center;
+}
+.btn {
+    display: flex;
+    justify-content: center;
+    height: 44px;
+    border: 1px solid $bgColor;
+    font-family: 'Lato';
+    padding: 10px 19px;
+    border-radius: 50px;
+    font-size: 20px;
+    color: $bgColor;
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+    &:hover {
+        background-color: $btnHover;
+        border: 1px solid $btnHover;
+        transition: all .3s ease-in-out;
+    }
+     @include break(575) {
+        height: 39px;
+        font-size: 16px;
+        padding: 10px 32px;
+     }
 }

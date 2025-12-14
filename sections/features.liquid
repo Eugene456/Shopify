@@ -1,0 +1,97 @@
+<section class="feature">
+    <div class="container">
+        <div class="features-inner">
+            <div class="features-content">
+                {% if section.settings.title %}
+                    <h2 class="featuires-title">{{ section.settings.title }}</h2>
+                {% endif %}
+                {% if section.settings.text %}
+                    <div class="features-text">{{ section.settings.text }}</div>
+                 {% endif %}
+                {% if section.settings.button_link %}  
+                    <div class="btn-wrap">
+                        <a href="{{ section.settings.button_link }}" class="btn btn-light">Find our roots</a>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="features-prod">
+                <div class="features-prod-img">
+                    <img src="{{ section.settings.image_product | img_url: "original" }}" alt="product">
+                </div>    
+
+                {% if section.blocks.size > 0 %}
+                <div class="features-prod-list">
+                    {% for block in section.blocks %}
+                    <div class="features-prod-item" {{ block.shopify_attributes }}>
+                        {% if block.settings.image %}
+                            <img src="{{ block.settings.image | img_url: 'original' }}" alt="features-icon" loading="lazy" >
+                        {% endif %}
+
+                        {% if block.settings.text %}
+                            <p>{{ block.settings.text }}</p>
+                        {% endif %}
+
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Features",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_product",
+      "label": "Image Product"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "feature_item",
+      "name": "Feature item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Item image"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Short text"
+        }
+      ]
+    }
+  ],
+
+  "max_blocks": 5,
+
+  "presets": [
+    {
+      "name": "Features",
+      "category": "Homepage"
+    }
+  ]
+}
+{% endschema %}
