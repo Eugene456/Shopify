@@ -100,3 +100,12 @@ h1, h2, h3, p, ul, ol, li, a, div {
         padding: 10px 32px;
      }
 }
+
+.btn-dark {
+    color: #59331E;
+    border-color: #59331E;
+    &:hover {
+        color: $bgColor;
+        transition: all .3s ease-in-out;
+    }
+}
