@@ -1,0 +1,48 @@
+<section class="the-best-product">
+    <div class="container">
+        <h2 class="the-best-product-title"></h2>
+        {% if section.settings.products != blank %}
+            <div class="the-best-product-slider">
+                {% for product in section.settings.products %}
+                    <div class="the-best-product-item">
+                        <a href="{{ product.url }}" class="the-best-product-card">
+                            {% if product.featured_image %}
+                                <img src="{{ product.featured_image | image_url: 'original' }}" alt="{{ product.title | escape }}" class="the-best-product-card-img">
+                            {% endif %}
+                            {% if product.title %}
+                                <p class="the-best-product-card-title">{{ product.title }}</p>
+                            {% endif %}
+                            {% if product.price %}
+                                <p class="the-best-product-card-price">{{ product.price | money }}</p>
+                            {% endif %}
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "The best products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "product_list",
+      "id": "products",
+      "label": "Select products"
+    }
+  ],
+  "presets": [
+    {
+      "name": "The best products",
+      "category": "Homepage"
+    }
+  ]
+}
+{% endschema %}
