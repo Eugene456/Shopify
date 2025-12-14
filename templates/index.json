@@ -34,11 +34,63 @@
         "text": "<p>Tiffins was born from a deep love for home-cooked comfort and the best of Indian food that shaped our childhoods.For anyone who has lived away from home, knows what it’s like to miss that feeling.<br/><br/><em><strong>We aim to bring the best of India to the world, making the vibrant culture and complex flavours of India instantly accessible and convenient.</strong></em><br/><br/></p><p></p>",
         "button_link": "#"
       }
+    },
+    "features_NiyDJX": {
+      "type": "features",
+      "blocks": {
+        "feature_item_LXpntG": {
+          "type": "feature_item",
+          "settings": {
+            "text": "Authentic regionalrecipes"
+          }
+        },
+        "feature_item_UTTfjU": {
+          "type": "feature_item",
+          "settings": {
+            "image": "shopify://shop_images/Group_304.png",
+            "text": "100% realingrediants"
+          }
+        },
+        "feature_item_k4XECi": {
+          "type": "feature_item",
+          "settings": {
+            "image": "shopify://shop_images/Group.png",
+            "text": "FreezeDried"
+          }
+        },
+        "feature_item_ykWDKW": {
+          "type": "feature_item",
+          "settings": {
+            "text": "No addedpreservatives"
+          }
+        },
+        "feature_item_N8PY9n": {
+          "type": "feature_item",
+          "settings": {
+            "text": "<span>Ready to eat in</span> <span>5</span> <span>mins</span>"
+          }
+        }
+      },
+      "block_order": [
+        "feature_item_LXpntG",
+        "feature_item_UTTfjU",
+        "feature_item_k4XECi",
+        "feature_item_ykWDKW",
+        "feature_item_N8PY9n"
+      ],
+      "name": "Features",
+      "settings": {
+        "image_product": "shopify://shop_images/prod-photo.png",
+        "title": "Authentic Taste of India, Preserved through Pure Science",
+        "text": "<p>Our meals are first crafted in India using time-honored regional recipes.<br/><br/>We then use the advanced freeze-drying process, which only removes the water content, keeping the original flavor, aroma, and nutrition perfectly intact.<br/><br/></p>",
+        "button_link": "#"
+      }
     }
   },
   "order": [
     "hello_world_rqc9Mr",
     "hero_XXtBD9",
-    "bringing_the_best_Mw3jDM"
+    "bringing_the_best_Mw3jDM",
+    "features_NiyDJX"
   ]
 }
