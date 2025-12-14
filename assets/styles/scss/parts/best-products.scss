@@ -25,8 +25,15 @@
     margin-bottom: 50px;
     text-align: center;
 }
+.the-best-product-item {
+    margin: 0 35px;
+}
 .the-best-product-card {
     text-decoration: none;
+}
+.the-best-product-card img {
+    width: 240px;
+    min-width: 240px;
 }
 .the-best-product-card-title {
     font-family: 'Lato';
@@ -47,6 +54,34 @@
     justify-content: space-between;
     margin-bottom: 30px;
 }
+.the-best-product-slider.slick-slider {
+    display: block;
+}
 .the-best-product .btn {
     padding: 8px 47px;
+}
+.slick-dots {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+.slick-dots li {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+
+}
+.slick-dots li a {
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    background-color: $dotsSlider;
+}
+.slick-dots li.slick-active {
+    border: 1px solid $dotsSlider;
 }

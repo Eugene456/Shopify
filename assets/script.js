@@ -15,5 +15,14 @@ $(document).ready(function() {
         });
     });
     
+    $('.the-best-product-slider').slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        arrows: false,
+        dots: true,
+        customPaging: function(slick,index) {
+            return '<a class="dot"></a>';
+        },
+    });
     
 });

@@ -1,4 +1,25 @@
-
+<section class="cta">
+    <div class="container">
+        <div class="cta-inner">
+            <div class="cta-content">
+                {% if section.settings.title %}
+                  <h2 class="cta-title">{{ section.settings.title }}</h2>
+                {% endif %}
+                {% if section.settings.text %}
+                  <div class="cta-text">{{ section.settings.text }}</div>
+                {% endif %}
+            </div>
+            <div class="cta-buttons">
+               <div class="btn-wrap">
+                  <a href="{{ section.settings.button_link }}" class="btn">Join</a>
+              </div>
+               <div class="btn-wrap">
+                <a href="{{ section.settings.button_link2 }}" class="btn">Log in</a>
+              </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% schema %}
 {
