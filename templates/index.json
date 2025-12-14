@@ -85,12 +85,26 @@
         "text": "<p>Our meals are first crafted in India using time-honored regional recipes.<br/><br/>We then use the advanced freeze-drying process, which only removes the water content, keeping the original flavor, aroma, and nutrition perfectly intact.<br/><br/></p>",
         "button_link": "#"
       }
+    },
+    "the_best_prod_ykKeCK": {
+      "type": "the-best-prod",
+      "name": "The best products",
+      "settings": {
+        "title": "THE BEST FROM OUR KITCHEN",
+        "products": [
+          "chana-masala",
+          "gujarati-dal",
+          "moong-masala",
+          "palak-paneer"
+        ]
+      }
     }
   },
   "order": [
     "hello_world_rqc9Mr",
     "hero_XXtBD9",
     "bringing_the_best_Mw3jDM",
-    "features_NiyDJX"
+    "features_NiyDJX",
+    "the_best_prod_ykKeCK"
   ]
 }
