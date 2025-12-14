@@ -23,6 +23,14 @@ $(document).ready(function() {
         customPaging: function(slick,index) {
             return '<a class="dot"></a>';
         },
+        responsive: [
+            {
+            breakpoint: 991,
+            settings: {
+                slidesToShow: 3,
+            }
+            },
+        ]
     });
     
 });

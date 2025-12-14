@@ -5,11 +5,18 @@
     padding: 170px 0 150px;
     background-image: url(cta-bg.jpg);
     background-size: cover;
+    @include break(991) {
+        padding: 43px 0 46px;
+    }
 }
 .cta-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @include break(991) {
+        flex-direction: column;
+        gap: 20px;
+    }
 }
 .cta-title {
     font-size: 48px;
@@ -18,13 +25,26 @@
     font-weight: 400;
     color: $bgColor;
     max-width: 638px;
+    @include break(991) {
+        text-align: center;
+    }
+    @include break(575) {
+      font-size: 20px;
+      line-height: 1;  
+    }
 
 }
-.cta-text p{
+.cta-text p {
   font-family: 'Lato';
   color: $bgColor;
   font-size: 18px;
   max-width: 638px;
+  @include break(991) {
+    text-align: center;
+  }
+  @include break(575) {
+    font-size: 16px;
+  }
 }
 .cta-buttons {
     display: flex;
@@ -32,4 +52,8 @@
 }
 .cta-buttons a {
     width: 163px;
+    @include break(575) {
+        width: 98px;
+        padding: 8px 10px;
+    }
 }

@@ -4,13 +4,30 @@
 .features {
     padding: 70px 0;
     background-image: url(grid-bg.svg);
+    @include break(575) {
+        padding: 54px 0 50px;
+    }
 }
 .features-inner {
     display: flex;
     gap: 53px;
+    position: relative;
+    @include break(1199) {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    @include break(575) { 
+        padding-top: 75px;
+        gap: 20px;
+    }
 }
 .features-content {
     max-width: 603px;
+    @include break(1199) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 .featuires-title {
    font-size: 48px;
@@ -18,6 +35,15 @@
    font-weight: 400;
    color: $textColor;
    margin-bottom: 30px; 
+   @include break(1199) {
+     text-align: center;
+   }
+   @include break(575) {
+     font-size: 20px;
+     line-height: 1;
+     position: absolute;
+     top: 0;   
+   }
 }
 .features-text p {
   font-family: 'Lato';
@@ -25,6 +51,12 @@
   color: $textColor;
   margin-bottom: 50px;
   max-width: 450px;
+  @include break(1199) {
+     text-align: center;
+   }
+   @include break(575) {
+     margin-bottom: 20px;
+   }
 }
 .features .btn-wrap{
     justify-content: flex-start;
@@ -36,16 +68,26 @@
     height: 415px;
     align-items: center;
     justify-content: flex-end;
+    @include break(575) {
+        width: 305px;
+        height: 260px;
+    }
 }
 
 .features-prod-img {
     position: absolute;
     left: 0;
+    @include break(575) {
+      width: 188px;  
+    }
 }
 .features-prod-list {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    @include break(575) {
+        gap: 7px;
+    }
 }
 .features-prod-item {
     background-image: url(feature-item-bg.svg);
@@ -57,6 +99,17 @@
     padding: 13px 10px;
     width: 305px;
     height: 64px;
+    @include break(575) {
+        background-image: url(feature-item-bg-mob.svg);
+        width: 196px;
+        height: 40px;
+        padding: 8px 7px;
+    }
+}
+.features-prod-item img {
+    @include break(575) {
+        height: 22px;
+    }
 }
 .features-prod-item p {
     font-family: 'Lekton';
@@ -64,15 +117,31 @@
     color: $featuresColor;
     line-height: 19px;
     text-align: right;
+    @include break(575) {
+        font-size: 12px;
+        line-height: 13px;
+    }
 }
 .features-prod-item:last-child p {
     display: flex;
     gap: 10px;
+    @include break(575) {
+        gap: 5px;
+    }
 }
 .features-prod-item:last-child span:first-child {
     max-width: 75px;
 }
+.features-prod-item:last-child span:last-child {
+    @include break(575) {
+        padding-top: 13px;
+    }
+}
 .features-prod-item span:nth-child(2) {
     font-size: 40px;
     line-height: 40px;
+    @include break(575) {
+        font-size: 32px;
+        line-height: 32px;
+    }
 }
