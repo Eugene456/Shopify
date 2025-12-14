@@ -32,3 +32,17 @@
 .features-prod {
     display: flex;
 }
+.features-prod-item {
+    background-image: url(feature-item-bg.svg);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 305px;
+    height: 62px;
+}
+.features-prod-item p {
+    font-family: 'Lekton';
+    font-size: 18px;
+    color: $featuresColor;
+}
