@@ -12,9 +12,22 @@
     "main": {
       "type": "page",
       "settings": {}
+    },
+    "write_to_us_XchDWj": {
+      "type": "write-to-us",
+      "name": "Contacts",
+      "settings": {
+        "title_contacts": "Call Us",
+        "email": "info@gettiffins.com",
+        "phone_call": "+919000000000",
+        "phone_show": "+91 900 000 0000",
+        "title_form": "Write to us",
+        "button_link": "#"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "write_to_us_XchDWj"
   ]
 }
