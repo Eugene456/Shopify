@@ -73,7 +73,8 @@
       ],
       "name": "FAQ",
       "settings": {
-        "title": "FAQ"
+        "title": "FAQ",
+        "button_link": "#"
       }
     }
   },
