@@ -5,19 +5,19 @@
                 {% if section.settings.policy_type == "terms" %}
                     <p class="policy-tab-link">Terms & Conditions</p>
                 {% else %}
-                    <a href="{{ section.settings.terms_link }}" class="policy-tab-link"></a>
+                    <a href="{{ section.settings.terms_link }}" class="policy-tab-link">Terms & Conditionsy</a>
                 {% endif %}
 
                 {% if section.settings.policy_type == "privacy" %}
                     <p class="policy-tab-link">Privacy Policy</p>
                 {% else %}
-                    <a href="{{ section.settings.policy_link }}" class="policy-tab-link">Refund & Shipping</a>
+                    <a href="{{ section.settings.policy_link }}" class="policy-tab-link">Privacy Policy</a>
                 {% endif %}
 
                 {% if section.settings.policy_type == "refund" %}
-                    <p class="policy-tab-link"></p>
+                    <p class="policy-tab-link">Refund & Shipping</p>
                 {% else %}
-                    <a href="{{ section.settings.refund_link }}" class="policy-tab-link"></a>
+                    <a href="{{ section.settings.refund_link }}" class="policy-tab-link">Refund & Shipping</a>
                 {% endif %}
             </div>
             <div class="policy-main-content">
