@@ -40,6 +40,8 @@
     font-size: 36px;
     font-weight: 400;
     margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
     @include break(767) {
         text-align: center;
     }
@@ -123,7 +125,7 @@
     margin: 0;
     margin-bottom: -35px;
     padding-top: 84px;
+    @include break(575) {
+        padding-top: 20px;
+    }
 } 
-.faq-page .faq-inner {
-    background-color: $bgColor;
-}

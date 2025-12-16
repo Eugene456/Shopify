@@ -20,14 +20,28 @@
 <section class="faq-section {% if section.settings.image_bg %}  faq-page {% endif %} " {% if section.settings.image_bg %} style="background-image:url({{ section.settings.image_bg | img_url: "original" }});" {% endif %} >
   <div class="container">
     <div class="faq-inner" >
-        <svg class="faq-bg" preserveAspectRatio="none" width="926" height="506" viewBox="0 0 926 506" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M911.1 0.5L925.173 12.7803L925.172 480.188V492.513L911.098 504.794H14.5742L0.5 492.513V480.188L0.500977 12.7803L14.5762 0.5H911.1Z" stroke="#3B2011"/>
-            <path d="M904.419 7.37109L918.277 19.5078L918.276 472.706V484.89L904.415 497.028H21.2559L7.39551 484.891V472.706L7.39648 19.5078L21.2568 7.37109H904.419Z" stroke="#846F3E"/>
-        </svg>
-        <svg class="faq-bg-mob" preserveAspectRatio="none" width="351" height="543" viewBox="0 0 351 543" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0.5 10.1562L8.92285 0.501953L332.682 0.50293H341.15L349.575 10.1572L349.575 532.165L341.149 541.82H332.682L8.92285 541.819L0.5 532.164L0.5 10.1562Z" stroke="#846F3E"/>
-          <path d="M5.57031 14.4756L13.8945 4.9707H336.178L344.504 14.4775L344.504 527.229L336.179 536.734H13.8955L5.57031 527.227L5.57031 14.4756Z" stroke="#846F3E"/>
-        </svg>
+      {% if section.settings.image_bg %}
+
+          <svg class="faq-bg" preserveAspectRatio="none" width="926" height="1385" viewBox="0 0 926 1385" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.386 1384.29H896.899H911.285L925.671 1371.74V1359.19L925.674 12.5528L911.288 0H896.902H14.3882L0.00213651 12.5528L0 1359.19V1371.74L14.386 1384.29Z" fill="#FEFFF4"/>
+            <path d="M904.419 7.37305L918.277 19.5098L918.275 1350.71V1362.89L904.415 1375.03H21.2559L7.39551 1362.89V1350.71L7.39648 19.5098L21.2568 7.37305H904.419Z" stroke="#846F3E"/>
+          </svg>
+          <svg class="faq-bg-mob" preserveAspectRatio="none" width="351" height="1207" viewBox="0 0 351 1207" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M350.075 1196.82L350.075 19.9353V9.96851L341.378 0.00170898H332.681L8.69673 0L0 9.9668L0 19.9336L0 1196.82L8.69673 1206.79L332.681 1206.79H341.378L350.075 1196.82Z" fill="#FEFFF4"/>
+            <path d="M5.57031 14.4746L13.8955 4.96875L327.807 4.96973H336.178L344.504 14.4766L344.504 1189.08L336.179 1198.59H13.8955L5.57031 1189.08L5.57031 14.4746Z" stroke="#846F3E"/>
+          </svg>
+        {% else %}  
+            <svg class="faq-bg" preserveAspectRatio="none" width="926" height="506" viewBox="0 0 926 506" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M911.1 0.5L925.173 12.7803L925.172 480.188V492.513L911.098 504.794H14.5742L0.5 492.513V480.188L0.500977 12.7803L14.5762 0.5H911.1Z" stroke="#3B2011"/>
+                <path d="M904.419 7.37109L918.277 19.5078L918.276 472.706V484.89L904.415 497.028H21.2559L7.39551 484.891V472.706L7.39648 19.5078L21.2568 7.37109H904.419Z" stroke="#846F3E"/>
+            </svg>
+            <svg class="faq-bg-mob" preserveAspectRatio="none" width="351" height="543" viewBox="0 0 351 543" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.5 10.1562L8.92285 0.501953L332.682 0.50293H341.15L349.575 10.1572L349.575 532.165L341.149 541.82H332.682L8.92285 541.819L0.5 532.164L0.5 10.1562Z" stroke="#846F3E"/>
+              <path d="M5.57031 14.4756L13.8945 4.9707H336.178L344.504 14.4775L344.504 527.229L336.179 536.734H13.8955L5.57031 527.227L5.57031 14.4756Z" stroke="#846F3E"/>
+            </svg>
+        {% endif %} 
+
+        
         {% if section.settings.title != blank %}
         <h2 class="faq-title">{{ section.settings.title }}</h2>
         {% endif %}

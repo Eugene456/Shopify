@@ -1,0 +1,114 @@
+<div class="policy-section">
+    <div class="container">
+        <div class="policy-section-inner">
+            <div class="policy-section-tabs">
+                {% if section.settings.policy_type == "terms" %}
+                    <p class="policy-tab-link">Terms & Conditions</p>
+                {% else %}
+                    <a href="{{ section.settings.terms_link }}" class="policy-tab-link"></a>
+                {% endif %}
+
+                {% if section.settings.policy_type == "privacy" %}
+                    <p class="policy-tab-link">Privacy Policy</p>
+                {% else %}
+                    <a href="{{ section.settings.policy_link }}" class="policy-tab-link">Refund & Shipping</a>
+                {% endif %}
+
+                {% if section.settings.policy_type == "refund" %}
+                    <p class="policy-tab-link"></p>
+                {% else %}
+                    <a href="{{ section.settings.refund_link }}" class="policy-tab-link"></a>
+                {% endif %}
+            </div>
+            <div class="policy-main-content">
+                {% if section.blocks.size > 0 %}
+                <div class="policy-blocks">
+                    {% for block in section.blocks %}
+                        <div class="policy-block" {{ block.shopify_attributes }}>
+                            {% if block.settings.title != blank %}
+                            <h2 class="policy-block-title">
+                                {{ block.settings.title }}
+                            </h2>
+                            {% endif %}
+
+                            {% if block.settings.text != blank %}
+                            <div class="policy-block-text">
+                                {{ block.settings.text }}
+                            </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Service Pages",
+  "settings": [
+    {
+      "type": "radio",
+      "id": "policy_type",
+      "label": "Policy type",
+      "default": "terms",
+      "options": [
+        {
+          "value": "terms",
+          "label": "Terms & Conditions"
+        },
+        {
+          "value": "privacy",
+          "label": "Privacy Policy"
+        },
+        {
+          "value": "refund",
+          "label": "Refund & Shipping"
+        }
+      ]
+    },
+   
+    {
+      "type": "url",
+      "id": "terms_link",
+      "label": "Terms link"
+    },
+     {
+      "type": "url",
+      "id": "policy_link",
+      "label": "Policy link"
+    },
+    {
+      "type": "url",
+      "id": "refund_link",
+      "label": "Refund link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Service Pages",
+      "category": "Contact Page"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "policy_block",
+      "name": "Policy block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Block title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Block text"
+        }
+      ]
+    }
+  ], 
+}
+{% endschema %}
