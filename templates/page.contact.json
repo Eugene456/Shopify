@@ -24,10 +24,62 @@
         "title_form": "Write to us",
         "button_link": "#"
       }
+    },
+    "faq_section_L6pxMC": {
+      "type": "faq-section",
+      "blocks": {
+        "faq_item_QKakUg": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor, sed do eiusmod tempor incididuntLorem ipsum dolor sit amet. Consectetur adipiscing elit,  ipsum dolor sit amet.<br/><br/></p>"
+          }
+        },
+        "faq_item_jeDUrK": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor, sed do eiusmod tempor incididuntLorem ipsum dolor sit amet. Consectetur adipiscing elit,  ipsum dolor sit amet.<br/><br/></p>"
+          }
+        },
+        "faq_item_wpbbyV": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor, sed do eiusmod tempor incididuntLorem ipsum dolor sit amet. Consectetur adipiscing elit,  ipsum dolor sit amet.<br/><br/></p>"
+          }
+        },
+        "faq_item_8AeKPL": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor, sed do eiusmod tempor incididuntLorem ipsum dolor sit amet. Consectetur adipiscing elit,  ipsum dolor sit amet.<br/><br/></p>"
+          }
+        },
+        "faq_item_MRq9CA": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor, sed do eiusmod tempor incididuntLorem ipsum dolor sit amet. Consectetur adipiscing elit,  ipsum dolor sit amet.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_QKakUg",
+        "faq_item_jeDUrK",
+        "faq_item_wpbbyV",
+        "faq_item_8AeKPL",
+        "faq_item_MRq9CA"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "title": "FAQ"
+      }
     }
   },
   "order": [
     "main",
-    "write_to_us_XchDWj"
+    "write_to_us_XchDWj",
+    "faq_section_L6pxMC"
   ]
 }
