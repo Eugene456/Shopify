@@ -33,4 +33,14 @@ $(document).ready(function() {
         ]
     });
     
+
+    $('.faq-section').each(function(i, item){
+        $(item).attr('id', 'faq-' + i);
+        $("#faq-"+ i + " .faq-question").each(function(k, quest){
+            $(quest).click(function(){
+                $($("#faq-"+ i + " .faq-item")[k]).toggleClass('active');
+                $($("#faq-"+ i + " .faq-answer")[k]).slideToggle(300);
+            });
+        });
+    });
 });
