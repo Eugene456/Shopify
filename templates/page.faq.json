@@ -69,6 +69,7 @@
       ],
       "name": "FAQ",
       "settings": {
+        "image_bg": "shopify://shop_images/FAQ-bg.jpg",
         "title": "FAQ",
         "button_link": ""
       }
