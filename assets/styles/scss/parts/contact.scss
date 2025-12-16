@@ -1,0 +1,82 @@
+@use 'settings/colors' as *;
+@use 'settings/media' as *; 
+
+.contacts {
+    margin-top: 67px;
+}
+.contacts-inner {
+    padding: 67px 47px 62px;
+    background-image: url(contact-frame.svg);
+    background-repeat: no-repeat;
+    width: 925px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.contacts-form {
+    width: 548px;
+    padding-left: 60px;
+    border-left: 1px dashed $textColor;
+}
+.contacts-title {
+    margin-bottom: 50px;
+    font-size: 36px;
+    color: $textColor;
+}
+.contacts-label {
+    font-size: 18px;
+    font-weight: bold;
+    color: $textColor;
+    margin-bottom: 5px;
+    &:not(:first-child) {
+        margin-top: 30px;
+    }
+}
+.contacts-link {
+    font-size: 18px;
+    text-decoration: none;
+    color: $textColor;
+}
+.contacts-info-body {
+    margin-bottom: 56px;
+}
+.contacts input {
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid $textColor;
+    font-family: 'Lato';
+    font-size: 18px;
+    color: $textColor;
+    background-color: transparent;
+    margin-bottom: 30px;
+    padding: 5px 0;
+    &:focus-visible {
+        outline: none;
+    }
+}
+
+.contacts textarea {
+    resize: none;
+    border: none;
+    width: 100%;
+    height: 30px;
+    border-radius: 0;
+    border-bottom: 1px solid $textColor;
+     font-family: 'Lato';
+    font-size: 18px;
+    color: $textColor;
+    background-color: transparent;
+    &:focus-visible {
+        outline: none;
+    }
+}
+.form-actions {
+    margin-top: 56px;
+    display: flex; 
+    gap: 20px;
+    justify-content: flex-end;
+}
+.btn-primary {
+    background-color: transparent;
+}

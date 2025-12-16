@@ -1,0 +1,84 @@
+<style>
+    
+    @font-face {
+    font-family: 'Xanh Mono';
+    src: url('{{ 'XanhMono-Regular.eot' | asset_url }}');
+    src: local('Xanh Mono Regular'), local('XanhMono-Regular'),
+        url('{{ 'XanhMono-Regular.eot?#iefix' | asset_url }}') format('embedded-opentype'),
+        url('{{ 'XanhMono-Regular.woff2' | asset_url }}') format('woff2'),
+        url('{{ 'XanhMono-Regular.woff' | asset_url }}') format('woff'),
+        url('{{ 'XanhMono-Regular.ttf' | asset_url }}') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+    .faq-section .faq-title {
+      font-family: 'Xanh Mono';
+    }
+  </style>
+
+<section class="faq-section">
+  <div class="container">
+    
+    {% if section.settings.title != blank %}
+      <h2 class="faq-title">{{ section.settings.title }}</h2>
+    {% endif %}
+
+    <div class="faq-list">
+      {% for block in section.blocks %}
+        <div class="faq-item" {{ block.shopify_attributes }}>
+          <div class="faq-question">
+            <p>{{ block.settings.question }}</p>
+            <div class="faq-icon"></div>
+          </div>
+          <div class="faq-answer">
+            {{ block.settings.answer }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    
+    
+   
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Your question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Your answer text</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ",
+      "category": "Contact Page"
+    }
+  ] 
+}
+{% endschema %}

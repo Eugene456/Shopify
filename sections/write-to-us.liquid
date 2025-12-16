@@ -1,11 +1,4 @@
 <style>
-    @font-face {
-      font-family: 'Weiss';
-      src: url('{{ 'Weiss-Medium.woff2' | asset_url }}') format('woff2');
-      font-weight: 500;
-      font-display: swap;
-    }
-
     
     @font-face {
     font-family: 'Xanh Mono';
@@ -61,9 +54,9 @@
                     </div>
                     <div class="form-actions">
                         {% if section.settings.button_link %}
-                            <a href="{{ section.settings.button_link }}"> Message us</a>
+                            <a href="{{ section.settings.button_link }}" class="btn btn-dark"> Message us</a>
                         {% endif %}
-                        <button type="submit" class="btn-primary">Submit</button>
+                        <button type="submit" class="btn-primary btn btn-dark">Submit</button>
                     </div>
                 {% endform %}
             </div>
