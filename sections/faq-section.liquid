@@ -42,6 +42,9 @@
             </div>
         {% endfor %}
         </div>
+        {% if section.settings.button_link %}
+            <a href="{{ section.settings.button_link }}" class="btn btn-dark-fill"> Message us</a>
+        {% endif %}
     </div>
   </div>
 </section>
@@ -55,7 +58,11 @@
       "id": "title",
       "label": "Title"
     },
-    
+    {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+    }
     
    
   ],
