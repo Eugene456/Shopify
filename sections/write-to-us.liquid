@@ -25,12 +25,16 @@
                 {% endif %}
                 <div class="contacts-info-body">
                     {% if section.settings.email  %}
-                        <p class="contacts-label">Email:</p>
-                        <a href="mailto:{{ section.settings.email }}" class="contacts-link">{{ section.settings.email }}</a> 
+                        <div class="contacts-info-item">
+                          <p class="contacts-label">Email:</p>
+                          <a href="mailto:{{ section.settings.email }}" class="contacts-link">{{ section.settings.email }}</a> 
+                        </div>
                     {% endif %}
                     {% if section.settings.phone_call and section.settings.phone_show %}
-                        <p class="contacts-label">Phone:</p>
-                        <a href="tel:{{ section.settings.phone_call }}" class="contacts-link">{{ section.settings.phone_show }}</a>
+                        <div class="contacts-info-item">
+                          <p class="contacts-label">Phone:</p>
+                          <a href="tel:{{ section.settings.phone_call }}" class="contacts-link">{{ section.settings.phone_show }}</a>
+                        </div>
                     {% endif %}    
                 </div>
                 <div class="contacts-info-img">

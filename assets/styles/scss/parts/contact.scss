@@ -13,34 +13,89 @@
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    @include break(991) {
+        width: 100%;
+        gap: 30px;
+    }
+    @include break(767) {
+        flex-direction: column;
+        gap: 15px;
+        padding: 40px 20px 36px;
+    }
+    @include break(575) {
+        background-image: url(contact-frame-mob.svg);
+    }
 }
 .contacts-form {
     width: 548px;
     padding-left: 60px;
     border-left: 1px dashed $textColor;
+    @include break(991) {
+        width: 50%;
+        flex-grow: 1; 
+        padding-left: 30px;
+    }
+    @include break(767) {
+        width: 100%; 
+        border-top: 1px dashed $textColor;
+        border-left: none;
+        padding-top: 50px;
+        padding-left: 0;
+    }
 }
 .contacts-title {
     margin-bottom: 50px;
     font-size: 36px;
     color: $textColor;
     font-weight: 400;
+     @include break(767) {
+        text-align: center;
+     }
+      @include break(575) {
+        margin-bottom: 30px;
+        font-size: 20px;
+      }
+}
+.contacts-info-item {
+    &:not(:last-child) {
+        margin-bottom: 30px;
+    }
+    @include break(767) {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 5px;
+        margin-bottom: 13px;
+        border-bottom: 1px solid rgba(59, 32, 17, 0.6);
+     }
 }
 .contacts-label {
     font-size: 18px;
     font-weight: bold;
     color: $textColor;
     margin-bottom: 5px;
-    &:not(:first-child) {
-        margin-top: 30px;
+    @include break(575) {
+        font-size: 14px;
     }
 }
 .contacts-link {
     font-size: 18px;
     text-decoration: none;
     color: $textColor;
+    @include break(575) {
+        font-size: 14px;
+    }
 }
 .contacts-info-body {
     margin-bottom: 56px;
+    @include break(767) {
+        margin-bottom: 46px;
+    }
+}
+.contacts-info-img {
+    @include break(767) {
+        display: flex;
+        justify-content: center;
+    }
 }
 .contacts input {
     width: 100%;
@@ -55,6 +110,9 @@
     padding: 5px 0;
     &:focus-visible {
         outline: none;
+    }
+     @include break(575) {
+        font-size: 14px;
     }
 }
 
@@ -72,13 +130,24 @@
     &:focus-visible {
         outline: none;
     }
+     @include break(575) {
+        font-size: 14px;
+    }
 }
 .form-actions {
     margin-top: 56px;
     display: flex; 
     gap: 20px;
     justify-content: flex-end;
+    @include break(767) {
+        margin-top: 20px;
+    }
 }
 .btn-primary {
     background-color: transparent;
 }
+.form-actions .btn {
+    @include break(575) {
+        padding: 8px 27px;
+    }
+} 

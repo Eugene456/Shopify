@@ -9,18 +9,44 @@
     height: 100%;
     top: 0;
     left: 0;
+    @include break(575) {
+        display: none;
+    }
 }
-
+.faq-bg-mob {
+    display: none;
+    @include break(575) {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+}
 .faq-inner {
     padding: 26px 56px 115px;
     position: relative;
     width: 925px;
-    margin: 0 auto
+    margin: 0 auto;
+    @include break(991) {
+        width: 100%;
+    }
+    @include break(767) {
+        padding: 30px 20px 36px;
+    }
 }
 .faq-title {
     font-size: 36px;
     font-weight: 400;
     margin-bottom: 30px;
+    @include break(767) {
+        text-align: center;
+    }
+    @include break(575) {
+        margin-bottom: 30px;
+        font-size: 20px;
+    }
 }
 .faq-list {
     position: relative;
@@ -35,14 +61,21 @@
 }
 .faq-item {
     margin-bottom: 30px;
+    @include break(575) {
+        margin-bottom: 20px;
+    }
 }
 .faq-question {
+    padding-bottom: 8px; 
     cursor: pointer;
 }
 .faq-question p {
     font-family: 'Lato';
     font-size: 18px;
     color: $textColor; 
+    @include break(575) {
+        font-size: 12px;
+    }
 }
 .faq-icon {
     width: 11px;
@@ -64,6 +97,9 @@
     font-size: 14px;
     line-height: 21px;
     color: $textColor; 
+    @include break(575) {
+        font-size: 12px;
+    }
 }
 .btn-dark-fill {
     border: 1px solid $btnHover;
@@ -72,5 +108,14 @@
         background-color: $bgColor;
         color: $btnHover;
         transition: all .3s ease-in-out;
+    }
+}
+.faq-btn-wrap {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    z-index: 1;
+    @include break(575) {
+        justify-content: center;;
     }
 }

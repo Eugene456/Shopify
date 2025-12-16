@@ -17,14 +17,17 @@
     }
   </style>
 
-<section class="faq-section">
+<section class="faq-section {% if section.settings.image_bg %}  faq-page {% endif %} " {% if section.settings.image_bg %} style="background-image:url({{ section.settings.image_bg | img_url: "original" }});" {% endif %} >
   <div class="container">
     <div class="faq-inner" >
         <svg class="faq-bg" preserveAspectRatio="none" width="926" height="506" viewBox="0 0 926 506" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M911.1 0.5L925.173 12.7803L925.172 480.188V492.513L911.098 504.794H14.5742L0.5 492.513V480.188L0.500977 12.7803L14.5762 0.5H911.1Z" stroke="#3B2011"/>
             <path d="M904.419 7.37109L918.277 19.5078L918.276 472.706V484.89L904.415 497.028H21.2559L7.39551 484.891V472.706L7.39648 19.5078L21.2568 7.37109H904.419Z" stroke="#846F3E"/>
         </svg>
-
+        <svg class="faq-bg-mob" preserveAspectRatio="none" width="351" height="543" viewBox="0 0 351 543" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.5 10.1562L8.92285 0.501953L332.682 0.50293H341.15L349.575 10.1572L349.575 532.165L341.149 541.82H332.682L8.92285 541.819L0.5 532.164L0.5 10.1562Z" stroke="#846F3E"/>
+          <path d="M5.57031 14.4756L13.8945 4.9707H336.178L344.504 14.4775L344.504 527.229L336.179 536.734H13.8955L5.57031 527.227L5.57031 14.4756Z" stroke="#846F3E"/>
+        </svg>
         {% if section.settings.title != blank %}
         <h2 class="faq-title">{{ section.settings.title }}</h2>
         {% endif %}
@@ -43,7 +46,9 @@
         {% endfor %}
         </div>
         {% if section.settings.button_link %}
-            <a href="{{ section.settings.button_link }}" class="btn btn-dark-fill">Know more</a>
+            <div class="faq-btn-wrap">
+                <a href="{{ section.settings.button_link }}" class="btn btn-dark-fill">Know more</a>
+            </div>
         {% endif %}
     </div>
   </div>
@@ -54,10 +59,16 @@
   "name": "FAQ",
   "settings": [
     {
+      "type": "image_picker",
+      "id": "image_bg",
+      "label": "Background"
+    },
+    {
       "type": "text",
       "id": "title",
       "label": "Title"
     },
+
     {
         "type": "url",
         "id": "button_link",
