@@ -19,25 +19,25 @@
 
 <section class="faq-section">
   <div class="container">
-    
-    {% if section.settings.title != blank %}
-      <h2 class="faq-title">{{ section.settings.title }}</h2>
-    {% endif %}
+    <div class="faq-inner">
+        {% if section.settings.title != blank %}
+        <h2 class="faq-title">{{ section.settings.title }}</h2>
+        {% endif %}
 
-    <div class="faq-list">
-      {% for block in section.blocks %}
-        <div class="faq-item" {{ block.shopify_attributes }}>
-          <div class="faq-question">
-            <p>{{ block.settings.question }}</p>
-            <div class="faq-icon"></div>
-          </div>
-          <div class="faq-answer">
-            {{ block.settings.answer }}
-          </div>
+        <div class="faq-list">
+        {% for block in section.blocks %}
+            <div class="faq-item" {{ block.shopify_attributes }}>
+            <div class="faq-question">
+                <p>{{ block.settings.question }}</p>
+                <div class="faq-icon"></div>
+            </div>
+            <div class="faq-answer">
+                {{ block.settings.answer }}
+            </div>
+            </div>
+        {% endfor %}
         </div>
-      {% endfor %}
     </div>
-
   </div>
 </section>
 
