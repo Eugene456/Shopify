@@ -65,3 +65,12 @@
     line-height: 21px;
     color: $textColor; 
 }
+.btn-dark-fill {
+    border: 1px solid $btnHover;
+    background-color: $btnHover;
+    &:hover {
+        background-color: $bgColor;
+        color: $btnHover;
+        transition: all .3s ease-in-out;
+    }
+}
