@@ -1,0 +1,81 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "settings": {}
+    },
+    "faq_section_nLDY9V": {
+      "type": "faq-section",
+      "blocks": {
+        "faq_item_Af9azg": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor, sed do eiusmod tempor incididuntLorem ipsum dolor sit amet. Consectetur adipiscing elit,  ipsum dolor sit amet.</p>"
+          }
+        },
+        "faq_item_PnfGc9": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor, sed do eiusmod tempor incididuntLorem ipsum dolor sit amet. Consectetur adipiscing elit,  ipsum dolor sit amet.<br/><br/></p>"
+          }
+        },
+        "faq_item_zWnBhc": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor, sed do eiusmod tempor incididuntLorem ipsum dolor sit amet. Consectetur adipiscing elit,  ipsum dolor sit amet.<br/><br/></p>"
+          }
+        },
+        "faq_item_XbeBmH": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor, sed do eiusmod tempor incididuntLorem ipsum dolor sit amet. Consectetur adipiscing elit,  ipsum dolor sit amet.<br/><br/></p>"
+          }
+        },
+        "faq_item_Te3GRn": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor, sed do eiusmod tempor incididuntLorem ipsum dolor sit amet. Consectetur adipiscing elit,  ipsum dolor sit amet.<br/><br/></p>"
+          }
+        },
+        "faq_item_TJVxx6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor, sed do eiusmod tempor incididuntLorem ipsum dolor sit amet. Consectetur adipiscing elit,  ipsum dolor sit amet.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_Af9azg",
+        "faq_item_PnfGc9",
+        "faq_item_zWnBhc",
+        "faq_item_XbeBmH",
+        "faq_item_Te3GRn",
+        "faq_item_TJVxx6"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "title": "FAQ",
+        "button_link": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "faq_section_nLDY9V"
+  ]
+}
