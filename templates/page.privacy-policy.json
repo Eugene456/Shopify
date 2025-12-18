@@ -57,27 +57,6 @@
             "title": "Lorem Ipsum",
             "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididu</p>"
           }
-        },
-        "policy_block_nDyAg9": {
-          "type": "policy_block",
-          "settings": {
-            "title": "Lorem Ipsum",
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididu</p>"
-          }
-        },
-        "policy_block_dgwLwR": {
-          "type": "policy_block",
-          "settings": {
-            "title": "Lorem Ipsum",
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididu</p>"
-          }
-        },
-        "policy_block_gN848A": {
-          "type": "policy_block",
-          "settings": {
-            "title": "Lorem Ipsum",
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididu</p>"
-          }
         }
       },
       "block_order": [
@@ -86,10 +65,7 @@
         "policy_block_UPEbNf",
         "policy_block_KdKeLW",
         "policy_block_dHRL49",
-        "policy_block_FdeR6R",
-        "policy_block_nDyAg9",
-        "policy_block_dgwLwR",
-        "policy_block_gN848A"
+        "policy_block_FdeR6R"
       ],
       "name": "Service Pages",
       "settings": {
