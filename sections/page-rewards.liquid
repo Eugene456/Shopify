@@ -44,7 +44,7 @@
         <div class="container">
             <div class="earn-bonus-inner">
                 {% if section.settings.image_earn %}
-                    <img src="{{ product.image_earn | image_url: width: 700 }}" alt="earn-bonus-image" class="earn-bonus-image">
+                    <img src="{{ section.settings.image_earn | image_url: width: 700 }}" alt="earn-bonus-image" class="earn-bonus-image">
                 {% endif %}
                 {% if section.settings.shop_all_link %}
                     <div class="faq-btn-wrap">
