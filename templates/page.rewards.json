@@ -30,7 +30,7 @@
           "type": "step",
           "settings": {
             "title": "Redeem",
-            "text": "<p>Cash in your points at checkout for exciting savings on your order!Every 100 Points = $10</p>"
+            "text": "<p>Cash in your points at checkout for exciting savings on your order! Every 100 Points = $10</p>"
           }
         }
       },
