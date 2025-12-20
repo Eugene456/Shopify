@@ -45,6 +45,9 @@
         transform: translateX(-50%);
     }
 }
+.how-it-works {
+    padding-bottom: 116px;
+}
 .how-it-works-title {
    font-size: 36px;
    font-weight: 400;
@@ -82,4 +85,28 @@
     font-size: 18px;
     color: $dotsSlider;
     text-align: center;
+}
+.earn-bonus-title {
+   font-size: 36px;
+   font-weight: 400;
+   margin-bottom: 68px;
+   text-align: center;
+   color: $dotsSlider; 
+}
+.earn-bonus-image {
+    display: block;
+    margin: 0 auto;
+}
+.earn-btn-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.earn-btn-wrap .btn {
+    width: 163px;
+    background-color: #A66E4E;
+    border-color: #A66E4E;
+}
+.earn-bonus {
+    padding-bottom: 70px;
 }
