@@ -7,7 +7,7 @@
                         <h1 class="rewards-first-screen-title">{{ section.settings.first_screen_title }}</h1>
                     {% endif %}
                     {% if section.settings.first_screen_text %}
-                        <p class="rewards-first-screen-text">{{ section.settings.first_screen_text }}</p>
+                        <div class="rewards-first-screen-text">{{ section.settings.first_screen_text }}</div>
                     {% endif %}
                 </div>
                 <div class="rewards-first-screen-buttons">
@@ -21,39 +21,44 @@
             </div>
         </div>        
     </section>
-    <section class="how-it-works">
-        <div class="container">
-            {% if section.settings.title %}
-                <h2 class="how-it-works-title">{{ section.settings.title }}</h2>
-            {% endif %}
-            <div class="how-it-works-inner">
-            {% for block in section.blocks %}
-                <div class="step-card" {{ block.shopify_attributes }}>
-                {% if block.settings.title %}
-                    <p class="step-card-title">{{ block.settings.title }}</p>
-                {% endif %}
-                {% if block.settings.text %}
-                    <div class="step-card-text">{{ block.settings.text }}</div>
-                {% endif %}
-                </div>
-            {% endfor %}
-            </div>
-        </div>
-    </section>
-    <section class="earn-bonus">
-        <div class="container">
-            <div class="earn-bonus-inner">
-                {% if section.settings.image_earn %}
-                    <img src="{{ section.settings.image_earn | image_url: width: 700 }}" alt="earn-bonus-image" class="earn-bonus-image">
-                {% endif %}
-                {% if section.settings.shop_all_link %}
-                    <div class="faq-btn-wrap">
-                        <a href="{{ section.settings.shop_all_link }}" class="btn btn-dark-fill">Shop all</a>
-                    </div>
-                {% endif %}
-            </div>
-        </div>
-    </section>
+    <div class="rewards-wrap">
+      <section class="how-it-works">
+          <div class="container">
+              {% if section.settings.how_it_works_title %}
+                  <h2 class="how-it-works-title">{{ section.settings.how_it_works_title }}</h2>
+              {% endif %}
+              <div class="how-it-works-inner">
+              {% for block in section.blocks %}
+                  <div class="step-card" {{ block.shopify_attributes }}>
+                  {% if block.settings.title %}
+                      <p class="step-card-title">{{ block.settings.title }}</p>
+                  {% endif %}
+                  {% if block.settings.text %}
+                      <div class="step-card-text">{{ block.settings.text }}</div>
+                  {% endif %}
+                  </div>
+              {% endfor %}
+              </div>
+          </div>
+      </section>
+      <section class="earn-bonus">
+          <div class="container">
+              {% if section.settings.earn_bonus_title %}
+                  <h2 class="earn-bonus-title">{{ section.settings.earn_bonus_title }}</h2>
+              {% endif %}
+              <div class="earn-bonus-inner">
+                  {% if section.settings.image_earn %}
+                      <img src="{{ section.settings.image_earn | image_url: width: 700 }}" alt="earn-bonus-image" class="earn-bonus-image">
+                  {% endif %}
+                  {% if section.settings.shop_all_link %}
+                      <div class="faq-btn-wrap">
+                          <a href="{{ section.settings.shop_all_link }}" class="btn btn-dark-fill">Shop all</a>
+                      </div>
+                  {% endif %}
+              </div>
+          </div>
+      </section>
+    </div>
 </div>
 
 
@@ -87,6 +92,11 @@
       "id": "how_it_works_title",
       "label": "Section title",
       "default": "How it works"
+    },
+    {
+      "type": "text",
+      "id": "earn_bonus_title",
+      "label": "Earn bonus title",
     },
     {
       "type": "image_picker",

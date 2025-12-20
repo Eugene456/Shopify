@@ -1,0 +1,85 @@
+@use 'settings/colors' as *;
+@use 'settings/media' as *; 
+
+.rewards-first-screen {
+    padding: 70px 0;
+}
+.rewards-first-screen-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.rewards-first-screen-content {
+    max-width: 638px;
+}
+.rewards-first-screen-title {
+    font-size: 48px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: $btnDarkColor;
+}
+.rewards-first-screen-text p {
+    font-family: 'Lato';
+    font-size: 18px;
+    color: $btnDarkColor;
+}
+.rewards-first-screen-buttons {
+    display: flex;
+    gap: 10px;
+}
+.rewards-first-screen-buttons .btn {
+    width: 163px;
+}
+.rewards-wrap {
+    position: relative;
+    padding-top: 90px;
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 1440px;
+        height: 810px;
+        background-image: url(rewards-bg.svg);
+        left: 50%;
+        top:0;
+        transform: translateX(-50%);
+    }
+}
+.how-it-works-title {
+   font-size: 36px;
+   font-weight: 400;
+   margin-bottom: 68px;
+   text-transform: uppercase;
+   text-align: center;
+   color: $dotsSlider;
+}
+.how-it-works-inner {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 51px 0 63px;
+}
+.step-card {
+    border: 1px solid $borderCard; 
+    width: 212px;
+    height: 190px;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.step-card-title {
+    text-align: center;
+    font-family: 'Lato';
+    font-weight: bold;
+    margin-bottom: 14px;
+    font-size: 24px;
+    line-height: 25px;
+    color: $dotsSlider;
+}
+.step-card-text p {
+    font-family: 'Lato';
+    font-size: 18px;
+    color: $dotsSlider;
+    text-align: center;
+}
