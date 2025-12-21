@@ -3,11 +3,37 @@
 
 .rewards-first-screen {
     padding: 70px 0;
+    position: relative;
+    &::after {
+        content: '';
+        display: none;
+        width: 100%;
+        height: 16px;
+        background-image: url(reward-horiz-decor-mob.svg);
+        background-position: center;
+        background-repeat: repeat-x;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        @include break(575) {
+            display: block;
+        }
+    }
+    @include break(575) {
+        padding: 50px 0;
+    }
 }
 .rewards-first-screen-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @include break(1199) {
+        gap: 40px;
+    }
+    @include break(767) {
+        gap: 10px;
+        flex-direction: column;
+    }
 }
 .rewards-first-screen-content {
     max-width: 638px;
@@ -17,11 +43,26 @@
     font-weight: 400;
     margin-bottom: 10px;
     color: $btnDarkColor;
+    @include break(767) {
+      text-align: center;
+    }
+    @include break(575) {
+        font-size: 24px;
+        line-height: 35px;
+        margin-bottom: 20px;
+
+    }
 }
 .rewards-first-screen-text p {
     font-family: 'Lato';
     font-size: 18px;
     color: $btnDarkColor;
+    @include break(767) {
+      text-align: center;
+    }
+    @include break(575) {
+        font-size: 14px;
+    }
 }
 .rewards-first-screen-buttons {
     display: flex;
@@ -29,10 +70,18 @@
 }
 .rewards-first-screen-buttons .btn {
     width: 163px;
+    @include break(575) {
+        width: 96px;
+        padding: 8px 15px;
+    }
 }
 .rewards-wrap {
     position: relative;
     padding-top: 90px;
+    overflow: hidden;
+    @include break(575) {
+        padding-top: 45px;
+    }
     &::before {
         content: '';
         display: block;
@@ -40,13 +89,42 @@
         width: 1440px;
         height: 810px;
         background-image: url(rewards-bg.svg);
+        z-index: 0;
         left: 50%;
         top:0;
         transform: translateX(-50%);
+        @include break(1199) {
+            display: none;
+        }
     }
 }
 .how-it-works {
     padding-bottom: 116px;
+    position: relative;
+    &::after {
+        content: '';
+        display: none;
+        width: 100%;
+        height: 16px;
+        background-image: url(reward-horiz-decor-mob.svg);
+        background-position: center;
+        background-repeat: repeat-x;
+        position: absolute;
+        bottom: -7px;
+        left: 0;
+        @include break(575) {
+            display: block;
+        }
+    }
+    @include break(575) {
+        padding-bottom: 0;
+        margin-bottom: 46px;
+    }
+}
+.how-it-works .container {
+    @include break(575) {
+        padding: 0;
+    }
 }
 .how-it-works-title {
    font-size: 36px;
@@ -55,11 +133,71 @@
    text-transform: uppercase;
    text-align: center;
    color: $dotsSlider;
+   position: relative;
+   &::after {
+        content: '';
+        display: none;
+        width: 100%;
+        height: 16px;
+        background-image: url(reward-horiz-decor-mob.svg);
+        background-position: center;
+        background-repeat: repeat-x;
+        position: absolute;
+        bottom: -7px;
+        left: 0;
+        @include break(575) {
+            display: block;
+        }
+    }
+   @include break(575) {
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 0;
+    padding-bottom: 48px;
+   }
 }
 .how-it-works-inner {
     display: flex;
     justify-content: space-between;
     padding: 0 51px 0 63px;
+    position: relative;
+    &::before {
+        content: '';
+        display: none;
+        width: 100%;
+        height: 16px;
+        background-image: url(reward-horiz-decor-mob.svg);
+        background-position: center;
+        background-repeat: repeat-x;
+        position: absolute;
+        top: 120px;
+        left: 0;
+        @include break(575) {
+            display: block;
+        }
+    }
+    &::after {
+        content: '';
+        display: none;
+        width: 100%;
+        height: 16px;
+        background-image: url(reward-horiz-decor-mob.svg);
+        background-position: center;
+        background-repeat: repeat-x;
+        position: absolute;
+        top: 250px;
+        left: 0;
+        @include break(575) {
+            display: block;
+        }
+    }
+    @include break(991) {
+        padding: 0;
+    }
+    @include break(575) {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 .step-card {
     border: 1px solid $borderCard; 
@@ -70,6 +208,13 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    position: relative;
+    
+    @include break(575) {
+        width: 129px;
+        height: 129px;
+        padding: 0 5px;
+     }
 }
 .step-card-title {
     text-align: center;
@@ -79,12 +224,19 @@
     font-size: 24px;
     line-height: 25px;
     color: $dotsSlider;
+    @include break(575) {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
 }
 .step-card-text p {
     font-family: 'Lato';
     font-size: 18px;
     color: $dotsSlider;
     text-align: center;
+    @include break(575) {
+        font-size: 12px;
+    }
 }
 .earn-bonus-title {
    font-size: 36px;
@@ -92,6 +244,10 @@
    margin-bottom: 68px;
    text-align: center;
    color: $dotsSlider; 
+   @include break(575) {
+    font-size: 24px;
+    margin-bottom: 62px;
+   }
 }
 .earn-bonus-image {
     display: block;
@@ -101,12 +257,31 @@
     display: flex;
     justify-content: center;
     margin-top: 10px;
+    @include break(575) {
+        margin-top: 23px;
+    }
 }
 .earn-btn-wrap .btn {
     width: 163px;
     background-color: #A66E4E;
     border-color: #A66E4E;
+    @include break(575) {
+        width: 133px;
+    }
 }
 .earn-bonus {
     padding-bottom: 70px;
+    position: relative;
+    z-index: 1;
+    @include break(575) {
+        background-image: url('earn-bonus-mob.svg');
+        background-repeat: repeat-x;
+        background-position: top 80px left;
+        padding-bottom: 50px;
+    }
+}
+.earn-bonus .container {
+    @include break(575) {
+        padding: 0 5px;
+    }
 }
