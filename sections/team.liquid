@@ -1,0 +1,95 @@
+<section class="team">
+  <div class="container">
+
+    {% if section.settings.title != blank %}
+      <h2 class="team-title">
+        {{ section.settings.title }}
+      </h2>
+    {% endif %}
+
+    {% if section.settings.text1 != blank %}
+      <div class="team-text">
+        {{ section.settings.text1 }}
+      </div>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+      <div class="team-inner"> 
+        {% for block in section.blocks %}
+          <div class="team-item" {{ block.shopify_attributes }}>
+
+            {% if block.settings.image %}
+              <img
+                src="{{ block.settings.image | image_url }}"
+                alt="{{ block.settings.title | escape }}"
+                loading="lazy"
+              >
+            {% endif %}
+
+            {% if block.settings.title != blank %}
+              <p class="team-name">
+                {{ block.settings.title }}
+              </p>
+            {% endif %}
+
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if section.settings.text2 != blank %}
+      <div class="team-text-2">
+        {{ section.settings.text2 }}
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Team",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "text1",
+      "label": "Text"
+    },
+    {
+      "type": "richtext",
+      "id": "text2",
+      "label": "Text Bottom"
+    },
+  ],
+  "blocks": [
+    {
+      "type": "team_block",
+      "name": "Team",
+      "settings": [
+        {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Team",
+      "category": "About Us"
+    }
+  ]
+}
+{% endschema %}
