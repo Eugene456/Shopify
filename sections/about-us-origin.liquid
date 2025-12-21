@@ -1,0 +1,47 @@
+<div class="origin-section">
+    <div class="origin-inner">
+        <div class="origin-content">
+            {% if section.settings.title %}
+                <h1 class="origin-title">{{ section.settings.title }}</h1>
+            {% endif %}
+            {% if section.settings.text %}
+                <div class="origin-text">{{ section.settings.text }}</div>
+            {% endif %}
+        </div>
+        <div class="origin-img-wrap">
+            {% if section.settings.image %}
+                <img src="{{ section.settings.image | image_url }}" alt="{{ section.settings.image.alt | escape }}" loading="lazy">
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Origin",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+      
+  ],
+  "presets": [
+    {
+      "name": "Origin",
+      "category": "About Us"
+    }
+  ] 
+}
+{% endschema %}
