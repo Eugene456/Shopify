@@ -1,0 +1,71 @@
+<section class="our-values">
+  <div class="container">
+
+    {% if section.settings.title != blank %}
+      <h2 class="our-values-title">
+        {{ section.settings.title }}
+      </h2>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+      <div class="our-values-inner">
+        {% for block in section.blocks %}
+          <div class="our-values-col" {{ block.shopify_attributes }}>
+            
+            {% if block.settings.title != blank %}
+              <p class="our-values-col-title">
+                {{ block.settings.title }}
+              </p>
+            {% endif %}
+
+            {% if block.settings.text != blank %}
+              <div class="our-values-col-text">
+                {{ block.settings.text }}
+              </div>
+            {% endif %}
+
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Our values",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "values_block",
+      "name": "Value block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our values",
+      "category": "About Us"
+    }
+  ]
+}
+{% endschema %}

@@ -4,9 +4,18 @@
             {% if section.settings.title %}
                 <h1 class="origin-title">{{ section.settings.title }}</h1>
             {% endif %}
-            {% if section.settings.text %}
-                <div class="origin-text">{{ section.settings.text }}</div>
-            {% endif %}
+            <div class="origin-text-wrap">
+                {% if section.settings.text %}
+                    {{ section.settings.text }}
+                {% endif %}
+                 {% if section.settings.text2 %}
+                {{ section.settings.text2 }}
+                {% endif %}
+                {% if section.settings.text3 %}
+                    {{ section.settings.text3 }}
+                {% endif %}
+            </div>
+           
         </div>
         <div class="origin-img-wrap">
             {% if section.settings.image %}
@@ -28,6 +37,16 @@
     {
       "type": "richtext",
       "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "richtext",
+      "id": "text2",
+      "label": "Text"
+    },
+    {
+      "type": "richtext",
+      "id": "text3",
       "label": "Text"
     },
     {
