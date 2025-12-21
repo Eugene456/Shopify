@@ -71,12 +71,58 @@
       "settings": {
         "title": "Our Values"
       }
+    },
+    "team_TgGdQr": {
+      "type": "team",
+      "blocks": {
+        "team_block_XFPBdC": {
+          "type": "team_block",
+          "settings": {
+            "image": "shopify://shop_images/Group_414.png",
+            "title": "​Harsh Patel"
+          }
+        },
+        "team_block_NKaQPw": {
+          "type": "team_block",
+          "settings": {
+            "image": "shopify://shop_images/member_2.png",
+            "title": "Namrata Soni"
+          }
+        },
+        "team_block_wRHBim": {
+          "type": "team_block",
+          "settings": {
+            "image": "shopify://shop_images/member_3.png",
+            "title": "​Shama Patel"
+          }
+        },
+        "team_block_VDKfPb": {
+          "type": "team_block",
+          "settings": {
+            "image": "shopify://shop_images/member_4.png",
+            "title": "​Manan Rokani"
+          }
+        }
+      },
+      "block_order": [
+        "team_block_XFPBdC",
+        "team_block_NKaQPw",
+        "team_block_wRHBim",
+        "team_block_VDKfPb"
+      ],
+      "name": "Team",
+      "settings": {
+        "title": "Our Team: The Heart Behind the Heat",
+        "text1": "<p>​Tiffins is fueled by a group of passionate individuals committed to sharing the authentic flavors they grew up loving. We are the cooks, the innovators, the dreamers, and the taste-testers.<br/><br/></p>",
+        "text2": "<p>We are a blend of regional culinary expertise and modern technical knowledge, united by a singular desire: to make every Tiffins meal taste like home.<br/><br/></p>"
+      }
     }
   },
   "order": [
     "main",
     "about_us_origin_wq66dr",
     "bringing_the_best_N7a8YM",
-    "our_values_78bVRE"
+    "our_values_78bVRE",
+    "team_TgGdQr"
   ]
 }
