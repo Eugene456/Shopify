@@ -1,0 +1,51 @@
+<section class="our-commitment">
+    <div class="container">
+        {% if section.settings.title %}
+            <h2 class="our-commitment-title">{{ section.settings.title }}</h2>
+        {% endif %}
+        {% if section.settings.text %}
+            <div class="our-commitment-text"> {{ section.settings.text }}</div>
+         {% endif %}
+        {% if section.settings.quote %}
+            <div class="our-commitment-quote"> {{ section.settings.quote }}</div>
+         {% endif %}
+        {% if section.settings.text2 %}
+            <div class="our-commitment-text"> {{ section.settings.text2 }}</div>
+         {% endif %}
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Our commitment",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "richtext",
+      "id": "quote",
+      "label": "Quote"
+    },
+    {
+      "type": "richtext",
+      "id": "text2",
+      "label": "Text 2"
+    },
+      
+  ],
+  "presets": [
+    {
+      "name": "Our commitment",
+      "category": "About Us"
+    }
+  ] 
+}
+{% endschema %}
