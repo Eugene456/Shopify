@@ -12,9 +12,33 @@
     "main": {
       "type": "page",
       "settings": {}
+    },
+    "about_us_origin_wq66dr": {
+      "type": "about-us-origin",
+      "name": "Origin",
+      "settings": {
+        "title": "Origin",
+        "text": "<p>​Tiffins was born not in a boardroom, but from a moment of deep, familiar longing. We remembered the flavors that shaped our childhoods, the specific comfort that only a home-cooked Indian meal could deliver, and the difficulty of recreating that authenticity when life was busy or far from home.<br/></p><p>​We saw friends, students, and busy professionals settling for compromises—quick but unsatisfying takeout, or complicated recipes abandoned halfway. We realized that what was missing was a way to share the soul of India without sacrificing time or flavor.</p><p>We took the name Tiffins—a word that once simply meant a mid-day meal or a lunchbox—and gave it new meaning. Our mission became clear: to build the bridge between the rich, layered tradition of Indian cooking and the non-stop pace of modern life. Tiffins is our answer to the question, \"How can we bring true home-cooked comfort to anyone, anywhere, in under ten minutes?\"<br/><br/><br/></p>",
+        "image": "shopify://shop_images/Group_494.jpg"
+      }
+    },
+    "bringing_the_best_N7a8YM": {
+      "type": "bringing-the-best",
+      "name": "Bringing the best",
+      "settings": {
+        "align_left": true,
+        "image_bg": "shopify://shop_images/bg-bringing.jpg",
+        "map": "shopify://shop_images/map-desk.png",
+        "map_mobile": "shopify://shop_images/map-mob.png",
+        "title": "Bringing the Best of India, to the World",
+        "text": "<p>​Our mission is to make the vibrant, authentic, and diverse flavors of India universally accessible.​We aim to be more than just a meal; we are a cultural passport. For those who grew up savoring these tastes, we are a powerful connection to home. For those new to Indian cuisine, we are a guided journey through the bustling streets of Mumbai, the spice markets of Kerala, and the quiet homes of Gujarat.<br/><br/>​We achieve this by preserving every spice, every texture, and every story through our innovative freeze-drying process, delivering convenience without ever compromising on the soul of the dish.<br/><br/></p>",
+        "button_link": ""
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "about_us_origin_wq66dr",
+    "bringing_the_best_N7a8YM"
   ]
 }
