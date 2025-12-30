@@ -111,6 +111,15 @@
         "button_link": "#",
         "button_link2": "#"
       }
+    },
+    "videos_reels_H48DJn": {
+      "type": "videos-reels",
+      "name": "Videos reels",
+      "settings": {
+        "title": "LOVE AWAY FROM HOME",
+        "reeview_widget": "<div class=\"reeview-app-widget\" id=\"reeview-app-widget_6953cf772ea2270046b4b677\"></div>",
+        "button_link": "#"
+      }
     }
   },
   "order": [
@@ -119,6 +128,7 @@
     "bringing_the_best_Mw3jDM",
     "features_NiyDJX",
     "the_best_prod_ykKeCK",
-    "cta_tNVL9C"
+    "cta_tNVL9C",
+    "videos_reels_H48DJn"
   ]
 }
