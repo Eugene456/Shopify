@@ -120,6 +120,21 @@
         "reeview_widget": "<div class=\"reeview-app-widget\" id=\"reeview-app-widget_6953d5942ea2270046b4be83\"></div>",
         "button_link": "#"
       }
+    },
+    "1767103584fb8ac606": {
+      "type": "apps",
+      "blocks": {
+        "reelup_shoppable_videos_reels_reelup_playlist_UXd8JX": {
+          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "settings": {
+            "playlist_id": ""
+          }
+        }
+      },
+      "block_order": [
+        "reelup_shoppable_videos_reels_reelup_playlist_UXd8JX"
+      ],
+      "settings": {}
     }
   },
   "order": [
@@ -129,6 +144,7 @@
     "features_NiyDJX",
     "the_best_prod_ykKeCK",
     "cta_tNVL9C",
-    "videos_reels_H48DJn"
+    "videos_reels_H48DJn",
+    "1767103584fb8ac606"
   ]
 }
