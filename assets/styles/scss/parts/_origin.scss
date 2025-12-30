@@ -1,0 +1,46 @@
+@use 'settings/colors' as *;
+@use 'settings/media' as *; 
+
+
+.origin-section {
+    padding: 70px 0;
+    position: relative;
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        height: 390px;
+        width: 102px;
+        background-image: url(origin-decor.png);
+        background-size: cover;
+        left: 0;
+        bottom: 0;
+        mix-blend-mode: hard-light;
+    }
+}
+.origin-inner {
+    margin-right: 0;
+    margin-left: calc((100% - 1170px) / 2 + 150px);
+    display: flex;
+    align-items: center;
+    gap: 27px;
+}
+.origin-content {
+    width: 600px;
+}
+.origin-title {
+    font-size: 48px;
+    line-height: 50px;
+    font-weight: 400;
+    color: $textColor;
+    margin-bottom: 37px;
+}
+.origin-text-wrap p {
+    font-family: 'Lato';
+    font-size: 18px;
+    color: $textColor;
+    &:not(:last-child) {
+        margin-bottom: 20px;
+    }
+    
+}

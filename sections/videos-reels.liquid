@@ -1,0 +1,48 @@
+<section class="reels-list">
+    <div class="container">
+        {% if section.settings.title %}
+            <h2 class="reels-list-title">{{ section.settings.title }}</h2>
+        {% endif %}
+        {% if section.settings.reeview_widget %}
+            <div class="reels-list-inner">{{ section.settings.reeview_widget }}</div>
+        {% endif %}
+        {% if section.settings.button_link %}
+            <div class="btn-wrap">
+                <a href="{{ section.settings.button_link }}" class="btn btn-dark">Instagram</a>
+            </div>
+        {% endif %}
+    </div>
+
+</section>
+
+
+
+
+{% schema %}
+{
+  "name": "Videos reels",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+        "type": "html",
+        "id": "reeview_widget",
+        "label": "Reels widget code"
+    },
+    {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+    },
+  ],
+  "presets": [
+    {
+      "name": "Videos reels",
+      "category": "Homepage"
+    }
+  ]
+}
+{% endschema %}

@@ -51,6 +51,10 @@
         font-size: 20px;
     }
 }
+.bringing-the-best-left .bringing-title {
+ text-align: left;
+
+}
 .bringing-text {
     font-size: 18px;
     color: $fontColorLight;
@@ -62,4 +66,9 @@
         font-size: 14px;
         margin: 0 auto 20px;    
     }
+}
+
+.bringing-the-best-left .bringing-text {
+ text-align: left;
+ margin: 0;
 }
