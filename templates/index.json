@@ -120,6 +120,21 @@
         "reeview_widget": "<div class=\"reeview-app-widget\" id=\"reeview-app-widget_6953cf772ea2270046b4b677\"></div>",
         "button_link": "#"
       }
+    },
+    "1767101889a9f809ea": {
+      "type": "apps",
+      "blocks": {
+        "videowise_video_commerce_videowise_page_widgets_UQmLCr": {
+          "type": "shopify://apps/videowise-video-commerce/blocks/videowise-page-widgets/b48d6c0c-3e3f-4791-a9ab-a5ab7ec82f4d",
+          "settings": {
+            "videowise_embed": "<div class=\"reeview-app-widget\" id=\"reeview-app-widget_6953cf772ea2270046b4b677\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "videowise_video_commerce_videowise_page_widgets_UQmLCr"
+      ],
+      "settings": {}
     }
   },
   "order": [
@@ -129,6 +144,7 @@
     "features_NiyDJX",
     "the_best_prod_ykKeCK",
     "cta_tNVL9C",
-    "videos_reels_H48DJn"
+    "videos_reels_H48DJn",
+    "1767101889a9f809ea"
   ]
 }
