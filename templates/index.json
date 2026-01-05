@@ -117,7 +117,7 @@
       "name": "Videos reels",
       "settings": {
         "title": "LOVE AWAY FROM HOME",
-        "reeview_widget": "<div class=\"reeview-app-widget\" id=\"reeview-app-widget_6953d5942ea2270046b4be83\"></div>",
+        "reeview_widget": "<div class=\"reeview-app-widget\" id=\"reeview-app-widget_6953d5942ea2270046b4be83\"></div>\n\n<div class=\"reelUp_productpage_reels_js_widget\"></div>\n\n<script src=\"https://cdn-v2.reelup.io/reelup_productReels_js_widget.js\" async></script>",
         "button_link": "#"
       }
     },
