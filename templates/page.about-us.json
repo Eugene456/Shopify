@@ -112,7 +112,7 @@
       ],
       "name": "Team",
       "settings": {
-        "title": "Our Team: The Heart Behind the Heat",
+        "title": "<h2>Our Team: <strong>The Heart Behind the Heat </strong></h2>",
         "text1": "<p>​Tiffins is fueled by a group of passionate individuals committed to sharing the authentic flavors they grew up loving. We are the cooks, the innovators, the dreamers, and the taste-testers.<br/><br/></p>",
         "text2": "<p>We are a blend of regional culinary expertise and modern technical knowledge, united by a singular desire: to make every Tiffins meal taste like home.<br/><br/></p>"
       }
