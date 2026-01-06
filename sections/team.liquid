@@ -3,7 +3,7 @@
 
     {% if section.settings.title != blank %}
       <h2 class="team-title">
-        {{ section.settings.title }}
+        {{ section.settings.title | raw }}
       </h2>
     {% endif %}
 
