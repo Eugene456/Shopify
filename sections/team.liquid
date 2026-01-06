@@ -3,7 +3,7 @@
 
     {% if section.settings.title != blank %}
       <h2 class="team-title">
-        {{ section.settings.title | raw }}
+        {{ section.settings.title }}
       </h2>
     {% endif %}
 
@@ -52,7 +52,7 @@
   "max_blocks": 4,
   "settings": [
     {
-      "type": "text",
+      "type": "richtext",
       "id": "title",
       "label": "Title"
     },
