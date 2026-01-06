@@ -11,13 +11,18 @@
                  {% if section.settings.text2 %}
                 {{ section.settings.text2 }}
                 {% endif %}
+                 {% if section.settings.image %}
+                  <div class="origin-img-wrap origin-img-wrap-mobile">
+                      <img src="{{ section.settings.image | image_url }}" alt="{{ section.settings.image.alt | escape }}" loading="lazy">
+                  </div>
+                {% endif %}
                 {% if section.settings.text3 %}
                     {{ section.settings.text3 }}
                 {% endif %}
             </div>
            
         </div>
-        <div class="origin-img-wrap">
+        <div class="origin-img-wrap origin-img-wrap-desktop">
             {% if section.settings.image %}
                 <img src="{{ section.settings.image | image_url }}" alt="{{ section.settings.image.alt | escape }}" loading="lazy">
             {% endif %}

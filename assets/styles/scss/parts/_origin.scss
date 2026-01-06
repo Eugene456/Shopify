@@ -24,9 +24,19 @@
     display: flex;
     align-items: center;
     gap: 27px;
+    @include break(991) {
+       margin-left: 0; 
+    }
 }
 .origin-content {
     width: 600px;
+    position: relative;
+    z-index: 1;
+    @include break(991) {
+        max-width: 720px;
+        margin: 0 auto;
+        width: 100%;
+    }
 }
 .origin-title {
     font-size: 48px;
@@ -43,4 +53,15 @@
         margin-bottom: 20px;
     }
     
+}
+.origin-img-wrap-desktop {
+    @include break(991) {
+        display: none;
+    }
+}
+.origin-img-wrap-mobile {
+    display: none;
+    @include break(991) {
+        display: block;
+    }
 }

@@ -1,0 +1,44 @@
+@use 'settings/colors' as *;
+@use 'settings/media' as *; 
+
+.our-commitment {
+    background-color: $featuresColor;
+    padding: 56px 0 97px;
+    background-image: url(commitment-bg.png);
+    background-position: top 20px right;
+    background-repeat: no-repeat;
+    background-size: 416px;
+    @include break(991) {
+        background-image: none;
+    }
+}
+.our-commitment-title {
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 50px;
+    color: $fontColorLight;
+    margin-bottom: 30px;
+}
+.our-commitment-text {
+    max-width: 913px;
+    margin-bottom: 35px;
+}
+.our-commitment-text-second p,
+.our-commitment-text p {
+    font-family: 'Lato';
+    font-size: 18px;
+    color: $fontColorLight;
+}
+.our-commitment-quote {
+    max-width: 825px;
+}
+.our-commitment-quote p {
+    font-family: 'Lato';
+    font-size: 24px;
+    font-style: italic;
+    color: $quoteText;
+    margin-bottom: 30px;;
+}
+.our-commitment-text-second {
+    max-width: 543px;
+}
