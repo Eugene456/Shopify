@@ -12,12 +12,16 @@
         background-image: none;
     }
 }
-.our-commitment-title {
+.our-commitment-title h2{
     font-size: 48px;
     font-weight: 500;
     line-height: 50px;
     color: $fontColorLight;
     margin-bottom: 30px;
+}
+.our-commitment-title strong{
+    font-weight: 500;
+    
 }
 .our-commitment-text {
     max-width: 913px;
