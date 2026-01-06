@@ -20,6 +20,24 @@
         "type": "shopify://apps/forms/blocks/forms/8744a304-fcb1-4347-b211-bb6b4759a76a",
         "disabled": false,
         "settings": {}
+      },
+      "7885500093077574326": {
+        "type": "shopify://apps/videowise-video-commerce/blocks/script_embed/b48d6c0c-3e3f-4791-a9ab-a5ab7ec82f4d",
+        "disabled": false,
+        "settings": {}
+      },
+      "9356323809658795675": {
+        "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+        "disabled": false,
+        "settings": {
+          "debugging_global_script": "",
+          "enable_reelPops": true
+        }
+      },
+      "14020781649437803805": {
+        "type": "shopify://apps/shopvid/blocks/app_embed/1216543a-6237-4445-a5f2-61991cd76022",
+        "disabled": false,
+        "settings": {}
       }
     }
   }
