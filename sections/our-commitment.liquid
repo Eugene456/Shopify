@@ -1,7 +1,7 @@
 <section class="our-commitment">
     <div class="container">
         {% if section.settings.title %}
-            <h2 class="our-commitment-title">{{ section.settings.title }}</h2>
+            <div class="our-commitment-title">{{ section.settings.title }}</div>
         {% endif %}
         {% if section.settings.text %}
             <div class="our-commitment-text"> {{ section.settings.text }}</div>
@@ -20,7 +20,7 @@
   "name": "Our commitment",
   "settings": [
     {
-      "type": "text",
+      "type": "richtext",
       "id": "title",
       "label": "Title"
     },

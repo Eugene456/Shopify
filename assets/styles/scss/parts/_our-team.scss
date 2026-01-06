@@ -3,18 +3,34 @@
 
 .team {
     padding: 70px 0;
+    @include break(575) {
+        padding: 40px 0 50px;
+    }
 }
-.team-title {
+.team-title h2 {
     font-size: 48px;
     line-height: 50px;
     font-weight: 500;
     color: $teamTitle;
     text-align: center;
     margin-bottom: 30px;
+    @include break(575) {
+        margin-bottom: 5px;
+    }
+}
+.team-title strong {
+    font-weight: 500;
+    @include break(575) {
+        display: block;
+        font-size: 20px;
+    }
 }
 .team-text {
     max-width: 745px;
     margin: 0 auto 30px;
+    @include break(575) {
+        margin-bottom: 12px;
+    }
 }
 .team-text p {
     font-family: 'Lato';
@@ -22,6 +38,9 @@
     line-height: 100%;
     color: $teamTitle;
     text-align: center;
+    @include break(575) {
+        font-size: 14px;
+    }
 }
 .team-inner {
     display: flex;
@@ -31,11 +50,20 @@
     @include break(991) {
         flex-wrap: wrap;
     }
+    @include break(575) {
+        gap: 26px 11px;
+        margin-bottom: 26px;
+    }
 }
 .team-item img {
     width: 220px;
     height: 207px;
     margin-bottom: 5px;
+    @include break(575) {
+        width: 162px;
+        height: 152px;
+        margin-bottom: 9px;
+     }
 
 }
 .team-name {
@@ -45,6 +73,10 @@
     line-height: 100%;
     color: $teamTitle;
     text-align: center;
+     @include break(575) {
+        font-size: 14px;
+        font-weight: 400;
+     }
    
 }
 .team-text-2 {
@@ -57,4 +89,7 @@
     line-height: 100%;
     color: $teamTitle;
     text-align: center;
+    @include break(575) {
+        font-size: 14px;
+    }
 }
