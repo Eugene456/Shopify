@@ -9,6 +9,11 @@
     background-repeat: no-repeat;
     background-position: top 31px right;
     position: relative;
+    @include break(575) {
+        padding: 35px 0 52px;
+        background-size: 146px;
+        background-position: top 125px right;
+    }
     &::before {
         content: '';
         display: block;
@@ -18,6 +23,14 @@
         position: absolute;
         top: 165px;
         left: 0;
+        @include break(575) {
+            display: none;
+        }
+    }
+}
+.our-values .container {
+    @include break(575) {
+        padding: 0;
     }
 }
 .our-values-title {
@@ -26,13 +39,25 @@
     font-weight: 500;
     color: $fontColorLight;
     margin-bottom: 30px;
+    @include break(575) {
+        font-size: 36px;
+        text-align: center;
+        margin-bottom: 53px;
+    }
 } 
 .our-values-inner {
     display: flex;
     gap: 50px;
+    @include break(575) {
+        flex-direction: column; 
+        gap: 15px;
+    }
 }
 .our-values-col {
     width: 262px;
+    @include break(575) {
+        width: 100%;
+    }
 }
 .our-values-col-title {
     font-family: 'Lekton';
@@ -40,7 +65,41 @@
     font-size: 24px;
     margin-bottom: 16px;
     font-weight: 400;
+    position: relative;
+    &::after {
+        content: '';
+        display: block;
+        width: 8px;
+        height: 5px;
+        background-image: url(arrow-light.svg);
+        background-repeat: no-repeat;
+        position: absolute;
+        top: calc(50% - 2px);
+        right: 27px;
+        display: none;
+        transition: all .3s ease-in-out;
+        @include break(575) {
+            display: block;
+        }
+    }
+    @include break(575) {
+        font-size: 18px;
+        border-bottom: 1px solid $fontColorLight;
+        padding: 0 20px;
+        margin-bottom: 15px;
+    }
 
+}
+.our-values-col-title.active:after {
+    transform: rotate(180deg);
+    transition: all .3s ease-in-out;
+}
+.our-values-col-text {
+    @include break(575) {
+        max-width: 236px;
+        padding: 0 20px;
+        display: none;
+    }
 }
 .our-values-col-text p {
     font-family: 'Lato';
@@ -49,4 +108,7 @@
     font-weight: 400;
     color: $fontColorLight;
     text-align: justify;
-}
+    @include break(575) {
+        font-size: 12px;
+    }
+} 

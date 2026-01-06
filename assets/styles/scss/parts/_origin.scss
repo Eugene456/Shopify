@@ -5,6 +5,9 @@
 .origin-section {
     padding: 70px 0;
     position: relative;
+    @include break(575) {
+        padding: 50px 0 56px;
+    }
     &::before {
         content: '';
         display: block;
@@ -37,6 +40,13 @@
         margin: 0 auto;
         width: 100%;
     }
+    @include break(767) {
+        max-width: 540px;
+    }
+    @include break(575) {
+        max-width: 100%;
+        padding: 0 42px;
+    }
 }
 .origin-title {
     font-size: 48px;
@@ -44,11 +54,19 @@
     font-weight: 400;
     color: $textColor;
     margin-bottom: 37px;
+    @include break(575) {
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
 }
 .origin-text-wrap p {
     font-family: 'Lato';
     font-size: 18px;
     color: $textColor;
+    @include break(575) {
+        font-size: 13px;
+        margin-bottom: 14px;
+    }
     &:not(:last-child) {
         margin-bottom: 20px;
     }
@@ -63,5 +81,6 @@
     display: none;
     @include break(991) {
         display: block;
+        margin: 32px 0;
     }
 }

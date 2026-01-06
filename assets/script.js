@@ -43,4 +43,15 @@ $(document).ready(function() {
             });
         });
     });
+
+    $('.our-values-inner').each(function(i, item){
+        $(item).attr('id', 'our-values-inner-' + i);
+        $("#our-values-inner-"+ i + " .our-values-col-title").each(function(k, quest){
+            $(quest).click(function(){
+                $($("#our-values-inner-"+ i + " .our-values-col-title")[k]).toggleClass('active');
+                $($("#our-values-inner-"+ i + " .our-values-col-text")[k]).slideToggle(300);
+            });
+        });
+    });
+
 });
