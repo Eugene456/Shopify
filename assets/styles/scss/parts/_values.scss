@@ -1,0 +1,35 @@
+@use 'settings/colors' as *;
+@use 'settings/media' as *; 
+
+.our-values {
+    background-color: $secondColor;
+    padding: 40px 0 59px;
+}
+.our-values-title {
+    font-size: 48px;
+    line-height: 50px;
+    font-weight: 500;
+    color: $fontColorLight;
+    margin-bottom: 30px;
+} 
+.our-values-inner {
+    display: flex;
+    gap: 50px;
+}
+.our-values-col {
+    width: 262px;
+}
+.our-values-col-title {
+    font-family: 'Lekton';
+    color: $fontColorLight;
+    font-weight: 400;
+
+}
+.our-values-col-text p {
+    font-family: 'Lato';
+    font-size: 18px;
+    line-height: 120%;
+    font-weight: 400;
+    color: $fontColorLight;
+    text-align: justify;
+}

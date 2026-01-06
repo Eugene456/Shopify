@@ -37,6 +37,17 @@
 }
 @font-face {
     font-family: 'Lekton';
+    src: url('./fonts/Lekton-Regular.eot');
+    src: local('Lekton-Bold'),
+        url('./fonts/Lekton-Regular.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/Lekton-Regular.woff2') format('woff2'),
+        url('./fonts/Lekton-Regular.woff') format('woff'),
+        url('./fonts/Lekton-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Lekton';
     src: url('./fonts/Lekton-Bold.eot');
     src: local('Lekton-Bold'),
         url('./fonts/Lekton-Bold.eot?#iefix') format('embedded-opentype'),
