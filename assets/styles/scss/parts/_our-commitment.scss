@@ -11,6 +11,12 @@
     @include break(991) {
         background-image: none;
     }
+    @include break(575) {
+       background-image: url(commitment-bg-mob.png); 
+       background-size: 370px;
+       background-position: top 195px right;
+       padding: 21px 0;
+    }
 }
 .our-commitment-title h2{
     font-size: 48px;
@@ -18,23 +24,44 @@
     line-height: 50px;
     color: $fontColorLight;
     margin-bottom: 30px;
+    @include break(575) {
+        font-size: 36px;
+        text-align: center;
+        margin-bottom: 8px;
+    }
 }
 .our-commitment-title strong{
     font-weight: 500;
-    
+    @include break(575) {
+        font-size: 20px;
+        display: block;
+    }
+
 }
 .our-commitment-text {
     max-width: 913px;
     margin-bottom: 35px;
+    @include break(575) {
+        margin-bottom: 28px;
+    }
+    
 }
 .our-commitment-text-second p,
 .our-commitment-text p {
     font-family: 'Lato';
     font-size: 18px;
     color: $fontColorLight;
+    @include break(575) {
+        font-size: 14px;
+        text-align: center;
+    }
 }
 .our-commitment-quote {
     max-width: 825px;
+    @include break(575) {
+        max-width: 290px;
+        margin: 0 auto 250px;
+    }
 }
 .our-commitment-quote p {
     font-family: 'Lato';
@@ -42,7 +69,19 @@
     font-style: italic;
     color: $quoteText;
     margin-bottom: 30px;;
+    @include break(575) {
+        font-size: 16px;
+        text-align: center;
+    }
 }
 .our-commitment-text-second {
     max-width: 543px;
+    @include break(575) {
+        max-width: 315px;
+    }
+}
+.our-commitment-text-second p {
+     @include break(575) {
+        font-size: 12px;
+     }
 }
