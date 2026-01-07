@@ -1,0 +1,15 @@
+@use 'settings/colors' as *;
+@use 'settings/media' as *; 
+
+.reels-list {
+    padding: 35px 0 47px;
+}
+.reels-list-title {
+    font-size: 48px;
+    line-height: 50px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 56px;
+    text-align: center;
+    color: $textColor;
+}
