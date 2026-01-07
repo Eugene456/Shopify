@@ -1,0 +1,55 @@
+@use 'settings/colors' as *;
+@use 'settings/media' as *; 
+
+.cta-home {
+    padding-top: 94px;
+    padding-bottom: 336px;
+    background-image: url(cta-home.png);
+    background-position: bottom;
+    background-size: cover;
+}
+.cta-home-title {
+    font-size: 48px;
+    line-height: 50px;
+    font-weight: 400;
+    color: $ctaColor;
+    margin-bottom: 23px;
+    text-align: center;
+}
+.cta-home-text {
+    max-width: 595px;
+    margin: 0 auto;
+}
+.cta-home-text p {
+    font-size: 24px;
+    line-height: 25px;
+    color: $ctaColor;
+    text-align: center;
+    margin-bottom: 43px;
+}
+.cta-home-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    &::before {
+        content: '';
+        display: block;
+        width: 131px;
+        height: 47px;
+        background-image: url(cta-key.svg);
+        background-size: cover;
+        position: absolute;
+        bottom: -70px;
+        left: calc(50% - 65px);
+    }
+}
+.cta-home-buttons a {
+    border-color: $ctaColor;
+    color: $ctaColor;
+    width: 163px;
+    &:hover {
+       background-color: $ctaColor;
+       color: $bgColor; 
+    }
+}
