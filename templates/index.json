@@ -59,33 +59,36 @@
         "feature_item_LXpntG": {
           "type": "feature_item",
           "settings": {
-            "text": "Authentic regional<br>recipes"
+            "image": "shopify://shop_images/features-1.png",
+            "text": "Authentic regionalrecipes"
           }
         },
         "feature_item_UTTfjU": {
           "type": "feature_item",
           "settings": {
-            "image": "shopify://shop_images/Group_304.png",
-            "text": "100% real<br>ingrediants"
+            "image": "shopify://shop_images/features-2.png",
+            "text": "100% realingrediants"
           }
         },
         "feature_item_k4XECi": {
           "type": "feature_item",
           "settings": {
-            "image": "shopify://shop_images/Group.png",
-            "text": "Freeze<br>Dried"
+            "image": "shopify://shop_images/features-3.png",
+            "text": "FreezeDried"
           }
         },
         "feature_item_ykWDKW": {
           "type": "feature_item",
           "settings": {
-            "text": "No added<br>preservatives"
+            "image": "shopify://shop_images/features-4.png",
+            "text": "No addedpreservatives"
           }
         },
         "feature_item_N8PY9n": {
           "type": "feature_item",
           "settings": {
-            "text": "<span>Ready to eat in</span> <span>5</span> <span>mins</span>"
+            "image": "shopify://shop_images/features-5.png",
+            "text": "Ready to eat in 5 mins"
           }
         }
       },
