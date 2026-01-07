@@ -4,7 +4,7 @@
 .bringing-the-best {
     background-size: cover;
     position: relative;
-    padding: 128px 0 116px;
+    padding: 128px 0 106px;
     @include break(575) {
         padding: 20px 0 35px;
     }
@@ -90,4 +90,7 @@
     @include break(575) {
         top: 87px;
     }
+}
+.bringing-inner .btn {
+    width: 163px;
 }

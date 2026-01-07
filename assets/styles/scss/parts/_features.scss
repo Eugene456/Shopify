@@ -2,7 +2,7 @@
 @use 'settings/media' as *; 
 
 .features {
-    padding: 70px 0;
+    padding: 101px 0 70px;
     background-image: url(grid-bg.svg);
     @include break(575) {
         padding: 54px 0 50px;
@@ -12,6 +12,8 @@
     display: flex;
     gap: 53px;
     position: relative;
+    max-width: 1105px;
+    margin: 0 auto;
     @include break(1199) {
         flex-direction: column-reverse;
         align-items: center;
@@ -22,7 +24,7 @@
     }
 }
 .features-content {
-    max-width: 600px;
+    max-width: 522px;
     @include break(1199) {
         display: flex;
         flex-direction: column;
@@ -34,7 +36,8 @@
    line-height: 50px;
    font-weight: 400;
    color: $textColor;
-   margin-bottom: 30px; 
+   margin-bottom: 27px;
+   letter-spacing: 0.5px; 
    @include break(1199) {
      text-align: center;
    }
