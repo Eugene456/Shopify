@@ -66,7 +66,7 @@
     color: $fontColorLight;
     text-align: center;
     max-width: 556px;
-    margin: 0 auto 50px;
+    margin: 0 auto 25px;
     @include break(575) {
         max-width: 300px;
         font-size: 14px;
@@ -75,7 +75,7 @@
 }
 .bringing-text p:first-child {
     max-width: 477px;
-    margin: 0 auto;
+    margin: 0 auto 4px;
 }
 
 .bringing-the-best-left .bringing-text {
