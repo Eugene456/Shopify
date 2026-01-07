@@ -8,7 +8,32 @@
     @include break(575) {
         padding-bottom: 50px;
     }
-
+}
+.the-best-product .container {
+    position: relative;
+    &:before {
+        content: '';
+        display: block;
+        height: 402px;
+        width: 226px;
+        background-image: url(best-prod-decor-second.svg);
+        background-size: cover;
+        position: absolute;
+        left: -59px;
+        top: calc(50% - 201px);
+    }
+    &:after {
+        content: '';
+        display: block;
+        height: 402px;
+        width: 226px;
+        transform: rotate(180deg);
+        background-image: url(best-prod-decor-second.svg);
+        background-size: cover;
+        position: absolute;
+        right: -59px; 
+        top: calc(50% - 201px);
+    }
 }
 .the-best-product-title {
     font-size: 48px;
@@ -74,7 +99,7 @@
     justify-content: space-between;
     margin-bottom: 30px;
     max-width: 860px;
-    margin: 0 auto;
+    margin: 0 auto 30px;
     @include break(575) {
         margin-bottom: 20px;
     }

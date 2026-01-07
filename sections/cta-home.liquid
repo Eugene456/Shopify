@@ -1,0 +1,53 @@
+<section class="cta-home">
+    <div class="container">
+      {% if section.settings.title %}
+        <h2 class="cta-title">{{ section.settings.title }}</h2>
+      {% endif %}
+      {% if section.settings.text %}
+        <div class="cta-text">{{ section.settings.text }}</div>
+      {% endif %}
+      <div class="cta-buttons">
+          <div class="btn-wrap">
+            <a href="{{ section.settings.button_link }}" class="btn">Join</a>
+        </div>
+          <div class="btn-wrap">
+          <a href="{{ section.settings.button_link2 }}" class="btn">Log in</a>
+        </div>
+      </div>
+      </div>
+    
+</section>
+
+{% schema %}
+{
+  "name": "Call to action",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+    },
+    {
+        "type": "url",
+        "id": "button_link2",
+        "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Call to action (Bottom)",
+      "category": "Homepage"
+    }
+  ] 
+}
+{% endschema %}
