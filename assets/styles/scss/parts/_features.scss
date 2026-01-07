@@ -96,6 +96,7 @@
     background-image: url(feature-item-bg.svg);
     background-size: cover;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 15px;
     padding: 13px 10px 13px 85px;
@@ -109,9 +110,8 @@
     }
 }
 .features-prod-item img {
-    @include break(575) {
-        height: 22px;
-    }
+    max-width: 35px;
+
 }
 .features-prod-item p {
     font-family: 'Lekton';
