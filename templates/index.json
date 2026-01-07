@@ -81,7 +81,7 @@
           "type": "feature_item",
           "settings": {
             "image": "shopify://shop_images/features-4.png",
-            "text": "No addedpreservatives"
+            "text": "No added preservatives"
           }
         },
         "feature_item_N8PY9n": {
@@ -111,7 +111,7 @@
       "type": "the-best-prod",
       "name": "The best products",
       "settings": {
-        "title": "THE BEST FROM OUR KITCHEN",
+        "title": "Journey Through India",
         "products": [
           "palak-paneer",
           "chana-masala",
@@ -123,16 +123,6 @@
         ]
       }
     },
-    "cta_tNVL9C": {
-      "type": "cta",
-      "name": "Call to action",
-      "settings": {
-        "title": "Join the Tiffins Membership now!",
-        "text": "<p>Get started now by creating an account or logging in to begin earning rewards! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>",
-        "button_link": "#",
-        "button_link2": "#"
-      }
-    },
     "videos_reels_H48DJn": {
       "type": "videos-reels",
       "name": "Videos reels",
@@ -141,25 +131,6 @@
         "reeview_widget": "<div class=\"reeview-app-widget\" id=\"reeview-app-widget_6953d5942ea2270046b4be83\"></div>",
         "button_link": "#"
       }
-    },
-    "1767103584fb8ac606": {
-      "type": "apps",
-      "blocks": {
-        "reelup_shoppable_videos_reels_reelup_playlist_UXd8JX": {
-          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
-          "settings": {
-            "playlist_id": ""
-          }
-        }
-      },
-      "block_order": [
-        "reelup_shoppable_videos_reels_reelup_playlist_UXd8JX"
-      ],
-      "settings": {}
-    },
-    "1767621317701b0eb9": {
-      "type": "apps",
-      "settings": {}
     }
   },
   "order": [
@@ -169,9 +140,6 @@
     "bringing_the_best_Mw3jDM",
     "features_NiyDJX",
     "the_best_prod_ykKeCK",
-    "cta_tNVL9C",
-    "videos_reels_H48DJn",
-    "1767103584fb8ac606",
-    "1767621317701b0eb9"
+    "videos_reels_H48DJn"
   ]
 }
