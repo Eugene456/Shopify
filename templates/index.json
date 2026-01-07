@@ -22,6 +22,24 @@
         "hero_title": "Real spices, vegetables, and grains, prepared the way they’ve always been"
       }
     },
+    "home_the_best_gmRpFj": {
+      "type": "home-the-best",
+      "name": "Home the best and rooted",
+      "settings": {
+        "title": "The best of India",
+        "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+        "button_link": "#",
+        "title_2": "Rooted in India",
+        "content_2": "<p>Born from a deep love for the flavors that shaped our childhoods and the comfort that sometimes only a home-cooked Indian meal can bring, Tiffins reimagines tradition for today’s world.<br/><br/><em><strong>Our story isn't just about food; it's about connecting you to the incredible, vibrant heart of India, where cooking is an art form rooted in history and culture.</strong></em><br/><br/></p>",
+        "button_link_2": "#",
+        "products": [
+          "chana-masala",
+          "gujarati-dal-2",
+          "moong-masala",
+          "palak-paneer"
+        ]
+      }
+    },
     "bringing_the_best_Mw3jDM": {
       "type": "bringing-the-best",
       "name": "Bringing the best",
@@ -144,6 +162,7 @@
   "order": [
     "hello_world_rqc9Mr",
     "hero_XXtBD9",
+    "home_the_best_gmRpFj",
     "bringing_the_best_Mw3jDM",
     "features_NiyDJX",
     "the_best_prod_ykKeCK",
