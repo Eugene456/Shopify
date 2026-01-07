@@ -98,7 +98,7 @@
     display: flex;
     align-items: center;
     gap: 15px;
-    padding: 13px 10px;
+    padding: 13px 10px 13px 85px;
     width: 305px;
     height: 64px;
     @include break(575) {
@@ -118,6 +118,7 @@
     font-size: 18px;
     color: $featuresColor;
     line-height: 19px;
+    font-weight: bold;
     @include break(575) {
         font-size: 12px;
         line-height: 13px;

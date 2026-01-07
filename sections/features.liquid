@@ -24,12 +24,12 @@
                 <div class="features-prod-list">
                     {% for block in section.blocks %}
                     <div class="features-prod-item" {{ block.shopify_attributes }}>
-                        {% if block.settings.image %}
-                            <img src="{{ block.settings.image | img_url: 'original' }}" alt="features-icon" loading="lazy" >
-                        {% endif %}
-
+              
                         {% if block.settings.text %}
                             <p>{{ block.settings.text }}</p>
+                        {% endif %}
+                        {% if block.settings.image %}
+                            <img src="{{ block.settings.image | img_url: 'original' }}" alt="features-icon" loading="lazy" >
                         {% endif %}
 
                     </div>
