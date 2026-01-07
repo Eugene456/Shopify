@@ -103,7 +103,7 @@
       "settings": {
         "image_product": "shopify://shop_images/prod-photo.png",
         "title": "Authentic Taste of India, Preserved through Pure Science",
-        "text": "<p>Our meals are first crafted in India using time-honored regional recipes.</p><p><br/>We then use the advanced freeze-drying process, which only removes the water content, keeping the original flavor, aroma, and nutrition perfectly intact.<br/><br/></p>",
+        "text": "<p>Our meals are first crafted in India using time-honored regional recipes.<br/><br/>We then use the advanced freeze-drying process, which only removes the water content, keeping the original flavor, aroma, and nutrition perfectly intact.<br/><br/></p>",
         "button_link": "#"
       }
     },
