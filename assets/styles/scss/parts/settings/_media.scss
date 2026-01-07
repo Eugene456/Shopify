@@ -1,4 +1,7 @@
 @mixin break($point) {
+    @if $point == 'more1199' {
+      @media only screen and (min-width: 1199px) { @content; }
+    }
     @if $point == 1399 {
       @media only screen and (max-width: 1439px) { @content; }
     }

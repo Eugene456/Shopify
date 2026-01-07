@@ -22,7 +22,7 @@
     }
 }
 .features-content {
-    max-width: 603px;
+    max-width: 600px;
     @include break(1199) {
         display: flex;
         flex-direction: column;
@@ -60,6 +60,9 @@
 }
 .features .btn-wrap{
     justify-content: flex-start;
+}
+.features .btn-wrap a {
+    width: 163px;
 }
 .features-prod {
     display: flex;

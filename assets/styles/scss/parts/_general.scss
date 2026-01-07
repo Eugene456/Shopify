@@ -85,6 +85,15 @@ h1, h2, h3, p, ul, ol, li, a, div {
     overflow: hidden;
 }
 
+.hero .container,
+.home-the-best-section .container,
+.features .container,
+.the-best-product .container {
+    @include break('more1199') {
+       width: 1330px; 
+    }
+}
+
 .container {
     width: 1170px;
     margin: 0 auto;

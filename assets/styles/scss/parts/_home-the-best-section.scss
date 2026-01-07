@@ -7,4 +7,102 @@
 .home-the-best-inner {
     display: flex;
     justify-content: space-between; 
+    margin-bottom: -126px;
+}
+.home-the-best-title {
+    font-size: 36px;
+    line-height: 36px;
+    color: $btnDarkColor;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 41px;
+}
+.home-the-best-text {
+    max-width: 390px;
+    margin-bottom: 38px;
+}
+.home-the-best-text p {
+    font-family: 'Lato';
+    font-size: 18px;
+     color: $btnDarkColor;
+}
+
+.home-the-best-btn-wrap {
+    display: flex;
+    position: relative;
+    &::before {
+        content:'';
+        display: block;
+        width: 534px;
+        height: 1px;
+        background-color: $btnHover;
+        position: absolute;
+        top: 23px;
+        left: 145px; 
+    }
+}
+.home-the-best-prod-list {
+    display: flex;
+}
+.home-the-best-prod-list .the-best-product-card img {
+    width: 261px;
+}
+.home-the-best-prod-list .the-best-product-card {
+    position: relative;
+    transition: all .3s ease-in-out;
+    &:not(:last-child) {
+        margin-right: -105px;   
+    }
+    &:hover {
+       transform: translateY(-50px);
+       transition: all .3s ease-in-out; 
+    }
+    
+}
+.home-the-best-prod-list .the-best-product-card:first-child {
+    z-index: 4;
+}
+.home-the-best-prod-list .the-best-product-card:nth-child(2) {
+    z-index: 3;
+}
+.home-the-best-prod-list .the-best-product-card:nth-child(3) {
+    z-index: 2;
+}
+.home-the-best-prod-list .the-best-product-card:nth-child(4) {
+    z-index: 1;
+}
+.rooted-inner {
+    background-image: url(rooted-bg.jpg);
+    background-size: cover;
+    padding: 224px 70px 90px;
+}
+.rooted-title {
+    font-size: 48px;
+    line-height: 50px;
+    font-weight: 400;
+    color: $btnHover;
+    margin-bottom: 29px;
+    text-align: right;
+}
+.rooted-text {
+    max-width: 638px;
+    margin-bottom: 25px;
+    margin-left: auto;
+}
+.rooted-text p {
+  font-family: 'Lato';
+  font-size: 18px;
+  color: $btnHover;
+  text-align: right;
+ 
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }  
+}
+.rooted-btn-wrap {
+    display: flex;
+    justify-content: flex-end;
+}
+.rooted-btn-wrap a {
+    width: 163px;
 }
