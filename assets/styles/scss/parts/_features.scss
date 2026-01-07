@@ -25,6 +25,7 @@
 }
 .features-content {
     max-width: 522px;
+    padding-top: 12px;
     @include break(1199) {
         display: flex;
         flex-direction: column;
