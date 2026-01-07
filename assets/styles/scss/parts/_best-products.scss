@@ -50,7 +50,7 @@
     }
 }
 .the-best-product-item {
-    margin: 0 35px;
+    margin: 0 18px;
     width: 250px;
     min-width: 250px;
     @include break(767) {
@@ -117,7 +117,7 @@
     display: flex;
     justify-content: center;
     list-style-type: none;
-     margin-top: 21px;
+     margin-top: 30px;
 }
 .slick-dots li {
     width: 20px;
