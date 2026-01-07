@@ -12,7 +12,11 @@
     margin-bottom: 56px;
     text-align: center;
     color: $textColor;
+    letter-spacing: -0.1px;
 }
 .reels-list-inner {
     margin-bottom: 55px;
+}
+.reels-list .btn {
+    width: 163px;
 }
