@@ -59,35 +59,35 @@
         "feature_item_LXpntG": {
           "type": "feature_item",
           "settings": {
-            "image": "shopify://shop_images/features-1.png",
+            "image": "shopify://shop_images/feature-i-1.png",
             "text": "Authentic regionalrecipes"
           }
         },
         "feature_item_UTTfjU": {
           "type": "feature_item",
           "settings": {
-            "image": "shopify://shop_images/features-2.png",
-            "text": "100% realingrediants"
+            "image": "shopify://shop_images/feature-i-2.png",
+            "text": "100% real ingrediants"
           }
         },
         "feature_item_k4XECi": {
           "type": "feature_item",
           "settings": {
-            "image": "shopify://shop_images/features-3.png",
-            "text": "FreezeDried"
+            "image": "shopify://shop_images/feature-i-3.png",
+            "text": "Freeze Dried"
           }
         },
         "feature_item_ykWDKW": {
           "type": "feature_item",
           "settings": {
-            "image": "shopify://shop_images/features-4.png",
+            "image": "shopify://shop_images/feature-i-4_ccf12016-1fb5-4a93-9a88-d967b74b56d1.png",
             "text": "No added preservatives"
           }
         },
         "feature_item_N8PY9n": {
           "type": "feature_item",
           "settings": {
-            "image": "shopify://shop_images/features-5.png",
+            "image": "shopify://shop_images/feature-i-5.png",
             "text": "Ready to eat in 5 mins"
           }
         }
@@ -103,7 +103,7 @@
       "settings": {
         "image_product": "shopify://shop_images/prod-photo.png",
         "title": "Authentic Taste of India, Preserved through Pure Science",
-        "text": "<p>Our meals are first crafted in India using time-honored regional recipes.<br/><br/>We then use the advanced freeze-drying process, which only removes the water content, keeping the original flavor, aroma, and nutrition perfectly intact.<br/><br/></p>",
+        "text": "<p>Our meals are first crafted in India using time-honored regional recipes.</p><p>We then use the advanced freeze-drying process, which only removes the water content, keeping the original flavor, aroma, and nutrition perfectly intact.<br/><br/></p>",
         "button_link": "#"
       }
     },
