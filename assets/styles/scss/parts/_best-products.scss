@@ -2,7 +2,7 @@
 @use 'settings/media' as *; 
 
 .the-best-product {
-    padding-top: 67px;
+    padding-top: 32px;
     padding-bottom: 35px;
     position: relative;
     @include break(575) {
@@ -40,8 +40,9 @@
     line-height: 50px;
     font-weight: 400;
     color: $textColor;
-    margin-bottom: 50px;
+    margin-bottom: 56px;
     text-align: center;
+    letter-spacing: 0.5px;
     @include break(575) {
         font-size: 20px;
         line-height: 1;
@@ -58,8 +59,8 @@
     text-decoration: none;
 }
 .the-best-product-card img {
-    width: 240px;
-    min-width: 240px;
+    width: 250px;
+    min-width: 250px;
     @include break(1199) {
         width: 185px;
         min-width: 185px; 
@@ -114,6 +115,7 @@
     display: flex;
     justify-content: center;
     list-style-type: none;
+     margin-top: 21px;
 }
 .slick-dots li {
     width: 20px;
@@ -123,7 +125,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 30px;
     @include break(575) {
         margin-top: 0;
     }
