@@ -16,7 +16,7 @@ $(document).ready(function() {
     });
     
     $('.the-best-product-slider').slick({
-        slidesToShow: 4,
+        slidesToShow: 3,
         slidesToScroll: 1,
         arrows: false,
         dots: true,

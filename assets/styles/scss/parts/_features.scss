@@ -97,7 +97,6 @@
     background-size: cover;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
     gap: 15px;
     padding: 13px 10px;
     width: 305px;
@@ -119,7 +118,6 @@
     font-size: 18px;
     color: $featuresColor;
     line-height: 19px;
-    text-align: right;
     @include break(575) {
         font-size: 12px;
         line-height: 13px;

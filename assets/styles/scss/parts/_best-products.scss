@@ -93,6 +93,8 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
+    max-width: 860px;
+    margin: 0 auto;
     @include break(575) {
         margin-bottom: 20px;
     }
