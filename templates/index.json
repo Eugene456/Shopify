@@ -131,6 +131,16 @@
         "reeview_widget": "<div class=\"reeview-app-widget\" id=\"reeview-app-widget_6953d5942ea2270046b4be83\"></div>",
         "button_link": "#"
       }
+    },
+    "cta_home_QgEayb": {
+      "type": "cta-home",
+      "name": "Call to action (Bottom)",
+      "settings": {
+        "title": "Join the Tiffins Family",
+        "text": "<p>Join our Rewards Program and become a part of our family, Earn 1 point for every $1 spent. Get $10 off every 100 points.</p>",
+        "button_link": "#",
+        "button_link2": "#"
+      }
     }
   },
   "order": [
@@ -140,6 +150,7 @@
     "bringing_the_best_Mw3jDM",
     "features_NiyDJX",
     "the_best_prod_ykKeCK",
-    "videos_reels_H48DJn"
+    "videos_reels_H48DJn",
+    "cta_home_QgEayb"
   ]
 }
