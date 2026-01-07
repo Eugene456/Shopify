@@ -10,7 +10,7 @@
     height: calc(100dvh - 80px);
     display: flex;
     align-items: flex-end;
-    padding: 100px 0;
+    padding: 100px 0 67px;
     @include break(575) {
         align-items: center;
         justify-content: center;

@@ -2,12 +2,15 @@
 @use 'settings/media' as *; 
 
 .home-the-best-section {
-    padding-top: 85px;
+    padding-top: 75px;
 }
 .home-the-best-inner {
     display: flex;
     justify-content: space-between; 
-    margin-bottom: -126px;
+    margin-bottom: -140px;
+}
+.home-the-best-content {
+    padding-left: 10px;
 }
 .home-the-best-title {
     font-size: 36px;
@@ -24,7 +27,8 @@
 .home-the-best-text p {
     font-family: 'Lato';
     font-size: 18px;
-     color: $btnDarkColor;
+    color: $btnDarkColor;
+    letter-spacing: -0.1px;
 }
 
 .home-the-best-btn-wrap {
@@ -37,24 +41,28 @@
         height: 1px;
         background-color: $btnHover;
         position: absolute;
-        top: 23px;
-        left: 145px; 
+        top: 24px;
+        left: 166px; 
     }
+}
+.home-the-best-btn-wrap a {
+    width: 163px;
 }
 .home-the-best-prod-list {
     display: flex;
+    padding-top: 14px;
 }
 .home-the-best-prod-list .the-best-product-card img {
-    width: 261px;
+    width: 270px;
 }
 .home-the-best-prod-list .the-best-product-card {
     position: relative;
     transition: all .3s ease-in-out;
     &:not(:last-child) {
-        margin-right: -105px;   
+        margin-right: -118px;   
     }
     &:hover {
-       transform: translateY(-50px);
+       transform: translateY(-31px);
        transition: all .3s ease-in-out; 
     }
     
@@ -74,34 +82,41 @@
 .rooted-inner {
     background-image: url(rooted-bg.jpg);
     background-size: cover;
-    padding: 224px 70px 90px;
+    padding: 218px 70px 90px;
 }
 .rooted-title {
     font-size: 48px;
     line-height: 50px;
     font-weight: 400;
     color: $btnHover;
-    margin-bottom: 29px;
+    margin-bottom: 38px;
     text-align: right;
+    letter-spacing: 0.19px;
 }
 .rooted-text {
-    max-width: 638px;
-    margin-bottom: 25px;
+    max-width: 648px;
+    margin-bottom: 8px;
     margin-left: auto;
 }
 .rooted-text p {
   font-family: 'Lato';
   font-size: 18px;
   color: $btnHover;
+  letter-spacing: 0.1px;
   text-align: right;
  
   &:not(:last-child) {
     margin-bottom: 15px;
   }  
 }
+.rooted-text em {
+    letter-spacing: -0.4px;
+}
+
 .rooted-btn-wrap {
     display: flex;
     justify-content: flex-end;
+    padding-right: 7px;
 }
 .rooted-btn-wrap a {
     width: 163px;
