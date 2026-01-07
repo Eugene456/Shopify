@@ -1,0 +1,96 @@
+<section class="home-the-best-section">
+    <div class="container">
+        <div class="home-the-best-inner">
+            <div class="home-the-best-content">
+                {% if section.settings.title %}
+                    <h2 class="home-the-best-title">{{ section.settings.title }}</h2>
+                {% endif %}
+                {% if section.settings.content %}
+                    <div class="home-the-best-text">{{ section.settings.content }}</div>
+                {% endif %}
+                {% if section.settings.button_link %}
+                    <div class="home-the-best-btn-wrap">
+                        <a href="{{ section.settings.button_link }}" class="btn btn-dark-fill">Know more</a>
+                    </div>
+                {% endif %}
+            </div>
+            {% if section.settings.products != blank %}
+                <div class="home-the-best-prod-list">
+                    {% for product in section.settings.products %}
+                        <a href="{{ product.url }}" class="the-best-product-card">
+                            {% if product.featured_image %}
+                                <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title | escape }}" class="the-best-product-card-img">
+                            {% endif %}
+                        </a>
+                    {% endfor %}    
+                </div>
+            {% endif %}
+        </div>
+        <div class="rooted-inner">
+            {% if section.settings.title_2 %}
+                <h2 class="rooted-title">{{ section.settings.title_2 }}</h2>
+            {% endif %}
+            {% if section.settings.content_2 %}
+                <div class="rooted-text">{{ section.settings.content_2 }}</div>
+            {% endif %}
+            {% if section.settings.button_link_2 %}
+                <div class="rooted-btn-wrap">
+                    <a href="{{ section.settings.button_link_2 }}" class="btn btn-dark">Our roots</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+
+{% schema %}
+{
+  "name": "Home best products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title (The best)",
+      "default": "Section title"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Text (The best)",
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Know more"
+    },
+    {
+      "type": "text",
+      "id": "title_2",
+      "label": "Title (Rooted in India)",
+      "default": "Section title"
+    },
+    {
+      "type": "richtext",
+      "id": "content_2",
+      "label": "Text (Rooted in India)",
+    },
+    {
+      "type": "url",
+      "id": "button_link_2",
+      "label": "Our roots"
+    },
+    {
+      "type": "product_list",
+      "id": "products",
+      "label": "Select products",
+      "limit": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero",
+      "category": "Homepage"
+    }
+  ] 
+}
+{% endschema %}
