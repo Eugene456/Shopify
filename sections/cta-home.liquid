@@ -1,12 +1,12 @@
 <section class="cta-home">
     <div class="container">
       {% if section.settings.title %}
-        <h2 class="cta-title">{{ section.settings.title }}</h2>
+        <h2 class="cta-home-title">{{ section.settings.title }}</h2>
       {% endif %}
       {% if section.settings.text %}
-        <div class="cta-text">{{ section.settings.text }}</div>
+        <div class="cta-home-text">{{ section.settings.text }}</div>
       {% endif %}
-      <div class="cta-buttons">
+      <div class="cta-home-buttons">
           <div class="btn-wrap">
             <a href="{{ section.settings.button_link }}" class="btn">Join</a>
         </div>
