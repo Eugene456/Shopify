@@ -8,9 +8,36 @@
   <div class="container">
     <div class="single-product-inner">
       <div class="product-images-container">
-        
+         {% assign first_media = product.media.first %}
+         
+        <div class="product-media-thumbs">
+          {% for media in product.media %}
+            {% unless forloop.first %}
+              <div class="product-media-thumb">
+                {% case media.media_type %}
+                  
+                  {% when 'image' %}
+                    {% render 'image',
+                      image: media,
+                      class: 'product-thumb-image'
+                    %}
+
+                  {% when 'video' %}
+                    {{ media | video_tag: controls: true, muted: true, class: 'product-thumb-video' }}
+
+                  {% when 'external_video' %}
+                    {{ media | external_video_tag: class: 'product-thumb-video' }}
+
+                  {% when 'model' %}
+                    {{ media | model_viewer_tag: class: 'product-thumb-model' }}
+
+                {% endcase %}
+              </div>
+            {% endunless %}
+          {% endfor %}
+        </div>
         <div class="product-media-main">
-          {% assign first_media = product.media.first %}
+         
           
           {% if first_media.media_type == 'image' %}
             {% render 'image',
