@@ -12,7 +12,6 @@
          
         <div class="product-media-thumbs">
           {% for media in product.media %}
-            {% unless forloop.first %}
               <div class="product-media-thumb">
                 {% case media.media_type %}
                   
@@ -33,7 +32,7 @@
 
                 {% endcase %}
               </div>
-            {% endunless %}
+            
           {% endfor %}
         </div>
         <div class="product-media-main">
