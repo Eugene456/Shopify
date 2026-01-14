@@ -12,7 +12,7 @@
          
         <div class="product-media-thumbs">
           {% for media in product.media %}
-              <div class="product-media-thumb">
+             
                 {% case media.media_type %}
                   
                   {% when 'image' %}
@@ -22,16 +22,19 @@
                     %}
 
                   {% when 'video' %}
-                    {{ media | video_tag: controls: true, muted: true, class: 'product-thumb-video' }}
-
+                    <div class="product-thumb-image">
+                      {{ media | video_tag: controls: true, muted: true, class: 'product-thumb-video' }}
+                    </div>
                   {% when 'external_video' %}
-                    {{ media | external_video_tag: class: 'product-thumb-video' }}
-
+                    <div class="product-thumb-image">
+                      {{ media | external_video_tag: class: 'product-thumb-video' }}
+                    </div>
                   {% when 'model' %}
-                    {{ media | model_viewer_tag: class: 'product-thumb-model' }}
-
+                    <div class="product-thumb-image">
+                      {{ media | model_viewer_tag: class: 'product-thumb-model' }}
+                    </div>  
                 {% endcase %}
-              </div>
+              
             
           {% endfor %}
         </div>
