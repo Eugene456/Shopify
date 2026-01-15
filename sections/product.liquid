@@ -55,39 +55,157 @@
       </div>
       <div class="product-content">
           <div class="product-info">
-            <h1>{{ product.title }}</h1>
-            <p>{{ product.price | money }}</p>
-            <p>{{ product.description }}</p>
+            <div class="product-breadcrumbs">
+              <a href="/">Home</a>
+              <span class="separation">/</span>
+              <a href="/collections/all/">Shop</a>
+              <span class="separation">/</span>
+              <span class="single-prod-collection"></span>
+              {% if product.collections.size > 0 %}
+                {% assign first_collection = product.collections.first %}
+                <a href="{{ first_collection.url }}" class="product-collection-link">
+                  {{ first_collection.title }}
+                </a>
+              {% endif %}
+            </div>
+            <h1 class="single-product-title">{{ product.title }}</h1>
+            <p id="single-product-price" class="single-product-price">{{ product.selected_or_first_available_variant.price | money }}</p>
+            
+              <div class="product-form">
+              {% form 'product', product %}
+                {% assign current_variant = product.selected_or_first_available_variant %}
+                <div class="quantity-wrap">
+                  <div class="quant-minus">
+                    -
+                  </div>
+                  <input class="quantity-field" type="text" name="quantity" min="1" value="1">
+                  <div class="quant-plus">
+                    +
+                  </div>
+                </div>
+                <select name="id">
+                  {% for variant in product.variants %}
+                    <option
+                      value="{{ variant.id }}"
+                      {% if variant == current_variant %}
+                        selected="selected"
+                      {% endif %}
+                    >
+                      {{ variant.title }}
+                    </option>
+                  {% endfor %}
+                </select>
+                <input type="submit" value="Add to cart">
+              {% endform %}
+            </div>
+            
+            <div class="single-prod-main-description">{{ product.description }}</div>
           </div>
 
-          <div class="product-form">
-            {% form 'product', product %}
-              {% assign current_variant = product.selected_or_first_available_variant %}
-
-              <select name="id">
-                {% for variant in product.variants %}
-                  <option
-                    value="{{ variant.id }}"
-                    {% if variant == current_variant %}
-                      selected="selected"
-                    {% endif %}
-                  >
-                    {{ variant.title }} - {{ variant.price | money }}
-                  </option>
-                {% endfor %}
-              </select>
-
-              <input type="text" name="quantity" min="1" value="1">
-
-              <input type="submit" value="Add to cart">
-              {{ form | payment_button }}
-            {% endform %}
-          </div>
+          
       </div>
     </div>
   </div>
 </div>
 
+<script>
+  let minus = document.querySelector('.quant-minus'),
+  plus = document.querySelector('.quant-plus'),
+  quantity = document.querySelector('.quantity-field');
+
+  minus.addEventListener('click', function(){
+    console.log('-');
+    let value = parseInt(quantity.value);
+    if(value >= 1) {
+      quantity.value = --value;
+    }
+  });
+  plus.addEventListener('click', function(){
+    console.log('+');
+    let value = parseInt(quantity.value);
+      quantity.value = ++value;
+  });
+
+  window.Shopify = window.Shopify || {};
+  Shopify.money_format = {{ shop.money_format | json }};
+
+  Shopify.formatMoney = function(cents, format) {
+    if (typeof cents === 'string') {
+      cents = cents.replace('.', '');
+    }
+
+    const placeholderRegex = /\{\{\s*(\w+)\s*\}\}/;
+    const formatString = format || Shopify.money_format;
+
+    function formatWithDelimiters(
+      number,
+      precision = 2,
+      thousands = ',',
+      decimal = '.'
+    ) {
+      if (isNaN(number) || number == null) return 0;
+
+      number = (number / 100).toFixed(precision);
+
+      const parts = number.split('.');
+      const dollars = parts[0].replace(
+        /(\d)(?=(\d{3})+(?!\d))/g,
+        '$1' + thousands
+      );
+      const cents = parts[1] ? decimal + parts[1] : '';
+
+      return dollars + cents;
+    }
+
+    let value = '';
+
+    switch (formatString.match(placeholderRegex)[1]) {
+      case 'amount':
+        value = formatWithDelimiters(cents, 2);
+        break;
+      case 'amount_no_decimals':
+        value = formatWithDelimiters(cents, 0);
+        break;
+      case 'amount_with_comma_separator':
+        value = formatWithDelimiters(cents, 2, '.', ',');
+        break;
+      case 'amount_no_decimals_with_comma_separator':
+        value = formatWithDelimiters(cents, 0, '.', ',');
+        break;
+    }
+
+    return formatString.replace(placeholderRegex, value);
+  };
+</script>
+<script type="application/json" id="product-variants">
+  {{ product.variants | json }}
+</script>
+<script>
+ document.addEventListener('DOMContentLoaded', () => {
+  console.log(Shopify);
+    const variants = JSON.parse(
+      document.getElementById('product-variants').textContent
+    );
+
+    const select = document.querySelector('select[name="id"]');
+    const priceEl = document.getElementById('single-product-price');
+
+    function updatePrice(variantId) {
+      const variant = variants.find(v => v.id == variantId);
+      if (!variant) return;
+
+      priceEl.innerHTML = Shopify.formatMoney(variant.price);
+    }
+
+    // Початкова ціна
+    updatePrice(select.value);
+
+    // Зміна варіанту
+    select.addEventListener('change', e => {
+      updatePrice(e.target.value);
+    });
+  });
+</script>
 
 
 {% schema %}
