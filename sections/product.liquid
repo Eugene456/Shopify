@@ -10,32 +10,32 @@
       <div class="product-images-container">
          {% assign first_media = product.media.first %}
          
-        <div class="product-media-thumbs">
+       <div class="product-media-thumbs">
           {% for media in product.media %}
-             
-                {% case media.media_type %}
-                  
-                  {% when 'image' %}
-                    {% render 'image',
-                      image: media,
-                      class: 'product-thumb-image'
-                    %}
 
-                  {% when 'video' %}
-                    <div class="product-thumb-image">
-                      {{ media | video_tag: controls: true, muted: true, class: 'product-thumb-video' }}
-                    </div>
-                  {% when 'external_video' %}
-                    <div class="product-thumb-image">
-                      {{ media | external_video_tag: class: 'product-thumb-video' }}
-                    </div>
-                  {% when 'model' %}
-                    <div class="product-thumb-image">
-                      {{ media | model_viewer_tag: class: 'product-thumb-model' }}
-                    </div>  
-                {% endcase %}
-              
-            
+            {% assign active_class = '' %}
+            {% if forloop.first %}
+              {% assign active_class = ' active' %}
+            {% endif %}
+
+            <div class="product-thumb-image{{ active_class }}">
+
+              {% case media.media_type %}
+                {% when 'image' %}
+                  {% render 'image', image: media %}
+
+                {% when 'video' %}
+                  {{ media | video_tag: controls: true, muted: true }}
+
+                {% when 'external_video' %}
+                  {{ media | external_video_tag }}
+
+                {% when 'model' %}
+                  {{ media | model_viewer_tag }}
+              {% endcase %}
+
+            </div>
+
           {% endfor %}
         </div>
         <div class="product-media-main">
@@ -109,6 +109,27 @@
 </div>
 
 <script>
+  document.addEventListener('DOMContentLoaded', () => {
+
+  const thumbs = document.querySelectorAll('.product-media-thumbs .product-thumb-image');
+  const mainImage = document.querySelector('.product-media-main .product-main-image');
+
+  if (!thumbs.length || !mainImage) return;
+
+  thumbs.forEach(thumb => {
+    thumb.addEventListener('click', () => {
+
+      
+      thumbs.forEach(t => t.classList.remove('active'));
+      thumb.classList.add('active');
+
+      const clonedContent = thumb.innerHTML;
+      mainImage.innerHTML = clonedContent;
+    });
+  });
+});
+
+
   let minus = document.querySelector('.quant-minus'),
   plus = document.querySelector('.quant-plus'),
   quantity = document.querySelector('.quantity-field');
@@ -205,6 +226,10 @@
       updatePrice(e.target.value);
     });
   });
+
+
+  
+
 </script>
 
 
