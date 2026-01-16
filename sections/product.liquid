@@ -121,13 +121,18 @@
         <h2 class="reviews-title">Reviews</h2>
         <div class="reviews-inner">
           {% for review in product.metafields.custom.reviews.value %}
+            <pre>{{ review | json }}</pre>
             <div class="reviews-card">
               <div class="reviews-header">
                 <div class="reviews-info">
                   <p class="reviews-name">{{ review.name }}</p>
                   <p class="reviews-city">{{ review.city }}</p>
                 </div>
-                <div class="reviews-rate"></div>
+                <div class="reviews-rate">
+                  {% for i in (1..5) %}
+                    <span class="{% if i <= review.rate %}active{% endif %}">★</span>
+                  {% endfor %}
+                </div>
               </div>
               <div class="reviews-text">
                 {{ review.review_text }}
