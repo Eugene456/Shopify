@@ -39,7 +39,12 @@
           {% endfor %}
         </div>
         <div class="product-media-main">
-         
+          {% if product.metafields.custom.single_product_bg %}
+            <img 
+              src="{{ product.metafields.custom.single_product_bg | image_url: width: 800 }}" 
+              alt="{{ product.title }}" class="prod-main-page-bg"
+            >
+          {% endif %}
           
           {% if first_media.media_type == 'image' %}
             {% render 'image',
@@ -70,7 +75,11 @@
             </div>
             <h1 class="single-product-title">{{ product.title }}</h1>
             <p id="single-product-price" class="single-product-price">{{ product.selected_or_first_available_variant.price | money }}</p>
-            
+              {% if product.metafields.custom.short_description %}
+                <p class="product-short-desc">
+                  {{ product.metafields.custom.short_description }}
+                </p>
+              {% endif %}
               <div class="product-form">
               {% form 'product', product %}
                 {% assign current_variant = product.selected_or_first_available_variant %}
@@ -106,7 +115,120 @@
       </div>
     </div>
   </div>
+  {% if product.metafields.custom.reviews %}
+    <section class="single-prod-reviews">
+      <div class="container">
+        <h2 class="reviews-title">Reviews</h2>
+        <div class="reviews-inner">
+          {% for review in product.metafields.custom.reviews.value %}
+            <div class="reviews-card">
+              <div class="reviews-header">
+                <div class="reviews-info">
+                  <p class="reviews-name">{{ review.name }}</p>
+                  <p class="reviews-city">{{ review.city }}</p>
+                </div>
+                <div class="reviews-rate"></div>
+              </div>
+              <div class="reviews-text">
+                {{ review.review_text }}
+              </div> 
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+  {% endif %}
+  {% if product.metafields.custom.related_products %}
+  <section class="related-products">
+    <div class="container">
+        <h2 class="related-products-title">Best served with</h2>
+        <div class="related-products-inner">
+            {% for related in product.metafields.custom.related_products.value limit: 5 %}
+              {% assign variant = related.selected_or_first_available_variant %}
+              <div class="product-main-card" data-variant-id="{{ variant.id }}">
+                <a href="{{ related.url }}" class="best-served-image">
+                  {% if related.featured_image %}
+                    <img
+                      src="{{ related.featured_image | image_url: width: 600 }}"
+                      alt="{{ related.title }}"
+                      loading="lazy"
+                    >
+                  {% endif %}
+                </a>
+                <div class="product-card-inner">
+                  <div class="best-served-info">
+                    <h3 class="best-served-name">{{ related.title }}</h3>
+                    <span class="best-served-price">
+                      {{ variant.price | money }}
+                    </span>
+                  </div>
+                  {% if variant.available %}
+                    <button
+                      class="best-served-add"
+                      type="button"
+                      aria-label="Add {{ related.title }} to cart"
+                    >
+                      +
+                    </button>
+                  {% else %}
+                    <span class="best-served-soldout">Sold out</span>
+                  {% endif %}
+                </div>      
+              </div>
+            {% endfor %}
+        </div>
+    </div>
+  </section>
 </div>
+{% endif %}
+
+
+
+
+
+<section class="best-served">
+  <h2 class="best-served-title">Best served with</h2>
+
+  <div class="best-served-grid">
+    {% for related in product.metafields.custom.related_products.value limit: 5 %}
+      {% assign variant = related.selected_or_first_available_variant %}
+
+      <div class="best-served-card" data-variant-id="{{ variant.id }}">
+        
+        <a href="{{ related.url }}" class="best-served-image">
+          {% if related.featured_image %}
+            <img
+              src="{{ related.featured_image | image_url: width: 600 }}"
+              alt="{{ related.title }}"
+              loading="lazy"
+            >
+          {% endif %}
+        </a>
+
+        <div class="best-served-info">
+          <h3 class="best-served-name">{{ related.title }}</h3>
+          <span class="best-served-price">
+            {{ variant.price | money }}
+          </span>
+        </div>
+
+        {% if variant.available %}
+          <button
+            class="best-served-add"
+            type="button"
+            aria-label="Add {{ related.title }} to cart"
+          >
+            +
+          </button>
+        {% else %}
+          <span class="best-served-soldout">Sold out</span>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
