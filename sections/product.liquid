@@ -184,52 +184,6 @@
 
 
 
-
-
-<section class="best-served">
-  <h2 class="best-served-title">Best served with</h2>
-
-  <div class="best-served-grid">
-    {% for related in product.metafields.custom.related_products.value limit: 5 %}
-      {% assign variant = related.selected_or_first_available_variant %}
-
-      <div class="best-served-card" data-variant-id="{{ variant.id }}">
-        
-        <a href="{{ related.url }}" class="best-served-image">
-          {% if related.featured_image %}
-            <img
-              src="{{ related.featured_image | image_url: width: 600 }}"
-              alt="{{ related.title }}"
-              loading="lazy"
-            >
-          {% endif %}
-        </a>
-
-        <div class="best-served-info">
-          <h3 class="best-served-name">{{ related.title }}</h3>
-          <span class="best-served-price">
-            {{ variant.price | money }}
-          </span>
-        </div>
-
-        {% if variant.available %}
-          <button
-            class="best-served-add"
-            type="button"
-            aria-label="Add {{ related.title }} to cart"
-          >
-            +
-          </button>
-        {% else %}
-          <span class="best-served-soldout">Sold out</span>
-        {% endif %}
-      </div>
-    {% endfor %}
-  </div>
-</section>
-
-
-
 <script>
   document.addEventListener('DOMContentLoaded', () => {
 
