@@ -8,45 +8,310 @@
   <div class="container">
     <div class="single-product-inner">
       <div class="product-images-container">
-        {% for image in product.images %}
-          {% render 'image', class: 'product-image', image: image %}
-        {% endfor %}
+         {% assign first_media = product.media.first %}
+         
+       <div class="product-media-thumbs">
+          {% for media in product.media %}
+
+            {% assign active_class = '' %}
+            {% if forloop.first %}
+              {% assign active_class = ' active' %}
+            {% endif %}
+
+            <div class="product-thumb-image{{ active_class }}">
+
+              {% case media.media_type %}
+                {% when 'image' %}
+                  {% render 'image', image: media %}
+
+                {% when 'video' %}
+                  {{ media | video_tag: controls: true, muted: true }}
+
+                {% when 'external_video' %}
+                  {{ media | external_video_tag }}
+
+                {% when 'model' %}
+                  {{ media | model_viewer_tag }}
+              {% endcase %}
+
+            </div>
+
+          {% endfor %}
+        </div>
+        <div class="product-media-main">
+          {% if product.metafields.custom.single_product_bg %}
+            <img 
+              src="{{ product.metafields.custom.single_product_bg | image_url: width: 800 }}" 
+              alt="{{ product.title }}" class="prod-main-page-bg"
+            >
+          {% endif %}
+          
+          {% if first_media.media_type == 'image' %}
+            {% render 'image',
+              image: first_media,
+              class: 'product-main-image'
+            %}
+          {% elsif first_media.media_type == 'video' %}
+            {{ first_media | video_tag: controls: true, class: 'product-main-video' }}
+          {% elsif first_media.media_type == 'external_video' %}
+            {{ first_media | external_video_tag: class: 'product-main-video' }}
+          {% endif %}
+        </div>
       </div>
       <div class="product-content">
           <div class="product-info">
-            <h1>{{ product.title }}</h1>
-            <p>{{ product.price | money }}</p>
-            <p>{{ product.description }}</p>
+            <div class="product-breadcrumbs">
+              <a href="/">Home</a>
+              <span class="separation">/</span>
+              <a href="/collections/all/">Shop</a>
+              <span class="separation">/</span>
+              <span class="single-prod-collection"></span>
+              {% if product.collections.size > 0 %}
+                {% assign first_collection = product.collections.first %}
+                <a href="{{ first_collection.url }}" class="product-collection-link">
+                  {{ first_collection.title }}
+                </a>
+              {% endif %}
+            </div>
+            <h1 class="single-product-title">{{ product.title }}</h1>
+            <p id="single-product-price" class="single-product-price">{{ product.selected_or_first_available_variant.price | money }}</p>
+              {% if product.metafields.custom.short_description %}
+                <p class="product-short-desc">
+                  {{ product.metafields.custom.short_description }}
+                </p>
+              {% endif %}
+              <div class="product-form">
+              {% form 'product', product %}
+                {% assign current_variant = product.selected_or_first_available_variant %}
+                <div class="quantity-wrap">
+                  <div class="quant-minus">
+                    -
+                  </div>
+                  <input class="quantity-field" type="text" name="quantity" min="1" value="1">
+                  <div class="quant-plus">
+                    +
+                  </div>
+                </div>
+                <select name="id">
+                  {% for variant in product.variants %}
+                    <option
+                      value="{{ variant.id }}"
+                      {% if variant == current_variant %}
+                        selected="selected"
+                      {% endif %}
+                    >
+                      {{ variant.title }}
+                    </option>
+                  {% endfor %}
+                </select>
+                <input class="single-add-to-cart" type="submit" value="Add to cart">
+              {% endform %}
+            </div>
+            
+            <div class="single-prod-main-description">{{ product.description }}</div>
           </div>
 
-          <div class="product-form">
-            {% form 'product', product %}
-              {% assign current_variant = product.selected_or_first_available_variant %}
-
-              <select name="id">
-                {% for variant in product.variants %}
-                  <option
-                    value="{{ variant.id }}"
-                    {% if variant == current_variant %}
-                      selected="selected"
-                    {% endif %}
-                  >
-                    {{ variant.title }} - {{ variant.price | money }}
-                  </option>
-                {% endfor %}
-              </select>
-
-              <input type="text" name="quantity" min="1" value="1">
-
-              <input type="submit" value="Add to cart">
-              {{ form | payment_button }}
-            {% endform %}
-          </div>
+          
       </div>
     </div>
   </div>
+  {% if product.metafields.custom.reviews %}
+    <section class="single-prod-reviews">
+      <div class="container">
+        <h2 class="reviews-title">Reviews</h2>
+        <div class="reviews-inner">
+          {% for review in product.metafields.custom.reviews.value %}
+            <div class="reviews-card">
+              <div class="reviews-header">
+                <div class="reviews-info">
+                  <p class="reviews-name">{{ review.name }}</p>
+                  <p class="reviews-city">{{ review.city }}</p>
+                </div>
+                {% assign rating = review.rate.value | plus: 0 %}
+                <div class="reviews-rate">
+                  {% for i in (1..5) %}
+                    <span class="star{% if i <= rating %} active{% endif %}">*</span>
+                  {% endfor %}
+                </div>
+              </div>
+              <div class="reviews-text">
+                {{ review.reviews_text }}
+              </div> 
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+  {% endif %}
+  {% if product.metafields.custom.related_products %}
+  <section class="related-products">
+    <div class="container">
+        <h2 class="related-products-title">Best served with</h2>
+        <div class="related-products-inner">
+            {% for related in product.metafields.custom.related_products.value limit: 5 %}
+              {% assign variant = related.selected_or_first_available_variant %}
+              <div class="product-main-card" data-variant-id="{{ variant.id }}">
+                <a href="{{ related.url }}" class="best-served-image">
+                  {% if related.featured_image %}
+                    <img
+                      src="{{ related.featured_image | image_url: width: 600 }}"
+                      alt="{{ related.title }}"
+                      loading="lazy"
+                    >
+                  {% endif %}
+                </a>
+                <div class="product-card-inner">
+                  <div class="best-served-info">
+                    <h3 class="best-served-name">{{ related.title }}</h3>
+                    <span class="best-served-price">
+                      {{ variant.price | money }}
+                    </span>
+                  </div>
+                  {% if variant.available %}
+                    <button
+                      class="best-served-add"
+                      type="button"
+                      aria-label="Add {{ related.title }} to cart"
+                    >
+                      +
+                    </button>
+                  {% else %}
+                    <span class="best-served-soldout">Sold out</span>
+                  {% endif %}
+                </div>      
+              </div>
+            {% endfor %}
+        </div>
+    </div>
+  </section>
 </div>
+{% endif %}
 
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+
+  const thumbs = document.querySelectorAll('.product-media-thumbs .product-thumb-image');
+  const mainImage = document.querySelector('.product-media-main .product-main-image');
+
+  if (!thumbs.length || !mainImage) return;
+
+  thumbs.forEach(thumb => {
+    thumb.addEventListener('click', () => {
+
+      
+      thumbs.forEach(t => t.classList.remove('active'));
+      thumb.classList.add('active');
+
+      const clonedContent = thumb.innerHTML;
+      mainImage.innerHTML = clonedContent;
+    });
+  });
+});
+
+
+  let minus = document.querySelector('.quant-minus'),
+  plus = document.querySelector('.quant-plus'),
+  quantity = document.querySelector('.quantity-field');
+
+  minus.addEventListener('click', function(){
+    console.log('-');
+    let value = parseInt(quantity.value);
+    if(value >= 1) {
+      quantity.value = --value;
+    }
+  });
+  plus.addEventListener('click', function(){
+    console.log('+');
+    let value = parseInt(quantity.value);
+      quantity.value = ++value;
+  });
+
+  window.Shopify = window.Shopify || {};
+  Shopify.money_format = {{ shop.money_format | json }};
+
+  Shopify.formatMoney = function(cents, format) {
+    if (typeof cents === 'string') {
+      cents = cents.replace('.', '');
+    }
+
+    const placeholderRegex = /\{\{\s*(\w+)\s*\}\}/;
+    const formatString = format || Shopify.money_format;
+
+    function formatWithDelimiters(
+      number,
+      precision = 2,
+      thousands = ',',
+      decimal = '.'
+    ) {
+      if (isNaN(number) || number == null) return 0;
+
+      number = (number / 100).toFixed(precision);
+
+      const parts = number.split('.');
+      const dollars = parts[0].replace(
+        /(\d)(?=(\d{3})+(?!\d))/g,
+        '$1' + thousands
+      );
+      const cents = parts[1] ? decimal + parts[1] : '';
+
+      return dollars + cents;
+    }
+
+    let value = '';
+
+    switch (formatString.match(placeholderRegex)[1]) {
+      case 'amount':
+        value = formatWithDelimiters(cents, 2);
+        break;
+      case 'amount_no_decimals':
+        value = formatWithDelimiters(cents, 0);
+        break;
+      case 'amount_with_comma_separator':
+        value = formatWithDelimiters(cents, 2, '.', ',');
+        break;
+      case 'amount_no_decimals_with_comma_separator':
+        value = formatWithDelimiters(cents, 0, '.', ',');
+        break;
+    }
+
+    return formatString.replace(placeholderRegex, value);
+  };
+</script>
+<script type="application/json" id="product-variants">
+  {{ product.variants | json }}
+</script>
+<script>
+ document.addEventListener('DOMContentLoaded', () => {
+  console.log(Shopify);
+    const variants = JSON.parse(
+      document.getElementById('product-variants').textContent
+    );
+
+    const select = document.querySelector('select[name="id"]');
+    const priceEl = document.getElementById('single-product-price');
+
+    function updatePrice(variantId) {
+      const variant = variants.find(v => v.id == variantId);
+      if (!variant) return;
+
+      priceEl.innerHTML = Shopify.formatMoney(variant.price);
+    }
+
+    // Початкова ціна
+    updatePrice(select.value);
+
+    // Зміна варіанту
+    select.addEventListener('change', e => {
+      updatePrice(e.target.value);
+    });
+  });
+
+
+  
+
+</script>
 
 
 {% schema %}
