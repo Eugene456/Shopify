@@ -33,7 +33,7 @@
         <div class="cart-form-inner">
           <div class="cart-form-prod-list">
             {% for item in cart.items %}
-              <div class="cart-product-row">
+              <div class="cart-product-row" data-key="{{ item.key }}">
                 <div class="cart-product-img-wrap">
                     {% render 'image', image: item.image, url: item.url %}
                 </div>
@@ -44,7 +44,7 @@
                   </div>
                   <div class="cart-product-info-row">
                     <div class="cart-product-info-row-wrap">
-                      <div class="quantity-wrap" data-line="{{ forloop.index }}">
+                      <div class="quantity-wrap" data-line="{{ forloop.index }}"   data-key="{{ item.key }}">
                           <div class="quant-minus">
                             -
                           </div>
@@ -58,6 +58,7 @@
                               <select
                                 class="cart-variant-select"
                                 data-line="{{ forloop.index }}"
+                                data-key="{{ item.key }}"
                               >
                                 {% for variant in item.product.variants %}
                                   {% if variant.available %}
@@ -93,7 +94,7 @@
               <div class="cart-common-info-main">
                   <div class="cart-common-info-row">
                       <p>Sub Total</p>
-                      <p class="sub-total-value">{{ cart.total_price | money }}</p>
+                      <p class="sub-total-value">{{ cart.items_subtotal_price | money }}</p>
                   </div>
                   <div class="cart-common-info-row">
                       <p>Shipping</p>
@@ -124,107 +125,109 @@
 
 
 <script>
-     /* =========================
-   PLUS / MINUS QUANTITY
+  window.shopCurrency = "{{ cart.currency.iso_code }}";
+  window.shopLocale   = "{{ request.locale.iso_code }}";
+</script>
+
+<script>
+let cartLock = false;
+
+/* =========================
+  VARIANT CHANGE
 ========================= */
-document.addEventListener('click', async e => {
-  const minus = e.target.closest('.quant-minus');
-  const plus  = e.target.closest('.quant-plus');
+document.addEventListener('change', async (e) => {
+  const select = e.target.closest('.cart-variant-select');
+  if (!select || cartLock) return;
 
-  if (!minus && !plus) return;
+  cartLock = true;
 
-  const wrap  = e.target.closest('.quantity-wrap');
-  const input = wrap.querySelector('.quantity-field');
-  const line  = wrap.dataset.line;
+  const newVariantId = Number(select.value);
+  const oldLine = Number(select.dataset.line);
+  const oldKey  = select.dataset.key;
 
-  let qty = parseInt(input.value, 10) || 1;
+  /* 1. Беремо поточний cart */
+  const cartBefore = await fetch('/cart.js').then(r => r.json());
+  const oldItem = cartBefore.items.find(i => i.key === oldKey);
+  if (!oldItem) {
+    cartLock = false;
+    return;
+  }
 
-  if (plus) qty++;
-  if (minus && qty > 1) qty--;
+  const qty = oldItem.quantity;
 
-  input.value = qty;
+  /* 2. Видаляємо старий variant */
+  await fetch('/cart/change.js', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ line: oldLine, quantity: 0 })
+  });
 
-  await updateCartLine(line, qty);
+  /* 3. Додаємо новий variant */
+  await fetch('/cart/add.js', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ id: newVariantId, quantity: qty })
+  });
+
+  /* 4. Беремо ОНОВЛЕНИЙ cart */
+  const cartAfter = await fetch('/cart.js').then(r => r.json());
+
+  /* 5. Знаходимо НОВИЙ item (того ж продукту) */
+  const newItem = cartAfter.items.find(i =>
+    i.product_id === oldItem.product_id &&
+    i.variant_id === newVariantId
+  );
+
+  if (!newItem) {
+    cartLock = false;
+    return;
+  }
+
+  /* 6. Оновлюємо ЦІНУ САМЕ ЦЬОГО ТОВАРУ */
+  const row = document.querySelector(
+    `.cart-product-row[data-key="${oldKey}"]`
+  );
+
+  if (row) {
+    row.dataset.key = newItem.key; // важливо!
+    const priceEl = row.querySelector('.cart-product-price');
+    if (priceEl) {
+      priceEl.textContent = formatMoney(newItem.final_price);
+    }
+
+    // оновлюємо data-key у select
+    const sel = row.querySelector('.cart-variant-select');
+    if (sel) sel.dataset.key = newItem.key;
+  }
+
+  /* 7. Оновлюємо TOTALS */
+  updateTotals(cartAfter);
+
+  cartLock = false;
 });
 
 
 /* =========================
-   UPDATE LINE (BACKEND)
+  TOTALS
 ========================= */
-async function updateCartLine(line, quantity) {
-  await fetch('/cart/change.js', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ line, quantity })
-  });
-
-  await refreshCartUI();
-}
-
-
-/* =========================
-   REFRESH CART UI (FRONT)
-========================= */
-async function refreshCartUI() {
-  const res  = await fetch('/cart.js');
-  const cart = await res.json();
-
-  /* === TOTALS === */
+function updateTotals(cart) {
   document.querySelectorAll('.total-value')
     .forEach(el => el.textContent = formatMoney(cart.total_price));
 
   document.querySelectorAll('.sub-total-value')
     .forEach(el => el.textContent = formatMoney(cart.items_subtotal_price));
-
-  /* === ITEMS PRICES === */
-  cart.items.forEach((item, index) => {
-    const row = document.querySelectorAll('.cart-product-row')[index];
-    if (!row) return;
-
-    // Ціна за 1 одиницю (variant)
-    row.querySelector('.cart-product-price').textContent =
-      formatMoney(item.final_price);
-
-    // Якщо треба показувати line price (qty × price) — скажи
-  });
 }
 
 
 /* =========================
-   VARIANT CHANGE
+  MONEY FORMAT
 ========================= */
-document.querySelectorAll('.cart-variant-select').forEach(select => {
-  select.addEventListener('change', async e => {
-    const newVariantId = e.target.value;
-    const line = e.target.dataset.line;
-
-    const cartRes = await fetch('/cart.js');
-    const cart = await cartRes.json();
-    const item = cart.items[line - 1];
-
-    if (!item) return;
-
-    // remove old variant
-    await fetch('/cart/change.js', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ line, quantity: 0 })
-    });
-
-    // add new variant with same qty
-    await fetch('/cart/add.js', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        id: newVariantId,
-        quantity: item.quantity
-      })
-    });
-
-    await refreshCartUI();
-  });
-});
-
+function formatMoney(cents) {
+  return (cents / 100).toLocaleString(
+    window.shopLocale || 'en-US',
+    { style: 'currency', currency: window.shopCurrency || 'USD' }
+  );
+}
 </script>
 {% schema %}
 {
