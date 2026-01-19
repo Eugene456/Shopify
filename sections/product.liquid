@@ -2,7 +2,7 @@
   <div class="container">
     <div class="single-product-inner">
       <div class="product-images-container">
-         {% assign first_media = product.media.first %}
+        {% assign first_media = product.media.first %}
          
        <div class="product-media-thumbs">
           {% for media in product.media %}
@@ -105,11 +105,11 @@
             <div class="single-prod-main-description">{{ product.description }}</div>
           </div>
 
-          
-      </div>
+      </div> 
     </div>
   </div>
-  {% if product.metafields.custom.reviews %}
+</div>
+{% if product.metafields.custom.reviews %}
     <section class="single-prod-reviews">
       <div class="container">
         <h2 class="reviews-title">Reviews</h2>
@@ -137,7 +137,7 @@
       </div>
     </section>
   {% endif %}
-  {% if product.metafields.custom.related_products %}
+{% if product.metafields.custom.related_products %}
   <section class="related-products">
     <div class="container">
         <h2 class="related-products-title">Best served with</h2>
@@ -178,7 +178,6 @@
         </div>
     </div>
   </section>
-</div>
 {% endif %}
 
 
