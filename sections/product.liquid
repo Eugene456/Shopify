@@ -109,7 +109,20 @@
 {% if product.metafields.custom.reviews %}
     <section class="single-prod-reviews">
       <div class="container">
-        <h2 class="reviews-title">Reviews</h2>
+        <div class="single-prod-reviews-header">
+          <h2 class="reviews-title">Reviews</h2>
+          <div class="single-prod-reviews-add">
+            <p class="single-prod-reviews-add-label">Add yours and earn rewards !</p>
+            <div class="single-prod-reviews-add-btn">
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.70605 0V14.2134" stroke="#FEFFF4"/>
+                <path d="M0 7.10938L15.4126 7.10938" stroke="#FEFFF4"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+        
+      </div>
         <div class="reviews-inner">
           {% for review in product.metafields.custom.reviews.value %}
             <div class="reviews-card">
@@ -118,10 +131,16 @@
                   <p class="reviews-name">{{ review.name }}</p>
                   <p class="reviews-city">{{ review.city }}</p>
                 </div>
-                {% assign rating = review.rate.value | plus: 0 %}
+                {% assign rating = review.rate.value | split: '.' | first | plus: 0 %}
+
                 <div class="reviews-rate">
                   {% for i in (1..5) %}
-                    <span class="star{% if i <= rating %} active{% endif %}">*</span>
+                    <div class="star{% if i <= rating %} active{% endif %}">
+                      <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.45784 0H3.36016V3.17162C3.36016 3.60941 3.12688 4.01525 2.7466 4.23415L0 5.82076L0.274818 6.2953L0.549638 6.76985L3.29624 5.18483C3.67652 4.96594 4.14307 4.96594 4.52335 5.18483L7.26995 6.76985L7.54477 6.2953L7.81959 5.82076L5.07299 4.23415C4.69272 4.01525 4.45944 3.60941 4.45944 3.17162V0H4.45784Z" fill="#3B2011"/>
+                        <path d="M3.37102 8.36719H4.4687V5.19557C4.4687 4.75777 4.70198 4.35194 5.08225 4.13304L7.82886 2.54643L7.55404 2.07189L7.27922 1.59734L4.53261 3.18235C4.15234 3.40125 3.68578 3.40125 3.30551 3.18235L0.558904 1.59734L0.284086 2.07189L0.00926495 2.54643L2.75587 4.13304C3.13614 4.35194 3.36942 4.75777 3.36942 5.19557V8.36719H3.37102Z" fill="#3B2011"/>
+                      </svg>
+                    </div>
                   {% endfor %}
                 </div>
               </div>
@@ -131,7 +150,7 @@
             </div>
           {% endfor %}
         </div>
-      </div>
+      
     </section>
   {% endif %}
 {% if product.metafields.custom.related_products %}
@@ -156,11 +175,14 @@
                   </div>
                   {% if variant.available %}
                     <button
-                      class="best-served-add"
+                      class="product-card-add"
                       type="button"
                       aria-label="Add {{ related.title }} to cart"
                     >
-                      +
+                      <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.70605 0V14.2134" stroke="#3B2011"/>
+                        <path d="M0 7.10938L15.4126 7.10938" stroke="#3B2011"/>
+                      </svg>
                     </button>
                   {% else %}
                     <span class="best-served-soldout">Sold out</span>
