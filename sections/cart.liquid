@@ -130,8 +130,73 @@
 </script>
 
 <script>
-let cartLock = false;
 
+
+
+let cartLock = false;
+let qtyLock = false;
+
+/* =========================
+  PLUS / MINUS QTY
+========================= */
+document.addEventListener('click', async (e) => {
+  const minus = e.target.closest('.quant-minus');
+  const plus  = e.target.closest('.quant-plus');
+  if (!minus && !plus) return;
+
+  if (qtyLock) return;
+
+  const wrap = e.target.closest('.quantity-wrap');
+  if (!wrap) return;
+
+  const input = wrap.querySelector('.quantity-field');
+  const line  = Number(wrap.dataset.line);
+  const key   = wrap.dataset.key;
+
+  let qty = parseInt(input.value, 10) || 1;
+
+  if (plus) qty++;
+  if (minus) qty = Math.max(1, qty - 1);
+
+  input.value = qty;
+
+  qtyLock = true;
+
+  /* 1. Міняємо кількість НА БЕКЕНДІ */
+  await fetch('/cart/change.js', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ line, quantity: qty })
+  });
+
+  /* 2. Беремо ОНОВЛЕНИЙ cart */
+  const cart = await fetch('/cart.js').then(r => r.json());
+
+  /* 3. Знаходимо цей item по key */
+  const item = cart.items.find(i => i.key === key);
+  if (item) {
+    const row = document.querySelector(
+      `.cart-product-row[data-key="${item.key}"]`
+    );
+
+    if (row) {
+      // ЦІНА ТОВАРУ (за 1 одиницю)
+      const priceEl = row.querySelector('.cart-product-price');
+      if (priceEl) {
+        priceEl.textContent = formatMoney(item.final_price);
+      }
+
+      // quantity sync
+      const qtyInput = row.querySelector('.quantity-field');
+      if (qtyInput) qtyInput.value = item.quantity;
+    }
+  }
+
+  /* 4. ОНОВЛЮЄМО TOTALS */
+  updateTotals(cart);
+
+  qtyLock = false;
+});
 /* =========================
   VARIANT CHANGE
 ========================= */
