@@ -4,43 +4,54 @@
 
   https://shopify.dev/docs/storefronts/themes/architecture/templates/cart
 {% endcomment %}
+<div class="cart-page">
+  <div class="container">
 
-<h1>{{ 'cart.title' | t }}</h1>
 
-<form action="{{ routes.cart_url }}" method="post">
- 
-    {% for item in cart.items %}
-      <div class="cart-product-row">
-        <div class="cart-product-img-wrap">
-             {% render 'image', image: item.image, url: item.url %}
-        </div>
-        <div class="cart-product-info">
-          <div class="cart-product-info-row">
-            <p>{{ item.product.title }}</p>
-            <p class="cart-product-price"></p>
-          </div>
-          <div class="cart-product-info-row">
-            <div class="cart-product-info-row-wrap">
-              <div class="quantity-wrap">
-                  <div class="quant-minus">
-                    -
+    <h1 class="cart-page-title">{{ 'cart.title' | t }}</h1>
+
+    <form action="{{ routes.cart_url }}" method="post">
+        <div class="cart-form-inner">
+          <div class="cart-form-prod-list">
+            {% for item in cart.items %}
+              <div class="cart-product-row">
+                <div class="cart-product-img-wrap">
+                    {% render 'image', image: item.image, url: item.url %}
+                </div>
+                <div class="cart-product-info">
+                  <div class="cart-product-info-row">
+                    <p>{{ item.product.title }}</p>
+                    <p class="cart-product-price"></p>
                   </div>
-                  <input class="quantity-field" type="text" name="quantity" min="1" value="{{ item.quantity }}">
-                  <div class="quant-plus">
-                    +
+                  <div class="cart-product-info-row">
+                    <div class="cart-product-info-row-wrap">
+                      <div class="quantity-wrap">
+                          <div class="quant-minus">
+                            -
+                          </div>
+                          <input class="quantity-field" type="text" name="quantity" min="1" value="{{ item.quantity }}">
+                          <div class="quant-plus">
+                            +
+                          </div>
+                        </div>
+                      </div>
+
+                      {{ 'cart.remove' | t | link_to: item.url_to_remove }}
                   </div>
                 </div>
               </div>
+            {% endfor %}
 
-              {{ 'cart.remove' | t | link_to: item.url_to_remove }}
           </div>
-        </div>
-      </div>
-    {% endfor %}
-
-  <input type="submit" name="checkout" value="{{ 'cart.checkout' | t }}">
-</form>
-
+          <div class="cart-common-info">
+              <input type="submit" name="checkout" value="{{ 'cart.checkout' | t }}">
+          </div>
+        </div>  
+        
+      
+    </form>
+  </div>
+</div>
 {% schema %}
 {
   "name": "t:general.cart",
