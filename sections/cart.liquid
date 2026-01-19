@@ -4,6 +4,25 @@
 
   https://shopify.dev/docs/storefronts/themes/architecture/templates/cart
 {% endcomment %}
+
+<style>
+    
+    @font-face {
+    font-family: 'Xanh Mono';
+    src: url('{{ 'XanhMono-Regular.eot' | asset_url }}');
+    src: local('Xanh Mono Regular'), local('XanhMono-Regular'),
+        url('{{ 'XanhMono-Regular.eot?#iefix' | asset_url }}') format('embedded-opentype'),
+        url('{{ 'XanhMono-Regular.woff2' | asset_url }}') format('woff2'),
+        url('{{ 'XanhMono-Regular.woff' | asset_url }}') format('woff'),
+        url('{{ 'XanhMono-Regular.ttf' | asset_url }}') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+    .cart-common-title {
+      font-family: 'Xanh Mono';
+    }
+  </style>
 <div class="cart-page">
   <div class="container">
 
@@ -20,12 +39,12 @@
                 </div>
                 <div class="cart-product-info">
                   <div class="cart-product-info-row">
-                    <p>{{ item.product.title }}</p>
-                    <p class="cart-product-price"></p>
+                    <p class="cart-product-title">{{ item.product.title }}</p>
+                    <p class="cart-product-price">{{ item.final_price | money }}</p>
                   </div>
                   <div class="cart-product-info-row">
                     <div class="cart-product-info-row-wrap">
-                      <div class="quantity-wrap">
+                      <div class="quantity-wrap" data-line="{{ forloop.index }}">
                           <div class="quant-minus">
                             -
                           </div>
@@ -34,17 +53,67 @@
                             +
                           </div>
                         </div>
+                         {% assign current_variant = item.variant %}
+                          {% if item.product.variants.size > 1 %}
+                              <select
+                                class="cart-variant-select"
+                                data-line="{{ forloop.index }}"
+                              >
+                                {% for variant in item.product.variants %}
+                                  {% if variant.available %}
+                                    <option
+                                      value="{{ variant.id }}"
+                                      {% if variant.id == item.variant.id %}
+                                        selected
+                                      {% endif %}
+                                    >
+                                      {{ variant.title }}
+                                    </option>
+                                  {% endif %}
+                                {% endfor %}
+                              </select>
+                            {% endif %}
                       </div>
-
-                      {{ 'cart.remove' | t | link_to: item.url_to_remove }}
+                      <a href="{{ item.url_to_remove }}" class="cart-remove-btn" aria-label="{{ 'cart.remove' | t }}" >
+                        <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M8.53516 8.5326L25.6029 25.6004" stroke="#846F3E"/>
+                          <path d="M8.5332 25.601L25.601 8.5332" stroke="#846F3E"/>
+                        </svg>
+                      </a>
+                      
                   </div>
+                 
                 </div>
               </div>
             {% endfor %}
 
           </div>
           <div class="cart-common-info">
-              <input type="submit" name="checkout" value="{{ 'cart.checkout' | t }}">
+              <h2 class="cart-common-title">Order Summery</h2>
+              <div class="cart-common-info-main">
+                  <div class="cart-common-info-row">
+                      <p>Sub Total</p>
+                      <p class="sub-total-value">{{ cart.total_price | money }}</p>
+                  </div>
+                  <div class="cart-common-info-row">
+                      <p>Shipping</p>
+                      <p class="shipping-value">₴00</p>
+                  </div>
+                  <div class="cart-rewards-row">
+                      <p>Rewards</p>
+                      <p class="rewards-value"></p>
+                  </div>
+                  <div class="cart-total-row">
+                      <p class="total-label">Total:</p>
+                      <p class="total-value">{{ cart.total_price | money }}</p>
+                  </div>
+              </div>
+              <div class="cart-common-info-btn-wrap">
+                <input class="btn btn-dark cart-checkout " type="submit" name="checkout" value="{{ 'cart.checkout' | t }}">
+                  <a href="/collections/all" class="btn btn-dark cart-common-btn-shop">Shop</a>
+                  
+              </div>
+              
           </div>
         </div>  
         
@@ -52,6 +121,111 @@
     </form>
   </div>
 </div>
+
+
+<script>
+     /* =========================
+   PLUS / MINUS QUANTITY
+========================= */
+document.addEventListener('click', async e => {
+  const minus = e.target.closest('.quant-minus');
+  const plus  = e.target.closest('.quant-plus');
+
+  if (!minus && !plus) return;
+
+  const wrap  = e.target.closest('.quantity-wrap');
+  const input = wrap.querySelector('.quantity-field');
+  const line  = wrap.dataset.line;
+
+  let qty = parseInt(input.value, 10) || 1;
+
+  if (plus) qty++;
+  if (minus && qty > 1) qty--;
+
+  input.value = qty;
+
+  await updateCartLine(line, qty);
+});
+
+
+/* =========================
+   UPDATE LINE (BACKEND)
+========================= */
+async function updateCartLine(line, quantity) {
+  await fetch('/cart/change.js', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ line, quantity })
+  });
+
+  await refreshCartUI();
+}
+
+
+/* =========================
+   REFRESH CART UI (FRONT)
+========================= */
+async function refreshCartUI() {
+  const res  = await fetch('/cart.js');
+  const cart = await res.json();
+
+  /* === TOTALS === */
+  document.querySelectorAll('.total-value')
+    .forEach(el => el.textContent = formatMoney(cart.total_price));
+
+  document.querySelectorAll('.sub-total-value')
+    .forEach(el => el.textContent = formatMoney(cart.items_subtotal_price));
+
+  /* === ITEMS PRICES === */
+  cart.items.forEach((item, index) => {
+    const row = document.querySelectorAll('.cart-product-row')[index];
+    if (!row) return;
+
+    // Ціна за 1 одиницю (variant)
+    row.querySelector('.cart-product-price').textContent =
+      formatMoney(item.final_price);
+
+    // Якщо треба показувати line price (qty × price) — скажи
+  });
+}
+
+
+/* =========================
+   VARIANT CHANGE
+========================= */
+document.querySelectorAll('.cart-variant-select').forEach(select => {
+  select.addEventListener('change', async e => {
+    const newVariantId = e.target.value;
+    const line = e.target.dataset.line;
+
+    const cartRes = await fetch('/cart.js');
+    const cart = await cartRes.json();
+    const item = cart.items[line - 1];
+
+    if (!item) return;
+
+    // remove old variant
+    await fetch('/cart/change.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ line, quantity: 0 })
+    });
+
+    // add new variant with same qty
+    await fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        id: newVariantId,
+        quantity: item.quantity
+      })
+    });
+
+    await refreshCartUI();
+  });
+});
+
+</script>
 {% schema %}
 {
   "name": "t:general.cart",
