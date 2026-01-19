@@ -34,10 +34,7 @@
         </div>
         <div class="product-media-main">
           {% if product.metafields.custom.single_product_bg %}
-            <img 
-              src="{{ product.metafields.custom.single_product_bg | image_url: width: 800 }}" 
-              alt="{{ product.title }}" class="prod-main-page-bg"
-            >
+            <img src="{{ product.metafields.custom.single_product_bg | image_url: width: 800 }}" alt="{{ product.title }}" class="prod-main-page-bg">
           {% endif %}
           
           {% if first_media.media_type == 'image' %}
@@ -98,7 +95,7 @@
                     </option>
                   {% endfor %}
                 </select>
-                <input type="submit" value="Add to cart">
+                <input type="submit" value="Add to cart" class="single-btn-add-to-cart">
               {% endform %}
             </div>
             
@@ -147,11 +144,7 @@
               <div class="product-main-card" data-variant-id="{{ variant.id }}">
                 <a href="{{ related.url }}" class="best-served-image">
                   {% if related.featured_image %}
-                    <img
-                      src="{{ related.featured_image | image_url: width: 600 }}"
-                      alt="{{ related.title }}"
-                      loading="lazy"
-                    >
+                    <img src="{{ related.featured_image | image_url: width: 600 }}" alt="{{ related.title }}" loading="lazy">
                   {% endif %}
                 </a>
                 <div class="product-card-inner">
