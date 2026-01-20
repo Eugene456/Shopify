@@ -78,6 +78,30 @@
 {% schema %}
 {
   "name": "t:general.collection",
-  "settings": []
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "collection_title",
+      "label": "Title"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_bg_image",
+      "label": "Background image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "gallery_image",
+      "name": "Stamps",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ]
 }
 {% endschema %}
