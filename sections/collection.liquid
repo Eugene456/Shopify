@@ -4,14 +4,21 @@
 
   https://shopify.dev/docs/storefronts/themes/architecture/templates/collection
 {% endcomment %}
-<div class="collection-first-screen">
+<div class="collection-first-screen" {% if section.settings.main_bg_image %} style="background-image:url({{ section.settings.main_bg_image | img_url: "original" }});" {% endif %}>
   <div class="container">
-    <h1 class="collection-first-screen-title"></h1>
-    <h1>{{ collection.title }}</h1>
+    {% if section.settings.collection_title %}
+      <h1 class="collection-first-screen-title">{{ section.settings.collection_title }}</h1>
+    {% endif %}
     <div class="first-screen-img-wrap">
-      <img src="" alt="">
-      <img src="" alt="">
-      <img src="" alt="">
+     {% for block in section.blocks %}
+      {% if block.settings.image %}
+        <img
+          src="{{ block.settings.image | image_url: width: 1200 }}"
+          alt="{{ block.settings.image.alt | escape }}"
+          loading="lazy"
+        >
+      {% endif %}
+    {% endfor %}
     </div>
   </div>
 </div>
@@ -80,7 +87,7 @@
   "name": "t:general.collection",
   "settings": [
     {
-      "type": "textarea",
+      "type": "text",
       "id": "collection_title",
       "label": "Title"
     },
