@@ -4,33 +4,76 @@
 
   https://shopify.dev/docs/storefronts/themes/architecture/templates/collection
 {% endcomment %}
-
-<h1>{{ collection.title }}</h1>
-
-<div class="collection-products">
-  {% paginate collection.products by 20 %}
-    {% for product in collection.products %}
-      <div class="collection-product">
-        {% if product.featured_image %}
-          {% render 'image',
-            class: 'collection-product__image',
-            image: product.featured_image,
-            url: product.url,
-            width: 400,
-            height: 400,
-            crop: 'center'
-          %}
-        {% endif %}
-        <div class="collection-product__content">
-          <p>{{ product.title | escape | link_to: product.url }}</p>
-          <p>{{ product.price | money }}</p>
-        </div>
-      </div>
+<div class="collection-first-screen" {% if section.settings.main_bg_image %} style="background-image:url({{ section.settings.main_bg_image | img_url: "original" }});" {% endif %}>
+  <div class="container">
+    {% if section.settings.collection_title %}
+      <h1 class="collection-first-screen-title">{{ section.settings.collection_title }}</h1>
+    {% endif %}
+    <div class="first-screen-img-wrap">
+     {% for block in section.blocks %}
+      {% if block.settings.image %}
+        <img
+          src="{{ block.settings.image | image_url: width: 1200 }}"
+          alt="{{ block.settings.image.alt | escape }}"
+          loading="lazy"
+        >
+      {% endif %}
     {% endfor %}
-
-    {{ paginate | default_pagination }}
-  {% endpaginate %}
+    </div>
+  </div>
 </div>
+
+
+<div class="collection-main">
+  <div class="container">
+    <div class="collection-products">
+      {% paginate collection.products by 20 %}
+        {% for product in collection.products %}
+          
+
+          <div class="product-main-card" data-variant-id="{{ variant.id }}">
+                <div class="best-served-image">
+                  {% if product.featured_image %}
+                    {% render 'image',
+                      class: 'collection-product__image',
+                      image: product.featured_image,
+                      url: product.url,
+                      width: 400,
+                      height: 400,
+                      crop: 'center'
+                    %}
+                  {% endif %}
+                </div>
+                <div class="product-card-inner">
+                  <div class="best-served-info">
+                    <h3 class="best-served-name">{{ product.title | escape | link_to: product.url }}</h3>
+                    <span class="best-served-price">
+                      {{ product.price | money }}
+                    </span>
+                  </div>
+                  {% if variant.available %}
+                    <button
+                      class="product-card-add"
+                      type="button"
+                      aria-label="Add {{ product.title | escape | link_to: product.url }} to cart"
+                    >
+                      <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.70605 0V14.2134" stroke="#3B2011"/>
+                        <path d="M0 7.10938L15.4126 7.10938" stroke="#3B2011"/>
+                      </svg>
+                    </button>
+                  {% else %}
+                    <span class="best-served-soldout">Sold out</span>
+                  {% endif %}
+                </div>      
+              </div>
+        {% endfor %}
+        {{ paginate | default_pagination }}
+      {% endpaginate %}
+    </div>
+  </div>
+</div>
+
 
 {% stylesheet %}
   .collection-products {
@@ -42,6 +85,30 @@
 {% schema %}
 {
   "name": "t:general.collection",
-  "settings": []
+  "settings": [
+    {
+      "type": "text",
+      "id": "collection_title",
+      "label": "Title"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_bg_image",
+      "label": "Background image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "gallery_image",
+      "name": "Stamps",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ]
 }
 {% endschema %}

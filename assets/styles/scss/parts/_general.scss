@@ -97,6 +97,9 @@ h1, h2, h3, p, ul, ol, li, a, div {
 .container {
     width: 1440px;
     margin: 0 auto;
+    @include break(1440) {
+         max-width: 1140px;
+    }
     @include break(1199) {
          max-width: 960px;
     }

@@ -5,30 +5,295 @@
   https://shopify.dev/docs/storefronts/themes/architecture/templates/cart
 {% endcomment %}
 
-<h1>{{ 'cart.title' | t }}</h1>
+<style>
+    
+    @font-face {
+    font-family: 'Xanh Mono';
+    src: url('{{ 'XanhMono-Regular.eot' | asset_url }}');
+    src: local('Xanh Mono Regular'), local('XanhMono-Regular'),
+        url('{{ 'XanhMono-Regular.eot?#iefix' | asset_url }}') format('embedded-opentype'),
+        url('{{ 'XanhMono-Regular.woff2' | asset_url }}') format('woff2'),
+        url('{{ 'XanhMono-Regular.woff' | asset_url }}') format('woff'),
+        url('{{ 'XanhMono-Regular.ttf' | asset_url }}') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+    .cart-common-title {
+      font-family: 'Xanh Mono';
+    }
+  </style>
+<div class="cart-page">
+  <div class="container">
 
-<form action="{{ routes.cart_url }}" method="post">
-  <table>
-    {% for item in cart.items %}
-      <tr>
-        <td>
-          {% render 'image', image: item.image, url: item.url %}
-        </td>
-        <td>
-          <p>{{ item.product.title }}</p>
-          {{ 'cart.remove' | t | link_to: item.url_to_remove }}
-        </td>
-        <td>
-          <input type="text" name="updates[]" value="{{ item.quantity }}">
-          <input type="submit" value="{{ 'cart.update' | t }}">
-        </td>
-      </tr>
-    {% endfor %}
-  </table>
 
-  <input type="submit" name="checkout" value="{{ 'cart.checkout' | t }}">
-</form>
+    <h1 class="cart-page-title">{{ 'cart.title' | t }}</h1>
 
+    <form action="{{ routes.cart_url }}" method="post">
+        <div class="cart-form-inner">
+          <div class="cart-form-prod-list">
+            {% for item in cart.items %}
+              <div class="cart-product-row" data-key="{{ item.key }}">
+                <div class="cart-product-img-wrap">
+                    {% render 'image', image: item.image, url: item.url %}
+                </div>
+                <div class="cart-product-info">
+                  <div class="cart-product-info-row">
+                    <p class="cart-product-title">{{ item.product.title }}</p>
+                    <p class="cart-product-price">{{ item.final_price | money }}</p>
+                  </div>
+                  <div class="cart-product-info-row">
+                    <div class="cart-product-info-row-wrap">
+                      <div class="quantity-wrap" data-line="{{ forloop.index }}"   data-key="{{ item.key }}">
+                          <div class="quant-minus">
+                            -
+                          </div>
+                          <input class="quantity-field" type="text" name="quantity" min="1" value="{{ item.quantity }}">
+                          <div class="quant-plus">
+                            +
+                          </div>
+                        </div>
+                         {% assign current_variant = item.variant %}
+                          {% if item.product.variants.size > 1 %}
+                              <select
+                                class="cart-variant-select"
+                                data-line="{{ forloop.index }}"
+                                data-key="{{ item.key }}"
+                              >
+                                {% for variant in item.product.variants %}
+                                  {% if variant.available %}
+                                    <option
+                                      value="{{ variant.id }}"
+                                      {% if variant.id == item.variant.id %}
+                                        selected
+                                      {% endif %}
+                                    >
+                                      {{ variant.title }}
+                                    </option>
+                                  {% endif %}
+                                {% endfor %}
+                              </select>
+                            {% endif %}
+                      </div>
+                      <a href="{{ item.url_to_remove }}" class="cart-remove-btn" aria-label="{{ 'cart.remove' | t }}" >
+                        <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M8.53516 8.5326L25.6029 25.6004" stroke="#846F3E"/>
+                          <path d="M8.5332 25.601L25.601 8.5332" stroke="#846F3E"/>
+                        </svg>
+                      </a>
+                      
+                  </div>
+                 
+                </div>
+              </div>
+            {% endfor %}
+
+          </div>
+          <div class="cart-common-info">
+              <h2 class="cart-common-title">Order Summery</h2>
+              <div class="cart-common-info-main">
+                  <div class="cart-common-info-row">
+                      <p>Sub Total</p>
+                      <p class="sub-total-value">{{ cart.items_subtotal_price | money }}</p>
+                  </div>
+                  <div class="cart-common-info-row">
+                      <p>Shipping</p>
+                      <p class="shipping-value">₴00</p>
+                  </div>
+                  <div class="cart-rewards-row">
+                      <p>Rewards</p>
+                      <p class="rewards-value"></p>
+                  </div>
+                  <div class="cart-total-row">
+                      <p class="total-label">Total:</p>
+                      <p class="total-value">{{ cart.total_price | money }}</p>
+                  </div>
+              </div>
+              <div class="cart-common-info-btn-wrap">
+                <input class="btn btn-dark cart-checkout " type="submit" name="checkout" value="{{ 'cart.checkout' | t }}">
+                  <a href="/collections/all" class="btn btn-dark cart-common-btn-shop">Shop</a>
+                  
+              </div>
+              
+          </div>
+        </div>  
+        
+      
+    </form>
+  </div>
+</div>
+
+
+<script>
+  window.shopCurrency = "{{ cart.currency.iso_code }}";
+  window.shopLocale   = "{{ request.locale.iso_code }}";
+</script>
+
+<script>
+
+
+
+let cartLock = false;
+let qtyLock = false;
+
+/* =========================
+  PLUS / MINUS QTY
+========================= */
+document.addEventListener('click', async (e) => {
+  const minus = e.target.closest('.quant-minus');
+  const plus  = e.target.closest('.quant-plus');
+  if (!minus && !plus) return;
+
+  if (qtyLock) return;
+
+  const wrap = e.target.closest('.quantity-wrap');
+  if (!wrap) return;
+
+  const input = wrap.querySelector('.quantity-field');
+  const line  = Number(wrap.dataset.line);
+  const key   = wrap.dataset.key;
+
+  let qty = parseInt(input.value, 10) || 1;
+
+  if (plus) qty++;
+  if (minus) qty = Math.max(1, qty - 1);
+
+  input.value = qty;
+
+  qtyLock = true;
+
+  /* 1. Міняємо кількість НА БЕКЕНДІ */
+  await fetch('/cart/change.js', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ line, quantity: qty })
+  });
+
+  /* 2. Беремо ОНОВЛЕНИЙ cart */
+  const cart = await fetch('/cart.js').then(r => r.json());
+
+  /* 3. Знаходимо цей item по key */
+  const item = cart.items.find(i => i.key === key);
+  if (item) {
+    const row = document.querySelector(
+      `.cart-product-row[data-key="${item.key}"]`
+    );
+
+    if (row) {
+      // ЦІНА ТОВАРУ (за 1 одиницю)
+      const priceEl = row.querySelector('.cart-product-price');
+      if (priceEl) {
+        priceEl.textContent = formatMoney(item.final_price);
+      }
+
+      // quantity sync
+      const qtyInput = row.querySelector('.quantity-field');
+      if (qtyInput) qtyInput.value = item.quantity;
+    }
+  }
+
+  /* 4. ОНОВЛЮЄМО TOTALS */
+  updateTotals(cart);
+
+  qtyLock = false;
+});
+/* =========================
+  VARIANT CHANGE
+========================= */
+document.addEventListener('change', async (e) => {
+  const select = e.target.closest('.cart-variant-select');
+  if (!select || cartLock) return;
+
+  cartLock = true;
+
+  const newVariantId = Number(select.value);
+  const oldLine = Number(select.dataset.line);
+  const oldKey  = select.dataset.key;
+
+  /* 1. Беремо поточний cart */
+  const cartBefore = await fetch('/cart.js').then(r => r.json());
+  const oldItem = cartBefore.items.find(i => i.key === oldKey);
+  if (!oldItem) {
+    cartLock = false;
+    return;
+  }
+
+  const qty = oldItem.quantity;
+
+  /* 2. Видаляємо старий variant */
+  await fetch('/cart/change.js', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ line: oldLine, quantity: 0 })
+  });
+
+  /* 3. Додаємо новий variant */
+  await fetch('/cart/add.js', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ id: newVariantId, quantity: qty })
+  });
+
+  /* 4. Беремо ОНОВЛЕНИЙ cart */
+  const cartAfter = await fetch('/cart.js').then(r => r.json());
+
+  /* 5. Знаходимо НОВИЙ item (того ж продукту) */
+  const newItem = cartAfter.items.find(i =>
+    i.product_id === oldItem.product_id &&
+    i.variant_id === newVariantId
+  );
+
+  if (!newItem) {
+    cartLock = false;
+    return;
+  }
+
+  /* 6. Оновлюємо ЦІНУ САМЕ ЦЬОГО ТОВАРУ */
+  const row = document.querySelector(
+    `.cart-product-row[data-key="${oldKey}"]`
+  );
+
+  if (row) {
+    row.dataset.key = newItem.key; // важливо!
+    const priceEl = row.querySelector('.cart-product-price');
+    if (priceEl) {
+      priceEl.textContent = formatMoney(newItem.final_price);
+    }
+
+    // оновлюємо data-key у select
+    const sel = row.querySelector('.cart-variant-select');
+    if (sel) sel.dataset.key = newItem.key;
+  }
+
+  /* 7. Оновлюємо TOTALS */
+  updateTotals(cartAfter);
+
+  cartLock = false;
+});
+
+
+/* =========================
+  TOTALS
+========================= */
+function updateTotals(cart) {
+  document.querySelectorAll('.total-value')
+    .forEach(el => el.textContent = formatMoney(cart.total_price));
+
+  document.querySelectorAll('.sub-total-value')
+    .forEach(el => el.textContent = formatMoney(cart.items_subtotal_price));
+}
+
+
+/* =========================
+  MONEY FORMAT
+========================= */
+function formatMoney(cents) {
+  return (cents / 100).toLocaleString(
+    window.shopLocale || 'en-US',
+    { style: 'currency', currency: window.shopCurrency || 'USD' }
+  );
+}
+</script>
 {% schema %}
 {
   "name": "t:general.cart",

@@ -3,6 +3,8 @@
 
 .single-product {
     padding-top: 52px;
+    max-width: 1360px;
+    margin: 0 auto;
 }
 .single-product .image {
     width: auto;
@@ -87,7 +89,7 @@
 .product-breadcrumbs {
     display: flex;
     gap: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 9px;
 }
 .product-breadcrumbs a,
 .product-breadcrumbs span {
@@ -105,14 +107,26 @@
     line-height: 36px;
     font-weight: 400;
     text-transform: uppercase;
-    margin-bottom: 10px;
+    margin-bottom: 13px;
 }
 
 .product-content p,
 .product-short-desc {
     font-family: 'Lato';
-    font-size: 16px;
+    
     color: $teamTitle;
+}
+
+.product-content p {
+    font-size: 17px;
+    max-width: 580px;
+    letter-spacing: 0.6px;
+    line-height: 22px;
+}
+.product-content .product-short-desc {
+    font-size: 16px;
+    max-width: 600px;
+    letter-spacing: 0px;
 }
 .product-content h2 {
     font-family: 'Lato';
@@ -166,6 +180,7 @@
     background-color: $bgColor;
     text-align: center;
 }
+.cart-variant-select,
 .product-form select {
     border-radius: 50px;
     border: 1px solid $btnDarkColor;
@@ -195,22 +210,27 @@
 }
 .single-prod-reviews {
     margin-top: 23px;
-    margin-bottom: 70px;
+    margin-bottom: 44px;
 }
 .single-prod-reviews-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1360px;
+    margin: 0 auto;
 }
 .single-prod-reviews-add {
     display: flex;
     align-items: center;
     gap: 22px;
+    position: relative;
+    top: 8px;
 }
 .single-prod-reviews-add-label {
     font-family: 'Lato', sans-serif;
     font-style: italic;
-    font-size: 18px;
+    font-size: 17px;
+    letter-spacing: -0.1px;
     color: $textColor;
 }
 .single-prod-reviews-add-btn {
@@ -230,12 +250,11 @@
 .reviews-title {
     font-size: 36px;
     line-height: 36px;
-    margin-bottom: 15px;
     color: $btnDarkColor;
     font-weight: 400;
 }
 .reviews-inner {
-    padding-left: calc((100% - 1440px) / 2);
+    padding-left: calc((100% - 1370px) / 2);
     display: flex;
     gap: 15px;
     margin-top: 15px;
@@ -274,7 +293,7 @@
 .reviews-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 16px;
 }
 .reviews-name {
@@ -297,6 +316,7 @@
 .reviews-rate {
     display: flex;
     gap: 5px;
+    margin-top: 5px;
 }
 .reviews-rate .star {
     opacity: 0.43;
@@ -306,12 +326,15 @@
 }
 
 .related-products {
-    margin: 70px 0;
+    margin: 44px 0 70px;
+}
+.related-products .container {
+    width: 1375px;
 }
 .related-products-title {
     font-size: 36px;
     color: $btnDarkColor;
-    margin-bottom: 37px;
+    margin-bottom: 27px;
     font-weight: 400;
 }
 .related-products-inner {
