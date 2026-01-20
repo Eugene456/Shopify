@@ -26,10 +26,47 @@
 
 <div class="collection-main">
   <div class="container">
+    <ul class="collections-list">
+
+        {%- assign is_shop_all = false -%}
+
+        {%- if template.name == 'collection' -%}
+          {%- assign is_shop_all = false -%}
+        {%- else -%}
+          {%- assign is_shop_all = true -%}
+        {%- endif -%}
+
+        <li class="collections-item">
+          {% if is_shop_all %}
+            <p class="collections-link active">Shop All</p>
+          {% else %}
+            <a href="{{ routes.all_products_collection_url }}" class="collections-link">
+              Shop All
+            </a>
+          {% endif %}
+        </li>
+
+        {% for collection in collections %}
+          {% unless collection.handle == 'all' %}
+            <li class="collections-item">
+              {% if collection.handle == collection.handle and collection.url == request.path %}
+                <p class="collections-link active">
+                  {{ collection.title }}
+                </p>
+              {% else %}
+                <a href="{{ collection.url }}" class="collections-link">
+                  {{ collection.title }}
+                </a>
+              {% endif %}
+            </li>
+          {% endunless %}
+        {% endfor %}
+
+      </ul>
     <div class="collection-products">
       {% paginate collection.products by 20 %}
         {% for product in collection.products %}
-          
+           {% assign variant = product.selected_or_first_available_variant %}
 
           <div class="product-main-card" data-variant-id="{{ variant.id }}">
                 <div class="best-served-image">
@@ -46,17 +83,13 @@
                 </div>
                 <div class="product-card-inner">
                   <div class="best-served-info">
-                    <h3 class="best-served-name">{{ product.title | escape | link_to: product.url }}</h3>
+                    <p class="best-served-name">{{ product.title | escape | link_to: product.url }}</p>
                     <span class="best-served-price">
                       {{ product.price | money }}
                     </span>
                   </div>
                   {% if variant.available %}
-                    <button
-                      class="product-card-add"
-                      type="button"
-                      aria-label="Add {{ product.title | escape | link_to: product.url }} to cart"
-                    >
+                    <button  class="product-card-add" type="button" aria-label="Add {{ product.title }} to cart"  >
                       <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M7.70605 0V14.2134" stroke="#3B2011"/>
                         <path d="M0 7.10938L15.4126 7.10938" stroke="#3B2011"/>
