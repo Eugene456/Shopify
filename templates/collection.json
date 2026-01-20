@@ -11,7 +11,35 @@
   "sections": {
     "main": {
       "type": "collection",
-      "settings": {}
+      "blocks": {
+        "gallery_image_gmxx7V": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/stamp1.png"
+          }
+        },
+        "gallery_image_BEqqcr": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/stamp2.png"
+          }
+        },
+        "gallery_image_JA3DXz": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/stamp3.png"
+          }
+        }
+      },
+      "block_order": [
+        "gallery_image_gmxx7V",
+        "gallery_image_BEqqcr",
+        "gallery_image_JA3DXz"
+      ],
+      "settings": {
+        "collection_title": "Meals, all the way from home freeze-dried to lock in the authentic taste of India!",
+        "main_bg_image": "shopify://shop_images/prod-collection-bg.jpg"
+      }
     }
   },
   "order": [
