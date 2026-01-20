@@ -26,13 +26,12 @@
 
 <div class="collection-main">
   <div class="container">
-    <ul class="collections-list">
+    <div class="collection-bar">
+        <ul class="collections-list">
 
         {%- assign is_shop_all = false -%}
 
-        {%- if template.name == 'collection' -%}
-          {%- assign is_shop_all = false -%}
-        {%- else -%}
+        {%- if collection and collection.handle == 'all' -%}
           {%- assign is_shop_all = true -%}
         {%- endif -%}
 
@@ -63,6 +62,12 @@
         {% endfor %}
 
       </ul>
+      <div class="collection-bar-btn-wrap">
+        <a href="#" class="btn btn-dark">Jain</a>
+        <a href="#" class="btn btn-dark-fill">Sort by</a>
+      </div>
+    </div>
+    
     <div class="collection-products">
       {% paginate collection.products by 20 %}
         {% for product in collection.products %}

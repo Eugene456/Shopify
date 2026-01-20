@@ -31,6 +31,32 @@
     column-gap: 70px;
     row-gap: 40px;
 }
-.best-served-name p {
-    
+.collection-bar {
+    margin-bottom: 36px;
+}
+.collections-list {
+    display: flex;
+    gap: 31px;
+    list-style-type: none;
+}
+.collections-list p,
+.collections-list a {
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    color: $textColor;
+    padding-bottom: 3px;
+    border-bottom: 1px solid rgba(59,32,17, 0);
+}
+.collections-list p {
+    border-bottom: 1px solid rgba(59,32,17, 0.4);
+}
+.collection-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.collection-bar-btn-wrap {
+    display: flex;
+    gap: 20px;
 }
